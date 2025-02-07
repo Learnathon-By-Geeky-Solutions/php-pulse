@@ -1,15 +1,19 @@
-
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
+        <!-- Sidebar Brand -->
         <div class="sidebar-brand">
             <a href="index.html">Stisla</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
         </div>
+
+        <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
+            <!-- Dashboard Section -->
             <li class="menu-header">Dashboard</li>
             <li class="dropdown active">
+<<<<<<< Updated upstream
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
                     <li class=active><a class="nav-link" href="index-0.html">General Dashboard</a></li>
@@ -29,7 +33,44 @@
 
 
 
-        </ul>
+=======
+                <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                    <i class="fas fa-fire"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>   
 
+            <!-- Manage Categories Section -->
+            <li class="menu-header">Starter</li>
+            <li class="dropdown{{ setActive([
+                'admin.category.*',
+                'admin.sub-category*',
+                'admin.child-category*',
+            ]) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-columns"></i>
+                    <span>Manage Categories</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActive(['admin.category.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.category.index') }}">Category</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Manage Website Section -->
+            <li class="dropdown{{ setActive(['admin.slider.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-columns"></i>
+                    <span>Manage Website</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setActive(['admin.slider.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a>
+                    </li>
+                </ul>
+            </li>
+>>>>>>> Stashed changes
+        </ul>
     </aside>
 </div>
