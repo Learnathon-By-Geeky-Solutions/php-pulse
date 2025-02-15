@@ -1,8 +1,9 @@
-<?php $__env->startSection('content'); ?>
+@extends('admin.layouts.master')
+@section('content')
    <!-- Main Content -->
     <section class="section">
       <div class="section-header">
-        <h1>Category</h1>
+        <h1>Brand</h1>
       </div>
 
       <div class="section-body">
@@ -10,25 +11,23 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h4>All Categories</h4>
+                <h4>All Brand</h4>
                 <div class="card-header-action">
-                    <a href="<?php echo e(route('admin.category.create')); ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Create New</a>
+                    <a href="{{ route('admin.brand.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Create New</a>
                 </div>
               </div>
               <div class="card-body">
-               <?php echo e($dataTable->table()); ?>
-
+               {{ $dataTable->table() }}
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startPush('scripts'); ?>
-  <?php echo e($dataTable->scripts(attributes: ['type' => 'module'])); ?>
-
+@push('scripts')
+  {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 
   <script>
     $(document).ready(function(){
@@ -37,10 +36,9 @@
         let id = $(this).data('id');
 
         $.ajax({
-          url: "<?php echo e(route('admin.category.change-status')); ?>",
+          url: "{{route('admin.category.change-status')}}",
           method: 'PUT',
           data: {
-            _token: "<?php echo e(csrf_token()); ?>",
             status: isChecked,
             id: id
           },
@@ -50,11 +48,9 @@
           error: function(xhr, status, error){
             console.log(error);
           }
-        });
+        })
       })
     })
   </script>
 
-<?php $__env->stopPush(); ?>
-
-<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\project\ecommerce\resources\views/admin/category/index.blade.php ENDPATH**/ ?>
+@endpush

@@ -39,6 +39,7 @@
           url: "{{route('admin.category.change-status')}}",
           method: 'PUT',
           data: {
+            _token: "{{ csrf_token() }}",
             status: isChecked,
             id: id
           },
@@ -48,7 +49,7 @@
           error: function(xhr, status, error){
             console.log(error);
           }
-        })
+        });
       })
     })
   </script>

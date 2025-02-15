@@ -10,7 +10,9 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "yoeunes/toastr": "^2.3"
+        "php-flasher/flasher-toastr-laravel": "^1.15",
+        "yajra/laravel-datatables": "*",
+        "yoeunes/toast": "2.3.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -23,6 +25,9 @@
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
+        "files": [
+            "App/Helper/helpers.php"
+        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",

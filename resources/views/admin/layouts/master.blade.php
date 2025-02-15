@@ -124,7 +124,7 @@
                         success: function (data) {
                             if (data.status === 'success') {
                                 Swal.fire({
-                                    title: "Deleted!",
+                                    title: "Deleted Succesfully!",
                                     text: "Your file has been deleted.",
                                     icon: "success"
                                 }).then(() => {
