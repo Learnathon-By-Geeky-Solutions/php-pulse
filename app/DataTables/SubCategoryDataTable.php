@@ -9,6 +9,8 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class SubCategoryDataTable extends DataTable
@@ -21,19 +23,30 @@ class SubCategoryDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query) {
-                $editBtn = "<a href='" . route('admin.sub-category.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='" . route('admin.sub-category.destroy', $query->id) . "' class='btn btn-danger delete-item'><i class='fas fa-trash'></i></a>";
+        ->addColumn('action', function($query){
+            $editBtn = "<a href='".route('admin.sub-category.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+            $deleteBtn = "<a href='".route('admin.sub-category.destroy', $query->id)."' class='btn btn-danger delete-item'><i class='fas fa-trash'></i></a>";
+            
+
+            return "<div style='display: flex; gap: 5px;'>" . $editBtn . $deleteBtn . "</div>";
+        }) 
+            ->addColumn('category', function($query){
+                return optional($query->category)->name ?? 'N/A';
+            })
+            ->addColumn('status', function($query){
+                if($query->status == 1){
+                    $button = '<label class="custom-switch mt-2">
+                          <input type="checkbox" checked name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status">
+                          <span class="custom-switch-indicator"></span>
+                        </label>';
+                }else{
+                    $button = '<label class="custom-switch mt-2">
+                          <input type="checkbox" name="custom-switch-checkbox" data-id="'.$query->id.'" class="custom-switch-input change-status">
+                          <span class="custom-switch-indicator"></span>
+                        </label>';
+                }
                 
-                return "<div style='display: flex; gap: 5px;'>" . $editBtn . $deleteBtn . "</div>";
-            })
-            ->addColumn('category', function($query) {
-                return $query->category->name;
-            })
-            ->addColumn('status', function($query) {
-                return $query->status == 1
-                    ? '<label class="custom-switch mt-2"><input type="checkbox" checked name="custom-switch-checkbox" data-id="' . $query->id . '" class="custom-switch-input change-status"><span class="custom-switch-indicator"></span></label>'
-                    : '<label class="custom-switch mt-2"><input type="checkbox" name="custom-switch-checkbox" data-id="' . $query->id . '" class="custom-switch-input change-status"><span class="custom-switch-indicator"></span></label>';
+                return $button;
             })
             ->rawColumns(['status', 'action'])
             ->setRowId('id');
@@ -56,6 +69,7 @@ class SubCategoryDataTable extends DataTable
                     ->setTableId('subcategory-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
+                    //->dom('Bfrtip')
                     ->orderBy(0)
                     ->selectStyleSingle()
                     ->buttons([
@@ -74,6 +88,7 @@ class SubCategoryDataTable extends DataTable
     public function getColumns(): array
     {
         return [
+            
             Column::make('id'),
             Column::make('name'),
             Column::make('slug'),
