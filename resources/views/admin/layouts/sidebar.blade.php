@@ -26,40 +26,58 @@
                 'admin.sub-category.*', 
                 'admin.child-category.*'
             ]) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i>
-                    <span>Manage Categories</span>
-                </a>
+               
+                <li
+                class="dropdown {{ setActive(['admin.category.*', 'admin.sub-category.*', 'admin.child-category.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-list"></i>
+                    <span>Manage Categories</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ setActive(['admin.category.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.category.index') }}">Category</a>
-                    </li>
-                    <li class="{{ setActive(['admin.sub-category.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.sub-category.index') }}">Sub Category</a>
-                    </li>
+                    <li class="{{ setActive(['admin.category.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.category.index') }}">Category</a></li>
+                    <li class="{{ setActive(['admin.sub-category.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.sub-category.index') }}">Sub Category</a></li>
+                    <li class="{{ setActive(['admin.child-category.*']) }}"> <a class="nav-link"
+                            href="{{ route('admin.child-category.index') }}">Child Category</a></li>
+
                 </ul>
             </li>
 
             <!-- Manage Products Section -->
-            <li class="dropdown {{ setActive(['admin.brand.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-boxes"></i>
-                    <span>Manage Products</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="{{ setActive(['admin.brand.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.brand.index') }}">Brands</a></li>
-                    <li
-                        class="{{ setActive([
-                            'admin.products.*'
-                           
-                        ]) }}">
-                        <a class="nav-link" href="{{ route('admin.products.index') }}">Products</a>
-                    </li>
-                    
+            <li
+            class="dropdown {{ setActive([
+                'admin.brand.*',
+                'admin.products.*',
+                'admin.products-image-gallery.*',
+                'admin.products-variant.*',
+                'admin.products-variant-item.*',
+                'admin.seller-products.*',
+                'admin.seller-pending-products.*',
+            ]) }}">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-box"></i>
+                <span>Manage Products</span></a>
+            <ul class="dropdown-menu">
+                <li class="{{ setActive(['admin.brand.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.brand.index') }}">Brands</a></li>
+                <li
+                    class="{{ setActive([
+                        'admin.products.*',
+                        'admin.products-image-gallery.*',
+                        'admin.products-variant.*',
+                        'admin.products-variant-item.*',
+                        'admin.reviews.*',
+                    ]) }}">
+                    <a class="nav-link" href="{{ route('admin.products.index') }}">Products</a>
+                </li>
+                <li class="{{ setActive(['admin.seller-products.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.seller-products.index') }}">Seller Products</a></li>
+                <li class="{{ setActive(['admin.seller-pending-products.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.seller-pending-products.index') }}">Seller Pending Products</a></li>
 
-                </ul>
-            </li>
+                {{-- <li class="{{ setActive(['admin.reviews.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.reviews.index') }}">Product Reviews</a></li> --}}
+
+            </ul>
+        </li>
 
             <!-- Vendor Profile Section -->
             <li class="dropdown {{ setActive(['admin.vendor-profile.*']) }}">

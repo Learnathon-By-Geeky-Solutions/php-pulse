@@ -3,14 +3,11 @@
 namespace App\DataTables;
 
 use App\Models\ProductImageGallery;
-use App\Models\VendorProductImageGallery;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class VendorProductImageGalleryDataTable extends DataTable
@@ -23,16 +20,16 @@ class VendorProductImageGalleryDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-        ->addColumn('action', function($query){
-            $deleteBtn = "<a href='".route('vendor.products-image-gallery.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
-
-            return $deleteBtn;
-        })
-        ->addColumn('image', function($query){
-            return "<img width='100px' src='".asset($query->image)."' ></img>";
-        })
-        ->rawColumns(['image', 'action'])
-        ->setRowId('id');
+            ->addColumn('action', function ($query) {
+                return "<a href='" . route('vendor.products-image-gallery.destroy', $query->id) . "' class='btn btn-danger ml-2 delete-item'>
+                    <i class='fas fa-trash'></i>
+                </a>";
+            })
+            ->addColumn('image', function ($query) {
+                return "<img width='100px' src='" . asset($query->image) . "' ></img>";
+            })
+            ->rawColumns(['image', 'action'])
+            ->setRowId('id');
     }
 
     /**
@@ -49,20 +46,19 @@ class VendorProductImageGalleryDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('vendorproductimagegallery-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('vendorproductimagegallery-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload'),
+            ]);
     }
 
     /**
@@ -74,10 +70,10 @@ class VendorProductImageGalleryDataTable extends DataTable
             Column::make('id')->width(100),
             Column::make('image'),
             Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(400)
-            ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(400)
+                ->addClass('text-center'),
         ];
     }
 
