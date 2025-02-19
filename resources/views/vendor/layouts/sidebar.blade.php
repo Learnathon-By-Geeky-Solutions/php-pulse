@@ -4,7 +4,7 @@
       <i class="far fa-times dash_close"></i>
     </span>
     <a href="{{ route('vendor.dashboard') }}" class="dash_logo">
-      <img src="{{ asset('frontend/images/logo.png') }}" alt="Dashboard Logo" class="img-fluid">
+      <img src="{{ asset('frontend/images/logo-white.png') }}" alt="Dashboard Logo" class="img-fluid">
   </a>
       <ul class="dashboard_link">
       <li>

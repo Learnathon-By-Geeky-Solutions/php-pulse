@@ -1,9 +1,9 @@
 @extends('vendor.layouts.master')
 
-{{--@section('title')
+@section('title')
 {{$settings->site_name}} || Shop Profile
 @endsection
---}}
+
 @section('content')
   <!--=============================
     DASHBOARD START
