@@ -1,4 +1,4 @@
-{{-- <script>
+<script>
     $(document).ready(function() {
         $.ajaxSetup({
             headers: {
@@ -10,11 +10,12 @@
         $(document).on('submit', '.shopping-cart-form', function(e) {
             e.preventDefault();
             let formData = $(this).serialize();
+           
 
             $.ajax({
                 method: 'POST',
                 data: formData,
-                // url: "{{ route('add-to-cart') }}",
+                url: "{{ route('add-to-cart') }}",
                 success: function(data) {
                     if(data.status === 'success'){
                         getCartCount()
@@ -123,87 +124,5 @@
                 }
             })
         }
-
-        // add product to wishlist
-        $('.add_to_wishlist').on('click', function(e){
-            e.preventDefault();
-            let id = $(this).data('id');
-
-            $.ajax({
-                method: 'GET',
-                url: "{{route('wishlist.store')}}",
-                data: {id:id},
-                success:function(data){
-                    if(data.status === 'success'){
-                        $('#wishlist_count').text(data.count)
-                        toastr.success(data.message);
-                    }else if(data.status === 'error'){
-                        toastr.error(data.message);
-                    }
-                },
-                error: function(data){
-                    console.log(data);
-                }
-            })
-        })
-
-        // newsletter
-        $('#newsletter').on('submit', function(e){
-            e.preventDefault();
-            let data = $(this).serialize();
-
-            $.ajax({
-                method: 'POST',
-                url: "{{route('newsletter-request')}}",
-                data: data,
-                beforeSend: function(){
-                    $('.subscribe_btn').text('Loading...');
-                },
-                success: function(data){
-                    if(data.status === 'success'){
-                        $('.subscribe_btn').text('Subscribe');
-                        $('.newsletter_email').val('');
-                        toastr.success(data.message);
-
-                    }else if(data.status === 'error'){
-
-                        $('.subscribe_btn').text('Subscribe');
-                        toastr.error(data.message);
-                    }
-                },
-                error: function(data){
-                    let errors = data.responseJSON.errors;
-                    if(errors){
-                        $.each(errors, function(key, value){
-                            toastr.error(value);
-                        })
-                    }
-                    $('.subscribe_btn').text('Subscribe');
-                }
-            })
-        })
-
-
-        $('.show_product_modal').on('click', function(){
-            let id = $(this).data('id');
-
-            $.ajax({
-                mehtod: 'GET',
-                url: '{{ route("show-product-modal", ":id" ) }}'.replace(":id", id),
-                beforeSend: function(){
-                    $('.product-modal-content').html('<span class="loader"></span>')
-                },
-                success: function(response){
-                    $('.product-modal-content').html(response)
-                },
-                error: function(xhr, status, error){
-
-                },
-                complete: function(){
-
-                }
-            })
-        })
-
     })
-</script> --}}
+</script>

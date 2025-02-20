@@ -276,7 +276,7 @@
                                                         </div>
                                                     </div> --}}
                                                 </div>
-                                                <div class="col-xl-4 col-lg-5 mt-4 mt-lg-0">
+                                                {{-- <div class="col-xl-4 col-lg-5 mt-4 mt-lg-0">
                                                     @auth
                                                     @php
                                                         $isBrought = false;
@@ -339,7 +339,7 @@
                                                     @endif
                                                     @endauth
 
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
