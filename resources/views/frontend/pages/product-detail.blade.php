@@ -75,7 +75,8 @@
                             @if (checkDiscount($product))
                                 <h4>{{$settings->currency_icon}}{{$product->offer_price}} <del>{{$settings->currency_icon}}{{$product->price}}</del></h4>
                             @else
-                             @endif
+                                <h4>{{$settings->currency_icon}}{{$product->price}}</h4>
+                            @endif
                             {{-- <p class="wsus__pro_rating">
                                 @php
                                 $avgRating = $product->reviews()->avg('rating');
@@ -200,9 +201,9 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-xxl-7 col-md-6 mt-4 mt-md-0">
-                                                {{-- <div class="wsus__pro_det_vendor_text">
-                                                    <h4>{{$product->vendor->user->name}}</h4>
-                                                    <p class="rating">
+                                                <div class="wsus__pro_det_vendor_text">
+                                                    {{-- <h4>{{$product->vendor->user->name}}</h4> --}}
+                                                    {{-- <p class="rating">
                                                         @php
                                                         $avgRating = $product->reviews()->avg('rating');
                                                         $fullRating = round($avgRating);
@@ -217,13 +218,13 @@
                                                         @endfor
 
                                                         <span>({{count($product->reviews)}} review)</span>
-                                                    </p>
+                                                    </p> --}}
                                                     <p><span>Store Name:</span> {{$product->vendor->shop_name}}</p>
                                                     <p><span>Address:</span> {{$product->vendor->address}}</p>
                                                     <p><span>Phone:</span> {{$product->vendor->phone}}</p>
                                                     <p><span>mail:</span> {{$product->vendor->email}}</p>
                                                     <a href="vendor_details.html" class="see_btn">visit store</a>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                             <div class="col-xl-12">
                                                 <div class="wsus__vendor_details">
@@ -233,13 +234,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="tab-pane fade" id="pills-contact2" role="tabpanel"
+                                <div class="tab-pane fade" id="pills-contact2" role="tabpanel"
                                     aria-labelledby="pills-contact-tab2">
                                     <div class="wsus__pro_det_review">
                                         <div class="wsus__pro_det_review_single">
                                             <div class="row">
                                                 <div class="col-xl-8 col-lg-7">
-                                                    <div class="wsus__comment_area">
+                                                    {{-- <div class="wsus__comment_area">
                                                         <h4>Reviews <span>{{count($reviews)}}</span></h4>
                                                         @foreach ($reviews as $review)
                                                         <div class="wsus__main_comment">
@@ -273,7 +274,7 @@
                                                                 {{$reviews->links()}}
                                                             @endif
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="col-xl-4 col-lg-5 mt-4 mt-lg-0">
                                                     @auth
@@ -342,7 +343,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
 
                             </div>
                         </div>

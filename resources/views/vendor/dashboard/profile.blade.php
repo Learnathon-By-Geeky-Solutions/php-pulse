@@ -1,6 +1,6 @@
 @extends('vendor.layouts.master')
 @section('title')
-{{$settings->site_name}} ||  Dashboard
+{{$settings->site_name}} || Profile
 @endsection
 @section('content')
   <!--=============================
