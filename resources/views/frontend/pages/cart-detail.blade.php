@@ -128,7 +128,7 @@
                             <input type="text" placeholder="Coupon Code" name="coupon_code" value="{{session()->has('coupon') ? session()->get('coupon')['coupon_code'] : ''}}">
                             <button type="submit" class="common_btn">apply</button>
                         </form>
-                        <a class="common_btn mt-4 w-100 text-center" href="{{route('user.checkout')}}">checkout</a>
+                        <a class="common_btn mt-4 w-100 text-center" href="">checkout</a>
                         <a class="common_btn mt-1 w-100 text-center" href="{{route('home')}}"><i
                                 class="fab fa-shopify"></i> Keep Shopping</a>
                     </div>
@@ -141,20 +141,20 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="wsus__single_banner_content">
-                            @if ($cartpage_banner_section->banner_one->status == 1)
+                            {{-- @if ($cartpage_banner_section->banner_one->status == 1)
                             <a href="{{$cartpage_banner_section->banner_one->banner_url}}">
                                 <img class="img-gluid" src="{{asset($cartpage_banner_section->banner_one->banner_image)}}" alt="">
                             </a>
-                            @endif
+                            @endif --}}
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="wsus__single_banner_content single_banner_2">
-                            @if ($cartpage_banner_section->banner_two->status == 1)
+                            {{-- @if ($cartpage_banner_section->banner_two->status == 1)
                             <a href="{{$cartpage_banner_section->banner_two->banner_url}}">
                                 <img class="img-gluid" src="{{asset($cartpage_banner_section->banner_two->banner_image)}}" alt="">
                             </a>
-                            @endif
+                            @endif --}}
                     </div>
                 </div>
             </div>
