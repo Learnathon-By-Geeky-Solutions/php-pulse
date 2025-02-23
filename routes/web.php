@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserProfileController ;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Frontend\CheckOutController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -68,4 +69,9 @@ Route::group([
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');//user.profile
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');//user.profile.update
     Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');//user.profile.update.password
+     /** Checkout routes */
+     Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
+     Route::post('checkout/address-create', [CheckOutController::class, 'createAddress'])->name('checkout.address.create');
+     Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSubmit'])->name('checkout.form-submit');
+ 
 });
