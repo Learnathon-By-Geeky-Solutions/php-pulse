@@ -33,7 +33,7 @@
                   </div>
                   <div class="col-xl-6 col-md-6">
                     <div class="wsus__add_address_single">
-                      <label>countery <b>*</b></label>
+                      <label>country <b>*</b></label>
                       <div class="wsus__topbar_select">
                         <select class="select_2" name="country">
                           <option>Select</option>
@@ -46,12 +46,12 @@
                   </div>
                   <div class="col-xl-6 col-md-6">
                     <div class="wsus__add_address_single">
-                      <label>distric <b>*</b></label>
+                      <label>district <b>*</b></label>
                       <div class="wsus__topbar_select">
-                        <select class="select_2" name="distric">
+                        <select class="select_2" name="district">
                           <option>Select</option>
-                            @foreach (config('settings.district_list') as $distric)
-                                <option value="{{$distric}}">{{$distric}}</option>
+                            @foreach (config('settings.district_list') as $district)
+                                <option value="{{$district}}">{{$district}}</option>
                             @endforeach
                         </select>
                       </div>
