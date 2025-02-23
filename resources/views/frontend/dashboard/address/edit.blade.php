@@ -34,7 +34,7 @@
                   </div>
                   <div class="col-xl-6 col-md-6">
                     <div class="wsus__add_address_single">
-                      <label>countery <b>*</b></label>
+                      <label>country <b>*</b></label>
                       <div class="wsus__topbar_select">
                         <select class="select_2" name="country">
                           <option>Select</option>
@@ -48,14 +48,21 @@
 
                   <div class="col-xl-6 col-md-6">
                     <div class="wsus__add_address_single">
-                      <label>State <b>*</b></label>
-                      <input type="text" placeholder="Distric" name="distric" value="{{$address->distric}}">
+                      <label>District <b>*</b></label>
+                      <div class="wsus__topbar_select">
+                        <select class="select_2" name="district">
+                          <option value="">Select</option>
+                          @foreach (config('settings.district_list') as $district)
+                              <option value="{{$district}}" {{ old('district', $address->district) == $district ? 'selected' : '' }}>{{$district}}</option>
+                          @endforeach
+                      </select>
+                      </div>
                     </div>
                   </div>
 
                   <div class="col-xl-6 col-md-6">
                     <div class="wsus__add_address_single">
-                      <label>City <b>*</b></label>
+                      <label>Upazila <b>*</b></label>
                       <input type="text" placeholder="Upazila" name="upazila" value="{{$address->upazila}}">
                     </div>
                   </div>

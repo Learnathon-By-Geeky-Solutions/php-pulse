@@ -139,7 +139,7 @@
   </script>
 
     <!-- Dynamic Delete alart -->
-    {{-- <script>
+     <script>
         $(document).ready(function(){
             $.ajaxSetup({
                 headers: {
@@ -193,7 +193,7 @@
             })
 
         })
-    </script> --}}
+    </script> 
   @stack('scripts')
 </body>
 

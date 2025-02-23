@@ -36,7 +36,7 @@ class UserAddressController extends Controller
             'email' => ['required', 'max:200', 'email'],
             'phone' => ['required', 'max:200'],
             'country' => ['required', 'max:200'],
-            'distric' => ['required', 'max:200'],
+            'district' => ['required', 'max:200'],
             'upazila' => ['required', 'max:200'],
             'zip' => ['required', 'max:200'],
             'address' => ['required'],
@@ -48,7 +48,7 @@ class UserAddressController extends Controller
         $address->email = $request->email;
         $address->phone = $request->phone;
         $address->country = $request->country;
-        $address->distric = $request->distric;
+        $address->district = $request->district;
         $address->upazila = $request->upazila;
         $address->zip = $request->zip;
         $address->address = $request->address;
@@ -87,7 +87,7 @@ class UserAddressController extends Controller
             'email' => ['required', 'max:200', 'email'],
             'phone' => ['required', 'max:200'],
             'country' => ['required', 'max:200'],
-            'distric' => ['required', 'max:200'],
+            'district' => ['required', 'max:200'],
             'upazila' => ['required', 'max:200'],
             'zip' => ['required', 'max:200'],
             'address' => ['required'],
@@ -99,8 +99,8 @@ class UserAddressController extends Controller
         $address->email = $request->email;
         $address->phone = $request->phone;
         $address->country = $request->country;
-        $address->distric = $request->state;
-        $address->upazila = $request->city;
+        $address->district = $request->district;
+        $address->upazila = $request->upazila;
         $address->zip = $request->zip;
         $address->address = $request->address;
         $address->save();
