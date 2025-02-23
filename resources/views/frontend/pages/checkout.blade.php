@@ -54,14 +54,15 @@
                                             </label>
                                         </div>
                                         <ul>
-                                            <li><span>Name :</span> {{$address->name}}</li>
+                                            <li><span>name :</span> {{$address->name}}</li>
                                             <li><span>Phone :</span> {{$address->phone}}</li>
-                                            <li><span>Email :</span> {{$address->email}}</li>
-                                            <li><span>Country :</span> {{$address->country}}</li>
-                                            <li><span>City :</span> {{$address->city}}</li>
-                                            <li><span>Zip Code :</span> {{$address->zip}}</li>
-                                            <li><span>Address :</span> {{$address->address}}</li>
-                                        </ul>
+                                            <li><span>email :</span> {{$address->email}}</li>
+                                            <li><span>country :</span> {{$address->country}}</li>
+                                            <li><span>district :</span> {{$address->district}}</li>
+                                            <li><span>upazila :</span> {{$address->upazila}}</li>
+                                            <li><span>zip code :</span> {{$address->zip}}</li>
+                                            <li><span>address :</span> {{$address->address}}</li>
+                                          </ul>
                                     </div>
                                 </div>
                                 @endforeach
@@ -125,7 +126,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">add new address</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add New Address</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-0">
@@ -148,7 +149,7 @@
                                             <input type="email" placeholder="Email *" name="email" value="{{old('email')}}">
                                         </div>
                                     </div>
-
+    
                                     <div class="col-md-6">
                                         <div class="wsus__check_single_form">
                                             <select class="select_2" name="country">
@@ -156,33 +157,41 @@
                                                 @foreach (config('settings.country_list') as $key => $county)
                                                     <option {{$county === old('country') ? 'selected' : ''}} value="{{$county}}">{{$county}}</option>
                                                 @endforeach
-
                                             </select>
                                         </div>
                                     </div>
+    
                                     <div class="col-md-6">
                                         <div class="wsus__check_single_form">
-                                            <input type="text" placeholder="State *" name="state" value="{{old('state')}}">
+                                            <div class="wsus__topbar_select">
+                                                <select class="select_2" name="district">
+                                                    <option>Select</option>
+                                                    @foreach (config('settings.district_list') as $district)
+                                                        <option value="{{$district}}">{{$district}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
+    
                                     <div class="col-md-6">
                                         <div class="wsus__check_single_form">
                                             <input type="text" placeholder="Town / City *" name="city" value="{{old('city')}}">
                                         </div>
                                     </div>
-
+    
                                     <div class="col-md-6">
                                         <div class="wsus__check_single_form">
                                             <input type="text" placeholder="Zip *" name="zip" value="{{old('zip')}}">
                                         </div>
                                     </div>
-
+    
                                     <div class="col-md-12">
                                         <div class="wsus__check_single_form">
                                             <input type="text" placeholder="Address *" name="address" value="{{old('address')}}">
                                         </div>
                                     </div>
-
+    
                                     <div class="col-xl-12">
                                         <div class="wsus__check_single_form">
                                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -190,13 +199,13 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <!--============================
         CHECK OUT PAGE END
     ==============================-->
