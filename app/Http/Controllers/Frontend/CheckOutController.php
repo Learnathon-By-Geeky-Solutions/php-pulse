@@ -22,23 +22,23 @@ class CheckOutController extends Controller
     {
         $request->validate([
             'name' => ['required', 'max:200'],
+            'email' => ['required', 'max:200', 'email'],
             'phone' => ['required', 'max:200'],
-            'email' => ['required', 'email'],
-            'country' => ['required', 'max: 200'],
-            'state' => ['required', 'max: 200'],
-            'city' => ['required', 'max: 200'],
-            'zip' => ['required', 'max: 200'],
-            'address' => ['required', 'max: 200']
+            'country' => ['required', 'max:200'],
+            'district' => ['required', 'max:200'],
+            'upazila' => ['required', 'max:200'],
+            'zip' => ['required', 'max:200'],
+            'address' => ['required'],
         ]);
 
         $address = new UserAddress();
         $address->user_id = Auth::user()->id;
         $address->name = $request->name;
-        $address->phone = $request->phone;
         $address->email = $request->email;
+        $address->phone = $request->phone;
         $address->country = $request->country;
-        $address->state = $request->state;
-        $address->city = $request->city;
+        $address->district = $request->district;
+        $address->upazila = $request->upazila;
         $address->zip = $request->zip;
         $address->address = $request->address;
         $address->save();

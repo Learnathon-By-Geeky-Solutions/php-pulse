@@ -153,7 +153,7 @@
                                     <div class="col-md-6">
                                         <div class="wsus__check_single_form">
                                             <select class="select_2" name="country">
-                                                <option value="">Country / Region *</option>
+                                                <option value="">Country*</option>
                                                 @foreach (config('settings.country_list') as $key => $county)
                                                     <option {{$county === old('country') ? 'selected' : ''}} value="{{$county}}">{{$county}}</option>
                                                 @endforeach
@@ -165,10 +165,10 @@
                                         <div class="wsus__check_single_form">
                                             <div class="wsus__topbar_select">
                                                 <select class="select_2" name="district">
-                                                    <option>Select</option>
+                                                    <option value="">District/Region *</option>
                                                     @foreach (config('settings.district_list') as $district)
-                                                        <option value="{{$district}}">{{$district}}</option>
-                                                    @endforeach
+                                                    <option {{$county === old('district') ? 'selected' : ''}} value="{{$district}}">{{$district}}</option>
+                                                       @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -176,7 +176,8 @@
     
                                     <div class="col-md-6">
                                         <div class="wsus__check_single_form">
-                                            <input type="text" placeholder="Town / City *" name="city" value="{{old('city')}}">
+                                            <input type="text" placeholder="Upazila / City *" name="upazila" value="{{old('upazila')}}">
+                                           
                                         </div>
                                     </div>
     
