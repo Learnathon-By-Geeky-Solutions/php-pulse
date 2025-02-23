@@ -1,4 +1,26 @@
 <?php return array (
+  'anayarojo/shoppingcart' => 
+  array (
+    'aliases' => 
+    array (
+      'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
+    ),
+    'providers' => 
+    array (
+      0 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+    ),
+  ),
+  'barryvdh/laravel-debugbar' => 
+  array (
+    'aliases' => 
+    array (
+      'Debugbar' => 'Barryvdh\\Debugbar\\Facades\\Debugbar',
+    ),
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\Debugbar\\ServiceProvider',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 
