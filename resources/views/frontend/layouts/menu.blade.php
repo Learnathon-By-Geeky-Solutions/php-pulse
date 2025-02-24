@@ -136,13 +136,24 @@
                                 <li><a href="brands.html">brands</a></li>
                             </ul>
                         </li>
-                        <li><a href="track_order.html">track order</a></li>
+                     
                         <li><a href="daily_deals.html">daily deals</a></li>
                     </ul>
                     <ul class="wsus__menu_item wsus__menu_item_right">
-                        <li><a href="contact.html">contact</a></li>
-                        <li><a href="dsahboard.html">my account</a></li>
+                        <li><a href="">track order</a></li>
+                        @if (auth()->check())
+                        @if (auth()->user()->role === 'user')
+                        <li><a href="{{route('user.dashboard')}}">my account</a></li>
+                        @elseif (auth()->user()->role === 'vendor')
+                        <li><a href="{{route('vendor.dashbaord')}}">Vendor Dashboard</a></li>
+                        @elseif (auth()->user()->role === 'admin')
+                        <li><a href="{{route('admin.dashbaord')}}">Admin Dashboard</a></li>
+
+                        @endif
+                        @else
+
                         <li><a href="{{route('login')}}">login</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>

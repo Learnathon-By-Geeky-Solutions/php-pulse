@@ -71,10 +71,13 @@ Route::group([
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');//user.profile.update
     Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');//user.profile.update.password
 /** User Address Route */
-Route::resource('address', UserAddressController::class);
+Route::resource('address', controller: UserAddressController::class);
     /** Checkout routes */
+     Route::resource('checkout', controller: UserAddressController::class);
      Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
      Route::post('checkout/address-create', [CheckOutController::class, 'createAddress'])->name('checkout.address.create');
      Route::post('checkout/form-submit', [CheckOutController::class, 'checkOutFormSubmit'])->name('checkout.form-submit');
+     Route::post('checkout/address-update/{id}', [CheckOutController::class, 'updateAddress'])->name('checkout.address.update');
+
  
 });

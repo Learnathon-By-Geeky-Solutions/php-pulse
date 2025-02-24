@@ -63,6 +63,32 @@
                                             <li><span>zip code :</span> {{$address->zip}}</li>
                                             <li><span>address :</span> {{$address->address}}</li>
                                           </ul>
+                                          
+                                          <div class="wsus__address_btn">
+                                           <!-- Edit Button -->
+                                           <a href="javascript:;" class="common_btn edit-address" data-bs-toggle="modal" data-bs-target="#addressModal"
+                                           data-id="{{$address->id}}"
+                                           data-name="{{$address->name}}"
+                                           data-phone="{{$address->phone}}"
+                                           data-email="{{$address->email}}"
+                                           data-country="{{$address->country}}"
+                                           data-district="{{$address->district}}"
+                                           data-upazila="{{$address->upazila}}"
+                                           data-zip="{{$address->zip}}"
+                                           data-address="{{$address->address}}">
+                                            <i class="fal fa-edit"></i> Edit
+                                        </a>
+                                            <!-- Delete Button -->
+                                            <a href="javascript:;" class="common_btn delete-item" data-id="{{$address->id}}">
+                                                <i class="fal fa-trash-alt"></i> Delete
+                                            </a>
+                                        </div>
+                                        
+<div>
+    
+    
+    </div> 
+                                        
                                     </div>
                                 </div>
                                 @endforeach
@@ -120,7 +146,83 @@
                 </div>
         </div>
     </section>
-
+<!-- Add/Edit Address Modal -->
+<div class="wsus__popup_address">
+    <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addressModalLabel">Add New Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="wsus__check_form p-3">
+                        <form id="addressForm" action="{{ route('user.checkout.address.create') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wsus__check_single_form">
+                                        <input type="text" placeholder="Name *" name="name" value="{{ old('name') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wsus__check_single_form">
+                                        <input type="text" placeholder="Phone *" name="phone" value="{{ old('phone') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wsus__check_single_form">
+                                        <input type="email" placeholder="Email *" name="email" value="{{ old('email') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wsus__check_single_form">
+                                        <select class="select_2" name="country">
+                                            <option value="">Country*</option>
+                                            @foreach (config('settings.country_list') as $key => $county)
+                                                <option value="{{ $county }}">{{ $county }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wsus__check_single_form">
+                                        <select class="select_2" name="district">
+                                            <option value="">District/Region *</option>
+                                            @foreach (config('settings.district_list') as $district)
+                                                <option value="{{ $district }}">{{ $district }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wsus__check_single_form">
+                                        <input type="text" placeholder="Upazila / City *" name="upazila" value="{{ old('upazila') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="wsus__check_single_form">
+                                        <input type="text" placeholder="Zip *" name="zip" value="{{ old('zip') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="wsus__check_single_form">
+                                        <input type="text" placeholder="Address *" name="address" value="{{ old('address') }}">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="wsus__check_single_form">
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="wsus__popup_address">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -272,7 +374,83 @@
 
 
 
-        })
-    })
+        });
+         // Handle edit address button click
+    $('body').on('click', '.edit-address', function(){
+        let addressId = $(this).data('id');
+        let name = $(this).data('name');
+        let phone = $(this).data('phone');
+        let email = $(this).data('email');
+        let country = $(this).data('country');
+        let district = $(this).data('district');
+        let upazila = $(this).data('upazila');
+        let zip = $(this).data('zip');
+        let address = $(this).data('address');
+
+        // Populate the modal fields with the existing address data
+        $('#addressModal input[name="name"]').val(name);
+        $('#addressModal input[name="phone"]').val(phone);
+        $('#addressModal input[name="email"]').val(email);
+        $('#addressModal select[name="country"]').val(country).trigger('change');
+        $('#addressModal select[name="district"]').val(district).trigger('change');
+        $('#addressModal input[name="upazila"]').val(upazila);
+        $('#addressModal input[name="zip"]').val(zip);
+        $('#addressModal input[name="address"]').val(address);
+
+        // Change the form action to the update route
+        $('#addressForm').attr('action', "{{ route('user.checkout.address.update', '') }}/" + addressId);
+    });
+
+    // Reset the form action when the modal is hidden
+    $('#addressModal').on('hidden.bs.modal', function () {
+        $('#addressForm').attr('action', "{{ route('user.checkout.address.create') }}");
+        $('#addressForm')[0].reset(); // Reset the form fields
+    });
+         // Handle delete item click event
+         $('body').on('click', '.delete-item', function(event){
+            event.preventDefault();
+
+            let addressId = $(this).data('id'); // Get address ID
+            let deleteUrl = "{{ route('user.checkout.destroy', '') }}/" + addressId; // Construct the delete URL
+
+            // Show confirmation popup
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: deleteUrl,
+                        success: function(data){
+                            if(data.status == 'success'){
+                                Swal.fire(
+                                    'Deleted!',
+                                    data.message,
+                                    'success'
+                                );
+                                location.reload(); // Reload the page after successful delete
+                            } else {
+                                Swal.fire(
+                                    'Cant Delete',
+                                    data.message,
+                                    'error'
+                                );
+                            }
+                        },
+                        error: function(xhr, status, error){
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        });
+    });
 </script>
 @endpush
+

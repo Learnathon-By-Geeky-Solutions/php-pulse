@@ -5,12 +5,12 @@ use Illuminate\Support\Facades\Session;
 
 /** Set Sidebar item active */
 
-function setActive(array $route){
-    if(is_array($route)){
-        foreach($route as $r){
-            if(request()->routeIs($r)){
-                return 'active';
-            }
+function setActive($route){
+    $route = is_array($route) ? $route : [$route];
+
+    foreach ($route as $r) {
+        if (request()->routeIs($r)) {
+            return 'active';
         }
     }
 }
@@ -133,5 +133,4 @@ function getCurrencyIcon()
 
     return $icon->currency_icon;
 }
-
 

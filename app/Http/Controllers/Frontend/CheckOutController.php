@@ -48,6 +48,50 @@ class CheckOutController extends Controller
         return redirect()->back();
 
     }
+    
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateAddress(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => ['required', 'max:200'],
+            'email' => ['required', 'max:200', 'email'],
+            'phone' => ['required', 'max:200'],
+            'country' => ['required', 'max:200'],
+            'district' => ['required', 'max:200'],
+            'upazila' => ['required', 'max:200'],
+            'zip' => ['required', 'max:200'],
+            'address' => ['required'],
+        ]);
+
+        $address = UserAddress::findOrFail($id);
+        $address->user_id = Auth::user()->id;
+        $address->name = $request->name;
+        $address->email = $request->email;
+        $address->phone = $request->phone;
+        $address->country = $request->country;
+        $address->district = $request->district;
+        $address->upazila = $request->upazila;
+        $address->zip = $request->zip;
+        $address->address = $request->address;
+        $address->save();
+
+        toastr('Updated Successfully!', 'success', 'Success');
+
+
+        return redirect()->back();
+    }
+     /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $address = UserAddress::findOrFail($id);
+        $address->delete();
+
+        return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
+    }
 
     public function checkOutFormSubmit(Request $request)
     {
