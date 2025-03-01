@@ -72,7 +72,7 @@
                                 <div class="row">
                                     <div class="col-xl-12 m-auto">
                                         <div class="wsus__payment_area">
-                                            {{-- <a class="nav-link common_btn text-center" href="{{route('user.paypal.payment')}}">Pay with Paypal</a> --}}
+                                            <a class="nav-link common_btn text-center" href="{{route('user.paypal.payment')}}">Pay with Paypal</a>
                                         </div>
                                     </div>
                                 </div>
@@ -80,9 +80,9 @@
 
                             {{-- @include('frontend.pages.payment-gateway.stripe')
 
-                            @include('frontend.pages.payment-gateway.razorpay')
+                            @include('frontend.pages.payment-gateway.razorpay') --}}
 
-                            @include('frontend.pages.payment-gateway.cod') --}}
+                            @include('frontend.pages.payment-gateway.cod')
 
 
 

@@ -23,7 +23,7 @@ class PaypalSettingController extends Controller
             'client_id' => ['required'],
             'secret_key' => ['required']
         ]);
-        // dd($request->all());
+      
         PaypalSetting::updateOrCreate(
             ['id' => $id],
             [
