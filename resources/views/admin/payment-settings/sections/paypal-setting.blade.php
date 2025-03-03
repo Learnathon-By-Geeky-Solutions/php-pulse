@@ -37,7 +37,13 @@
                         <option value="">Select</option>
                       
                         @foreach (config('settings.currecy_list') as $key => $currency)
-                        <option {{$currency === $paypalSetting->currency_name ? 'selected' : ''}} value="{{$currency}}">{{$key}}</option>
+                        <option value="{{ $currency }}" 
+    @isset($paypalSetting->currency_name) 
+        {{ $currency == $paypalSetting->currency_name ? 'selected' : '' }} 
+    @endisset>
+    {{ $key }}
+</option>
+
                     @endforeach
                     </select>
                 </div>
