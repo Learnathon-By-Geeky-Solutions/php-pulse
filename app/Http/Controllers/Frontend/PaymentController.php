@@ -166,6 +166,7 @@ class PaymentController extends Controller
 
     public function paypalSuccess(Request $request)
     {
+        
         $config = $this->paypalConfig();
         $provider = new PayPalClient($config);
         $provider->getAccessToken();

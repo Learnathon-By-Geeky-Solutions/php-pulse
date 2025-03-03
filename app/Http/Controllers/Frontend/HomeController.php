@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\FlashSale;
 use App\Models\FlashSaleItem;
+use App\Models\HomePageSetting;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Product;
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $flashSaleDate = FlashSale::first();
 
         $flashSaleItems = FlashSaleItem::where('show_at_home', 1)->where('status', 1)->pluck('product_id')->toArray();
+        $popularCategory = HomePageSetting::where('key', 'popular_category_section')->first();
 
         $typeBaseProducts = $this->getTypeBaseProduct();
 
