@@ -109,6 +109,9 @@
                     <li class="{{ setActive(['admin.slider.*']) }}">
                         <a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a>
                     </li>
+                    <li class="{{ setActive(['admin.slider.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.home-page-setting') }}">Home Page Setting</a>
+                    </li>
                 </ul>
             </li>
             <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-wrench"></i>
