@@ -1,6 +1,9 @@
 @php
-    $popularCategories = json_decode($popularCategory->value, true);
-    // dd($popularCategories)
+    if ($popularCategory && isset($popularCategory->value)) {
+        $popularCategories = json_decode($popularCategory->value, true);
+    } else {
+        $popularCategories = []; // Set an empty array or handle the case accordingly
+    }
 @endphp
 
 <section id="wsus__monthly_top" class="wsus__monthly_top_2">

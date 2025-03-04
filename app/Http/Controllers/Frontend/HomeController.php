@@ -32,6 +32,7 @@ class HomeController extends Controller
             'flashSaleDate',
             'flashSaleItems',
             'brands',
+            'popularCategory',
             'typeBaseProducts'
         )
     );
