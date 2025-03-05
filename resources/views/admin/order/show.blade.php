@@ -31,7 +31,7 @@
                             <b>Email: </b> {{$address->email}}<br>
                             <b>Phone:</b> {{$address->phone}}<br>
                             <b>Address:</b> {{$address->address}},<br>
-                            {{$address->city}}, {{$address->state}}, {{$address->zip}}<br>
+                            {{$address->district}}, {{$address->upazila}}, {{$address->zip}}<br>
                             {{$address->country}}
                         </address>
                       </div>
@@ -42,8 +42,8 @@
                               <b>Email: </b> {{$address->email}}<br>
                               <b>Phone:</b> {{$address->phone}}<br>
                               <b>Address:</b> {{$address->address}},<br>
-                              {{$address->city}}, {{$address->state}}, {{$address->zip}}<br>
-                              {{$address->country}}
+                              {{$address->district}}, {{$address->upazila}}, {{$address->zip}}<br>
+                              {{$address->district}}
                         </address>
                       </div>
                     </div>
@@ -173,7 +173,7 @@
 
                 $.ajax({
                     method: 'GET',
-                    url: "{{route('admin.order.status')}}",
+                   
                     data: {status: status, id:id},
                     success: function(data){
                         if(data.status === 'success'){
@@ -191,8 +191,7 @@
                 let id = $(this).data('id');
 
                 $.ajax({
-                    method: 'GET',
-                    url: "{{route('admin.payment.status')}}",
+                    method: 'GET',           
                     data: {status: status, id:id},
                     success: function(data){
                         if(data.status === 'success'){
