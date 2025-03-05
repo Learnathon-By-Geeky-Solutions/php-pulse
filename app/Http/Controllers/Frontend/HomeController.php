@@ -33,7 +33,8 @@ class HomeController extends Controller
             'flashSaleItems',
             'popularCategory',
             'brands',
-            'typeBaseProducts'
+            'typeBaseProducts',
+            'popularCategory'
         )
     );
     }
