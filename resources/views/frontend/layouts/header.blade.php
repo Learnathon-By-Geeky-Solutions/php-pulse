@@ -28,7 +28,7 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="wsus__call_text">
-                            <p>example@gmail.com</p>
+                            <p>support@shohojbazar.com</p>
                             <p>+569875544220</p>
                         </div>
                     </div>
