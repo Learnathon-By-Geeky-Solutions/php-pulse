@@ -67,7 +67,8 @@
                     {{-- <li class="{{ setActive(['admin.shipped-orders']) }}"><a class="nav-link"
                             href="{{ route('admin.shipped-orders') }}">All Shipped Orders</a></li> --}}
                     {{-- <li class="{{ setActive(['admin.out-for-delivery-orders']) }}"><a class="nav-link"
-                            href="{{ route('admin.out-for-delivery-orders') }}">All Out For Delivery Orders</a></li> --}}
+                            href="{{ route('admin.out-for-delivery-orders') }}">All Out For Delivery Orders</a></li>
+                    --}}
 
 
                     {{-- <li class="{{ setActive(['admin.delivered-orders']) }}"><a class="nav-link"
@@ -78,6 +79,15 @@
 
                 </ul>
             </li>
+
+            
+            <li class="{{ setActive(['admin.transaction']) }}">
+                <a class="nav-link" href="{{ route('admin.transaction') }}">
+                    <i class="fas fa-exchange-alt"></i> 
+                    <span>Transactions</span>
+                </a>
+            </li>
+            
             <!-- Manage Products Section -->
             <li class="dropdown {{ setActive([
     'admin.brand.*',

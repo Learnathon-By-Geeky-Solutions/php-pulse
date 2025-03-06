@@ -24,6 +24,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\StripeSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /** Admin Routes **/
@@ -109,7 +110,14 @@ Route::put('popular-category-section', [HomePageSettingController::class, 'updat
 Route::put('coupons/change-status', [CouponController::class, 'changeStatus'])->name('coupons.change-status');
 Route::resource('coupons', CouponController::class);
 /** Order routes */
+Route::get('payment-status', [OrderController::class, 'changePaymentStatus'])->name('payment.status');
+Route::get('order-status', [OrderController::class, 'changeOrderStatus'])->name('order.status');
 Route::resource('order', OrderController::class);
+
+/** Order Transaction route */
+Route::get('transaction', [TransactionController::class, 'index'])->name('transaction');
+
+
 /** Shipping Rule Routes */
 Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
 Route::resource('shipping-rule', ShippingRuleController::class);
