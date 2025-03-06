@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\UserDashboardController;
+use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\UserProfileController ;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\AdminController;
@@ -73,6 +74,12 @@ Route::group([
     Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');//user.profile.update.password
 /** User Address Route */
 Route::resource('address', controller: UserAddressController::class);
+/** Order Routes */
+Route::get('orders', [UserOrderController::class, 'index'])->name('orders.index');
+Route::get('orders/show/{id}', [UserOrderController::class, 'show'])->name('orders.show');
+
+
+
     /** Checkout routes */
      Route::resource('checkout', controller: UserAddressController::class);
      Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
