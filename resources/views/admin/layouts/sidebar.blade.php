@@ -5,7 +5,10 @@
             <a href="{{ route('admin.dashboard') }}"">    {{$settings->site_name}}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('admin.dashboard') }}">    {{$settings->site_name}}</a>
+            <a href="{{ route('admin.dashboard') }}"> {{ implode('', array_map(function($word) {
+                return mb_strtoupper(mb_substr($word, 0, 1));
+            }, explode(' ', $settings->site_name))) }}
+            </a>
         </div>
 
         <!-- Sidebar Menu -->
