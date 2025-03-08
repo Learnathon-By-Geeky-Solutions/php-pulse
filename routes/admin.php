@@ -100,6 +100,7 @@ Route::put('pusher-setting-update', [SettingController::class, 'pusherSettingUpd
 /** home page setting route */
 Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->name('home-page-setting');
 Route::put('popular-category-section', [HomePageSettingController::class, 'updatePopularCategorySection'])->name('popular-category-section');
+Route::put('product-slider-section-one', [HomePageSettingController::class, 'updateProductSliderSectionOn'])->name('product-slider-section-one');
 
 
 /** Coupon Routes */

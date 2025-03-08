@@ -72,7 +72,7 @@
     <!--============================
         ELECTRONIC PART START  
     ==============================-->
-    @include('frontend.home.section.category-product-slider-two')
+    {{-- @include('frontend.home.section.category-product-slider-two') --}}
     <!--============================
         ELECTRONIC PART END  
     ==============================-->
@@ -81,7 +81,7 @@
     <!--============================
         LARGE BANNER  START  
     ==============================-->
-   @include('frontend.home.section.large-banner')
+   {{-- @include('frontend.home.section.large-banner') --}}
     <!--============================
         LARGE BANNER  END  
     ==============================-->
@@ -90,7 +90,7 @@
     <!--============================
         WEEKLY BEST ITEM START  
     ==============================-->
- @include('frontend.home.section.weekly-best-item')
+ {{-- @include('frontend.home.section.weekly-best-item') --}}
     <!--============================
         WEEKLY BEST ITEM END 
     ==============================-->
@@ -99,7 +99,7 @@
     <!--============================
       HOME SERVICES START
     ==============================-->
-    @include('frontend.home.section.services')
+    {{-- @include('frontend.home.section.services') --}}
     <!--============================
         HOME SERVICES END
     ==============================-->
@@ -108,7 +108,7 @@
     <!--============================
         HOME BLOGS START
     ==============================-->
-   @include('frontend.home.section.blog')
+   {{-- @include('frontend.home.section.blog') --}}
     <!--============================
         HOME BLOGS END
     ==============================-->
