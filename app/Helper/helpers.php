@@ -37,6 +37,7 @@ function calculateDiscountPercent($originalPrice, $discountPrice) {
 }
 
 
+
 /** Check the product type */
 
 function productType($type)
@@ -133,5 +134,4 @@ function getCurrencyIcon()
 
     return $icon->currency_icon;
 }
-
 

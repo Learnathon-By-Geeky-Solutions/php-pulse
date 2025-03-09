@@ -19,7 +19,8 @@
                       <li><span>Phone :</span> {{$address->phone}}</li>
                       <li><span>email :</span> {{$address->email}}</li>
                       <li><span>country :</span> {{$address->country}}</li>
-                      <li><span>distric :</span> {{$address->distric}}</li>
+                      <li><span>district :</span> {{$address->district}}</li>
+
                       <li><span>upazila :</span> {{$address->upazila}}</li>
                       <li><span>zip code :</span> {{$address->zip}}</li>
                       <li><span>address :</span> {{$address->address}}</li>
@@ -43,3 +44,4 @@
     </div>
   </section>
 @endsection
+

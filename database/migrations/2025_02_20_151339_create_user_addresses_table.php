@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('country');
-            $table->string('distric');
+            $table->string('district');
             $table->string('upazila');
             $table->string('zip');
             $table->text('address');
@@ -34,3 +34,4 @@ return new class extends Migration
         Schema::dropIfExists('user_addresses');
     }
 };
+

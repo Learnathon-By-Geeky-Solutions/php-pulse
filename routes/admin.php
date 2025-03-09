@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AdminVendorProfileController;
+use App\Http\Controllers\Backend\CodSettingController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\HomePageSettingController;
+use App\Http\Controllers\Backend\PaymentSettingController;
+use App\Http\Controllers\Backend\PaypalSettingController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductImageGalleryController;
 use App\Http\Controllers\Backend\ProductVariantController;
@@ -10,11 +14,13 @@ use App\Http\Controllers\Backend\ProductVariantItemController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ChildCategoryController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\RazorpaySettingController;
 use App\Http\Controllers\Backend\SellerProductController;
 use App\Http\Controllers\Backend\FlashSaleController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\ShippingRuleController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\StripeSettingController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\BrandController;
 use Illuminate\Support\Facades\Route;
@@ -94,6 +100,9 @@ Route::put('generale-setting-update', [SettingController::class, 'generalSetting
 Route::put('email-setting-update', [SettingController::class, 'emailConfigSettingUpdate'])->name('email-setting-update');
 Route::put('logo-setting-update', [SettingController::class, 'logoSettingUpdate'])->name('logo-setting-update');
 Route::put('pusher-setting-update', [SettingController::class, 'pusherSettingUpdate'])->name('pusher-setting-update');
+/** home page settings routes */
+Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->name('home-page-setting');
+Route::put('popular-category-section', [HomePageSettingController::class, 'updatePopularCategorySection'])->name('popular-category-section');
 
 /** Coupon Routes */
 Route::put('coupons/change-status', [CouponController::class, 'changeStatus'])->name('coupons.change-status');
@@ -102,4 +111,11 @@ Route::resource('coupons', CouponController::class);
 /** Shipping Rule Routes */
 Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
 Route::resource('shipping-rule', ShippingRuleController::class);
+
+/** Payment settings routes */
+Route::get('payment-settings', [PaymentSettingController::class, 'index'])->name('payment-settings.index');
+Route::resource('paypal-setting', PaypalSettingController::class);
+Route::put('stripe-setting/{id}', [StripeSettingController::class, 'update'])->name('stripe-setting.update');
+Route::put('razorpay-setting/{id}', [RazorpaySettingController::class, 'update'])->name('razorpay-setting.update');
+Route::put('cod-setting/{id}', [CodSettingController::class, 'update'])->name('cod-setting.update');
 
