@@ -36,7 +36,7 @@ class UserAddressController extends Controller
             'email' => ['required', 'max:200', 'email'],
             'phone' => ['required', 'max:200'],
             'country' => ['required', 'max:200'],
-            'district' => ['required', 'max:200'],
+            'district' => ['required', 'max:200'],       
             'upazila' => ['required', 'max:200'],
             'zip' => ['required', 'max:200'],
             'address' => ['required'],
@@ -120,4 +120,6 @@ class UserAddressController extends Controller
 
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }
+
 }
+

@@ -35,6 +35,7 @@
                   <div class="col-xl-6 col-md-6">
                     <div class="wsus__add_address_single">
                       <label>country <b>*</b></label>
+
                       <div class="wsus__topbar_select">
                         <select class="select_2" name="country">
                           <option>Select</option>
@@ -56,6 +57,7 @@
                               <option value="{{$district}}" {{ old('district', $address->district) == $district ? 'selected' : '' }}>{{$district}}</option>
                           @endforeach
                       </select>
+
                       </div>
                     </div>
                   </div>
@@ -95,3 +97,4 @@
     </div>
   </section>
 @endsection
+
