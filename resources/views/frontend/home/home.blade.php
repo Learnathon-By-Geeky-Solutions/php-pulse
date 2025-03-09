@@ -72,7 +72,7 @@
     <!--============================
         ELECTRONIC PART START  
     ==============================-->
-    {{-- @include('frontend.home.section.category-product-slider-two') --}}
+    @include('frontend.home.section.category-product-slider-two')
     <!--============================
         ELECTRONIC PART END  
     ==============================-->
