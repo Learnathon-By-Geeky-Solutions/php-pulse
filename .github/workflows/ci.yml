@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - develop
-      - feature/footer
+      - feature/*
   pull_request:
     branches:
       - main
@@ -61,3 +61,14 @@ jobs:
             -Dsonar.organization=${{ secrets.SONAR_ORG }}
             -Dsonar.projectKey=Learnathon-By-Geeky-Solutions_php-pulse
             -Dsonar.php.coverage.reportPaths=coverage.xml
+            -Dsonar.php.version=8.2
+
+  post-analysis:
+    name: Post Analysis
+    runs-on: ubuntu-latest
+    needs: sonarcloud
+    steps:
+      - name: Cleanup (optional)
+        run: |
+          echo "Cleaning up temporary files"
+          rm -f coverage.xml
