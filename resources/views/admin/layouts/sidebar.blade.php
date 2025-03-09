@@ -4,11 +4,11 @@
         <div class="sidebar-brand">
             <a href="{{ route('admin.dashboard') }}"">    {{$settings->site_name}}</a>
         </div>
-        <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('admin.dashboard') }}"> {{ implode('', array_map(function($word) {
-                return mb_strtoupper(mb_substr($word, 0, 1));
-            }, explode(' ', $settings->site_name))) }}
-            </a>
+        <div class=" sidebar-brand sidebar-brand-sm">
+                <a href="{{ route('admin.dashboard') }}">
+                    {{ implode('', array_map(fn($word) => mb_substr($word, 0, 1), explode(' ', $settings->site_name))) }}
+
+                </a>
         </div>
 
         <!-- Sidebar Menu -->
@@ -71,7 +71,7 @@
                             href="{{ route('admin.shipped-orders') }}">All Shipped Orders</a></li>
                     <li class="{{ setActive(['admin.out-for-delivery-orders']) }}"><a class="nav-link"
                             href="{{ route('admin.out-for-delivery-orders') }}">All Out For Delivery Orders</a></li>
-                   
+
 
                     <li class="{{ setActive(['admin.delivered-orders']) }}"><a class="nav-link"
                             href="{{ route('admin.delivered-orders') }}">All Delivered Orders</a></li>
@@ -82,14 +82,14 @@
                 </ul>
             </li>
 
-            
+
             <li class="{{ setActive(['admin.transaction']) }}">
                 <a class="nav-link" href="{{ route('admin.transaction') }}">
-                    <i class="fas fa-exchange-alt"></i> 
+                    <i class="fas fa-exchange-alt"></i>
                     <span>Transactions</span>
                 </a>
             </li>
-            
+
             <!-- Manage Products Section -->
             <li class="dropdown {{ setActive([
     'admin.brand.*',
@@ -172,6 +172,30 @@
                 </ul>
 
             </li>
+            <li
+            class="dropdown {{ setActive([
+                'admin.footer-info.index',
+                'admin.footer-socials.*',
+                'admin.footer-grid-two.*',
+                'admin.footer-grid-three.*',
+            ]) }}">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                    class="fas fa-th-large"></i><span>Footer</span></a>
+            <ul class="dropdown-menu">
+                <li class="{{ setActive(['admin.footer-info.index']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
+
+                {{-- <li class="{{ setActive(['admin.footer-socials.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-socials.index') }}">Footer Socials</a></li> --}}
+
+                {{-- <li class="{{ setActive(['admin.footer-grid-two.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li> --}}
+
+                {{-- <li class="{{ setActive(['admin.footer-grid-three.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li> --}}
+
+            </ul>
+        </li>
             <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-wrench"></i>
                     <span>Settings</span></a></li>
         </ul>
