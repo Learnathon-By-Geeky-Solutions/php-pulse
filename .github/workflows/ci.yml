@@ -8,17 +8,15 @@ on:
     branches:
       - '**'  # For pull requests targeting any branch
 
+
 jobs:
-  # Unit and Feature Tests job
   test:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Setup PHP with required tools (composer, phpunit, xdebug for coverage)
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -26,8 +24,7 @@ jobs:
           tools: composer, phpunit
           coverage: xdebug
       
-      # Install Dependencies
-        - name: Install dependencies
+      - name: Install dependencies
         run: |
           composer install --prefer-dist --no-progress --no-interaction
 
@@ -36,32 +33,25 @@ jobs:
 
       - name: Run migrations
         run: php artisan migrate --force
-   
 
-      # Setup the Laravel environment file
       - name: Setup Laravel Environment
         run: cp .env.example .env
 
-      # Generate Laravel application key
       - name: Generate Application Key
         run: php artisan key:generate
 
-      # Ensure PHPUnit has proper permissions
       - name: Fix PHPUnit Permissions
         run: chmod +x vendor/bin/phpunit
 
-      # Run PHPUnit tests with coverage
       - name: Run PHPUnit Tests with Coverage
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
-      # Verify that the coverage file exists
       - name: Verify Coverage File
         run: |
           if [ ! -f coverage.xml ]; then
             echo "Coverage file missing!" && exit 1
           fi
 
-      # Upload coverage report to Codecov
       - name: Upload Coverage Report to Codecov
         uses: codecov/codecov-action@v3
         with:
