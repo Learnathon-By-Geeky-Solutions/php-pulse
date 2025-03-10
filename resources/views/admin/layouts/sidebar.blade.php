@@ -185,8 +185,8 @@
                 <li class="{{ setActive(['admin.footer-info.index']) }}"><a class="nav-link"
                         href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
 
-                {{-- <li class="{{ setActive(['admin.footer-socials.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-socials.index') }}">Footer Socials</a></li> --}}
+                <li class="{{ setActive(['admin.footer-socials.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-socials.index') }}">Footer Socials</a></li>
 
                 {{-- <li class="{{ setActive(['admin.footer-grid-two.*']) }}"><a class="nav-link"
                         href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li> --}}
