@@ -26,11 +26,12 @@ jobs:
           tools: composer, phpunit
           coverage: xdebug
       
-      - name: Dump Autoload
-        run: composer dump-autoload --optimize
       # Install Dependencies
       - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress --no-suggest   
+      - name: Dump Autoload
+        run: composer dump-autoload --optimize
+   
 
       # Setup the Laravel environment file
       - name: Setup Laravel Environment
