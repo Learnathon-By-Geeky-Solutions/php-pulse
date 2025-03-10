@@ -10,44 +10,8 @@ on:
     branches:
       - main
 
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.2
-          tools: composer, phpunit, xdebug
-          coverage: xdebug
-
-      - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
-
-      - name: Setup Laravel Environment
-        run: cp .env.example .env
-
-      - name: Generate Application Key
-        run: php artisan key:generate
-
-      - name: Dump Autoload
-        run: composer dump-autoload
-
-      - name: Run PHPUnit Tests with Coverage
-        run: vendor/bin/phpunit --coverage-clover=coverage.xml
-
-      - name: Verify Coverage File
-        run: ls -l coverage.xml || (echo "Coverage file missing!" && exit 1)
-
-      - name: Upload Coverage Report to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          file: ./coverage.xml
-          fail_ci_if_error: true
-
   test:
     runs-on: ubuntu-latest
 
