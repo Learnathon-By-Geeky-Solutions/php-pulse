@@ -3,21 +3,22 @@ name: Laravel CI with SonarCloud
 on:
   push:
     branches:
-      - main
-      - develop
-      - feature/*
+      - '**'  # For all branches (including main, develop, feature/*, etc.)
   pull_request:
     branches:
-      - main
+      - '**'  # For pull requests targeting any branch
 
 jobs:
+  # Unit and Feature Tests job
   test:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Setup PHP with required tools (composer, phpunit, xdebug for coverage)
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -25,39 +26,52 @@ jobs:
           tools: composer, phpunit
           coverage: xdebug
 
+      # Install Dependencies
       - name: Install Dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
+      # Setup the Laravel environment file
       - name: Setup Laravel Environment
         run: cp .env.example .env
 
+      # Generate Laravel application key
       - name: Generate Application Key
         run: php artisan key:generate
 
+      # Ensure PHPUnit has proper permissions
       - name: Fix PHPUnit Permissions
         run: chmod +x vendor/bin/phpunit
 
+      # Run PHPUnit tests with coverage
       - name: Run PHPUnit Tests with Coverage
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
+      # Verify that the coverage file exists
       - name: Verify Coverage File
-        run: ls -l coverage.xml || (echo "Coverage file missing!" && exit 1)
+        run: |
+          if [ ! -f coverage.xml ]; then
+            echo "Coverage file missing!" && exit 1
+          fi
 
+      # Upload coverage report to Codecov
       - name: Upload Coverage Report to Codecov
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage.xml
           fail_ci_if_error: true
 
+  # SonarCloud Analysis job
   sonarcloud:
     name: SonarCloud Analysis
     runs-on: ubuntu-latest
     needs: test
 
     steps:
+      # Checkout the repository again for SonarCloud
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Run the SonarCloud scan
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -69,12 +83,14 @@ jobs:
             -Dsonar.php.coverage.reportPaths=coverage.xml
             -Dsonar.php.version=8.2
 
+  # Post-analysis cleanup job
   post-analysis:
     name: Post Analysis
     runs-on: ubuntu-latest
     needs: sonarcloud
     steps:
-      - name: Cleanup (optional)
+      # Cleanup (optional)
+      - name: Cleanup Temporary Files
         run: |
           echo "Cleaning up temporary files"
           rm -f coverage.xml
