@@ -25,7 +25,9 @@ jobs:
           php-version: 8.2
           tools: composer, phpunit
           coverage: xdebug
-
+      
+      - name: Dump Autoload
+        run: composer dump-autoload --optimize
       # Install Dependencies
       - name: Install Dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
