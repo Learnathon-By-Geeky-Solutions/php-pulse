@@ -51,7 +51,7 @@ if($sliderSectionTwo) {
                     <div class="col-md-4">
                         <div class="form-group">
                             @php
-                            $childCategories = \App\Models\ChildCategory::where('sub_category_id', $sliderSectionOne->sub_category)->get();
+                            $childCategories = \App\Models\ChildCategory::where('sub_category_id', $sliderSectionTwo->sub_category)->get();
                             @endphp
                             <label>Child Category</label>
                             <select name="child_cat_one" id="" class="form-control child-category">
