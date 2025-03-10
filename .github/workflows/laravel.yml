@@ -1,64 +1,81 @@
 name: Test Coverage for SonarCloud
 
+
 on:
   push:
-    branches: ["*"]
+    branches:
+      - main
+      - develop
+      - feature/*
   pull_request:
-    branches: ["*"]
+    branches:
+      - main
 
 jobs:
-  laravel-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      with:
-        php-version: '8.2'
-        tools: composer:v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          tools: composer, phpunit
+          coverage: xdebug
 
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Update Dependencies
-      run: composer update --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Setup Laravel Environment
+        run: cp .env.example .env
 
-    - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Generate Application Key
+        run: php artisan key:generate
 
-    - name: Generate Application Key
-      run: php artisan key:generate
+      - name: Fix PHPUnit Permissions
+        run: chmod +x vendor/bin/phpunit
 
-    - name: Set Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
+      - name: Run PHPUnit Tests with Coverage
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
-    - name: Start MySQL Service
-      run: |
-        sudo service mysql start
+      - name: Verify Coverage File
+        run: ls -l coverage.xml || (echo "Coverage file missing!" && exit 1)
 
-    - name: Create MySQL Database
-      run: |
-        mysql -e "CREATE DATABASE IF NOT EXISTS ecommerce;"
+      - name: Upload Coverage Report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+          fail_ci_if_error: true
 
-    - name: Run Migrations
-      run: php artisan migrate --force
-      env:
-        DB_CONNECTION: mysql
-        DB_HOST: 127.0.0.1
-        DB_PORT: 3306
-        DB_DATABASE: ecommerce
-        DB_USERNAME: root
-        DB_PASSWORD: ''
+  sonarcloud:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+    needs: test
 
-    - name: Execute Tests (Unit and Feature tests) via PHPUnit/Pest
-      run: php artisan test
-      env:
-        DB_CONNECTION: mysql
-        DB_HOST: 127.0.0.1
-        DB_PORT: 3306
-        DB_DATABASE: ecommerce
-        DB_USERNAME: root
-        DB_PASSWORD: ''
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORG }}
+            -Dsonar.projectKey=Learnathon-By-Geeky-Solutions_php-pulse
+            -Dsonar.php.coverage.reportPaths=coverage.xml
+            -Dsonar.php.version=8.2
+
+  post-analysis:
+    name: Post Analysis
+    runs-on: ubuntu-latest
+    needs: sonarcloud
+    steps:
+      - name: Cleanup (optional)
+        run: |
+          echo "Cleaning up temporary files"
+          rm -f coverage.xml
