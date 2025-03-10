@@ -26,14 +26,7 @@ jobs:
           tools: composer, phpunit
           coverage: xdebug
 
-      - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
-
-      - name: Setup Laravel Environment
-        run: cp .env.example .env
-
-      - name: Generate Application Key
-        run: php artisan key:generate
+     
 
       - name: Run PHPUnit Tests with Coverage
         run: vendor/bin/phpunit --coverage-clover=coverage.xml
