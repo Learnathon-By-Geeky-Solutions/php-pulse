@@ -27,10 +27,15 @@ jobs:
           coverage: xdebug
       
       # Install Dependencies
-      - name: Install Dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest   
-      - name: Dump Autoload
+        - name: Install dependencies
+        run: |
+          composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Dump autoload
         run: composer dump-autoload --optimize
+
+      - name: Run migrations
+        run: php artisan migrate --force
    
 
       # Setup the Laravel environment file
