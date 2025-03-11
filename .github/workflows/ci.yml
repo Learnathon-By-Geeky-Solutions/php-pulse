@@ -3,10 +3,10 @@ name: Laravel CI with SonarCloud
 on:
   push:
     branches:
-      - '**'
+      - '**'  # For all branches (main, develop, feature/*, etc.)
   pull_request:
     branches:
-      - '**'
+      - '**'  # For pull requests targeting any branch
 
 jobs:
   test:
@@ -30,8 +30,6 @@ jobs:
       - name: Set Up .env for Database
         run: |
           cp .env.example .env
-          echo "APP_ENV=testing" >> .env
-          echo "APP_DEBUG=true" >> .env
           echo "DB_CONNECTION=mysql" >> .env
           echo "DB_HOST=127.0.0.1" >> .env
           echo "DB_PORT=3306" >> .env
@@ -39,18 +37,59 @@ jobs:
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
 
-      - name: Generate Application Key
-        run: php artisan key:generate
+      - name: Clear Composer Cache
+        run: composer clear-cache
 
       - name: Install Dependencies
         run: |
-          composer install --prefer-dist --no-progress --no-interaction
+          composer install --prefer-dist --no-progress --no-interaction --no-scripts
           composer dump-autoload --optimize
 
-      - name: Run Migrations & Seed Database
-        run: |
-          php artisan migrate --force
-          php artisan db:seed --force
+      - name: Update Composer Dependencies
+        run: composer update --no-interaction --prefer-dist
+
+      - name: Install Missing Package
+        run: composer require php-flasher/flasher-toastr-laravel --with-all-dependencies
+
+      - name: Refresh Composer Autoload
+        run: composer dump-autoload --optimize
+
+      - name: Generate Application Key
+        run: php artisan key:generate
+
+      - name: Run Migrations
+        run: php artisan migrate --force
 
       - name: Run PHPUnit Tests
-        run: php artisan test --verbose --debug
+        run: php artisan test
+
+  sonarcloud:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORG }}
+            -Dsonar.projectKey=Learnathon-By-Geeky-Solutions_php-pulse
+            -Dsonar.php.coverage.reportPaths=coverage.xml
+            -Dsonar.php.version=8.2
+
+  post-analysis:
+    name: Post Analysis
+    runs-on: ubuntu-latest
+    needs: sonarcloud
+
+    steps:
+      - name: Cleanup Temporary Files
+        run: |
+          echo "Cleaning up temporary files"
+          rm -f coverage.xml
