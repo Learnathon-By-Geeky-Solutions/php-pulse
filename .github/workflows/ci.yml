@@ -59,7 +59,6 @@ jobs:
         run: |
           mkdir -p tests/reports
           XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.xml
-          ls -l coverage.xml  # Debugging step to verify file existence
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
@@ -90,7 +89,7 @@ jobs:
             -Dsonar.organization=${{ secrets.SONAR_ORG }}
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.sources=.
+            -Dsonar.sources=app
             -Dsonar.php.coverage.reportPaths=coverage.xml
             -Dsonar.php.version=8.2
 
