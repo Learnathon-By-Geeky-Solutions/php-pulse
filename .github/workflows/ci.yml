@@ -41,10 +41,7 @@ jobs:
           composer install --prefer-dist --no-progress --no-interaction
           composer dump-autoload --optimize
 
-      - name: Drop and Recreate Database
-        run: |
-          mysql -u root -p$MYSQL_ROOT_PASSWORD -h 127.0.0.1 -e "DROP DATABASE IF EXISTS ecommerce;"
-          mysql -u root -p$MYSQL_ROOT_PASSWORD -h 127.0.0.1 -e "CREATE DATABASE ecommerce;"
+   
 
       - name: Run Migrations
         run: php artisan migrate --force
