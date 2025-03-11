@@ -3,7 +3,7 @@ name: Laravel CI with SonarCloud
 on:
   push:
     branches:
-      - '**'  
+      - '**'  # Run on all branches
   pull_request:
     branches:
       - '**'  # Run on all PRs
@@ -59,6 +59,7 @@ jobs:
         run: |
           mkdir -p tests/reports
           XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.xml
+          ls -l coverage.xml  # Debugging step to verify file existence
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
