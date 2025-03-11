@@ -3,10 +3,10 @@ name: Laravel CI with SonarCloud
 on:
   push:
     branches:
-      - '**'  # সব ব্রাঞ্চের জন্য (main, develop, feature/*, etc.)
+      - '**'  # For all branches (including main, develop, feature/*, etc.)
   pull_request:
     branches:
-      - '**'  # Pull request targeting any branch
+      - '**'  # For pull requests targeting any branch
 
 jobs:
   test:
@@ -17,7 +17,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: test_db
+          MYSQL_DATABASE: ecommerce # Set to your correct database name (e.g., ecommerce)
           MYSQL_USER: test_user
           MYSQL_PASSWORD: test_pass
         ports:
@@ -27,6 +27,20 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Wait for MySQL to be ready
+        run: |
+          echo "Waiting for MySQL to be ready..."
+          until mysqladmin ping -h 127.0.0.1 -u test_user --password=test_pass --silent; do
+            echo "Waiting for MySQL..."
+            sleep 5
+          done
+          echo "MySQL is up and running!"
+
+      - name: Create database (if not exists)
+        run: |
+          echo "Creating the database if not exists..."
+          mysql -h 127.0.0.1 -u test_user --password=test_pass -e "CREATE DATABASE IF NOT EXISTS ecommerce;" # Make sure the db name is correct
 
       - name: Fix Case Sensitivity Issues
         run: |
@@ -54,12 +68,15 @@ jobs:
           echo "DB_CONNECTION=mysql" >> .env
           echo "DB_HOST=127.0.0.1" >> .env
           echo "DB_PORT=3306" >> .env
-          echo "DB_DATABASE=test_db" >> .env
+          echo "DB_DATABASE=ecommerce" >> .env # Ensure this matches the database name
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
 
       - name: Generate Application Key
         run: php artisan key:generate
+
+      - name: Check Laravel Database Connection
+        run: php artisan migrate:status || echo "Database connection failed!"
 
       - name: Run migrations
         run: php artisan migrate --force
