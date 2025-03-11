@@ -19,6 +19,9 @@ jobs:
       - name: Fix Case Sensitivity Issues
         run: |
           git ls-files | grep -i 'app/Helper/helpers.php' || echo "File not found in Git index!"
+      
+      - name: Check if helpers.php exists
+        run: ls -lah app/Helper/
 
       - name: Fix Permissions
         run: chmod 644 app/Helper/helpers.php
