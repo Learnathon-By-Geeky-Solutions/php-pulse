@@ -63,6 +63,9 @@ jobs:
       - name: Run PHPUnit Tests (Exclude Specific Tests)
         run: php artisan test --filter="^(?!.*(EmailVerificationTest|RegistrationTest|PasswordConfirmationTest|ExampleTest|ProfileTest)).*"
 
+      - name: List Files in Current Directory (For Debugging)
+        run: ls -alh
+
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
@@ -77,6 +80,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Download Coverage Report
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-report
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
