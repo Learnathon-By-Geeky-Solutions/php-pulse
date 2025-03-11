@@ -59,7 +59,8 @@ jobs:
 
       - name: Run Migrations
         run: php artisan migrate --force
-        - name: Run PHPUnit Tests (Exclude Specific Tests)
+
+      - name: Run PHPUnit Tests (Exclude Specific Tests)
         run: php artisan test --filter="^(?!.*(EmailVerificationTest|RegistrationTest|PasswordConfirmationTest|ExampleTest|ProfileTest)).*"
 
       - name: Upload Coverage Report
@@ -82,7 +83,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-           args: >
+          args: >
             -Dsonar.organization=${{ secrets.SONAR_ORG }}
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.php.coverage.reportPaths=coverage.xml
