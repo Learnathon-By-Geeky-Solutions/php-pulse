@@ -61,9 +61,7 @@ jobs:
         run: php artisan migrate --force
 
      
-      # Use --filter to exclude EmailVerificationTest and RegistrationTest
-      - name: Run PHPUnit Tests (Exclude EmailVerificationTest and RegistrationTest)
-        run: php artisan test --filter="^(?!.*(EmailVerificationTest|RegistrationTest)).*"
+     
 
   sonarcloud:
     name: SonarCloud Analysis
