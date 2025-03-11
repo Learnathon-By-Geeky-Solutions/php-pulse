@@ -3,14 +3,26 @@ name: Laravel CI with SonarCloud
 on:
   push:
     branches:
-      - '**'  # For all branches (including main, develop, feature/*, etc.)
+      - '**'  # সব ব্রাঞ্চের জন্য (main, develop, feature/*, etc.)
   pull_request:
     branches:
-      - '**'  # For pull requests targeting any branch
+      - '**'  # Pull request targeting any branch
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test_db
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_pass
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout Repository
@@ -19,7 +31,7 @@ jobs:
       - name: Fix Case Sensitivity Issues
         run: |
           git ls-files | grep -i 'app/Helper/helpers.php' || echo "File not found in Git index!"
-      
+
       - name: Check if helpers.php exists
         run: ls -lah app/Helper/
 
@@ -34,17 +46,23 @@ jobs:
           composer install --prefer-dist --no-progress --no-interaction
           composer dump-autoload --optimize
 
-      - name: Dump autoload
-        run: composer dump-autoload --optimize
-
-      - name: Run migrations
-        run: php artisan migrate --force
-
       - name: Setup Laravel Environment
         run: cp .env.example .env
 
+      - name: Update .env for MySQL Connection
+        run: |
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=test_db" >> .env
+          echo "DB_USERNAME=test_user" >> .env
+          echo "DB_PASSWORD=test_pass" >> .env
+
       - name: Generate Application Key
         run: php artisan key:generate
+
+      - name: Run migrations
+        run: php artisan migrate --force
 
       - name: Fix PHPUnit Permissions
         run: chmod +x vendor/bin/phpunit
@@ -88,6 +106,7 @@ jobs:
     name: Post Analysis
     runs-on: ubuntu-latest
     needs: sonarcloud
+
     steps:
       - name: Cleanup Temporary Files
         run: |
