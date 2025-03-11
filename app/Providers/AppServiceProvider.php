@@ -23,17 +23,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-         /** set time zone */
-         $generalSetting = GeneralSetting::first();
-         Config::set('app.timezone', $generalSetting->time_zone);
+       // In app/Providers/AppServiceProvider.php
+
+public function boot()
+{
+    // Check if the application is running in CI environment (GitHub Actions, etc.)
+    if (env('CI', false) !== true) {
+        /** set time zone */
+        $generalSetting = GeneralSetting::first();
+        Config::set('app.timezone', $generalSetting->time_zone);
 
         Paginator::useBootstrap();
 
-        
         /** Share variable at all view */
-        View::composer('*', function($view) use ($generalSetting, ){
-            $view->with(['settings' => $generalSetting, ]);
+        View::composer('*', function($view) use ($generalSetting){
+            $view->with(['settings' => $generalSetting]);
         });
+    }
+}
+
     }
     
 }
