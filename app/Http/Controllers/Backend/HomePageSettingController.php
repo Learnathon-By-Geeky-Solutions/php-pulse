@@ -136,8 +136,8 @@ class HomePageSettingController extends Controller
     }
 
 
-<<<<<<< Updated upstream
-=======
+
+
     public function updateProductSliderSectionThree(Request $request)
     {
         $request->validate([
@@ -182,7 +182,7 @@ class HomePageSettingController extends Controller
 
 
 
->>>>>>> Stashed changes
+
 
     
 }

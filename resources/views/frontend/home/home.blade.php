@@ -90,7 +90,7 @@
     <!--============================
         WEEKLY BEST ITEM START  
     ==============================-->
- {{-- @include('frontend.home.section.weekly-best-item') --}}
+ @include('frontend.home.section.weekly-best-item')
     <!--============================
         WEEKLY BEST ITEM END 
     ==============================-->
