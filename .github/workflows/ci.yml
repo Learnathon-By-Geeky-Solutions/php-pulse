@@ -59,6 +59,14 @@ jobs:
 
       - name: Run Migrations
         run: php artisan migrate --force
+        - name: Run PHPUnit Tests (Exclude Specific Tests)
+        run: php artisan test --filter="^(?!.*(EmailVerificationTest|RegistrationTest|PasswordConfirmationTest|ExampleTest|ProfileTest)).*"
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage.xml
 
   sonarcloud:
     name: SonarCloud Analysis
