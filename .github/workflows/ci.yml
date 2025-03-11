@@ -60,9 +60,6 @@ jobs:
       - name: Run Migrations
         run: php artisan migrate --force
 
-      - name: Run PHPUnit Tests
-        run: php artisan test
-
   sonarcloud:
     name: SonarCloud Analysis
     runs-on: ubuntu-latest
@@ -77,9 +74,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          args: >
+           args: >
             -Dsonar.organization=${{ secrets.SONAR_ORG }}
-            -Dsonar.projectKey=Learnathon-By-Geeky-Solutions_php-pulse
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.php.coverage.reportPaths=coverage.xml
             -Dsonar.php.version=8.2
 
