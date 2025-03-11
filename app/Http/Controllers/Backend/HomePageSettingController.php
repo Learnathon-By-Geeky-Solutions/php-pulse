@@ -136,6 +136,53 @@ class HomePageSettingController extends Controller
     }
 
 
+<<<<<<< Updated upstream
+=======
+    public function updateProductSliderSectionThree(Request $request)
+    {
+        $request->validate([
+            'cat_one' => ['required'],
+            'cat_two' => ['required']
+        ], [
+            'cat_one.required' => 'part 1 Category filed is required',
+            'cat_two.required' => 'part 2 Category filed is required'
+        ]);
+
+        $data = [
+            [
+                'category' => $request->cat_one,
+                'sub_category' => $request->sub_cat_one,
+                'child_category' => $request->child_cat_one,
+            ],
+            [
+                'category' => $request->cat_two,
+                'sub_category' => $request->sub_cat_two,
+                'child_category' => $request->child_cat_two,
+            ]
+            
+        ];
+
+        // dd($data);
+
+        HomePageSetting::updateOrCreate(
+            [
+                'key' => 'product_slider_section_three'
+            ],
+            [
+                'value' => json_encode($data)
+            ],
+        );
+
+        
+        toastr('Updated successfully!', 'success', 'success');
+
+        return redirect()->back();
+
+    }
+
+
+
+>>>>>>> Stashed changes
 
     
 }

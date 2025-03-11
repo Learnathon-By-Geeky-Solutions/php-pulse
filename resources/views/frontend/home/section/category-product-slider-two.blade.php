@@ -1,3 +1,4 @@
+ {{-- <div>
 {{-- 
 @php
     $categoryProductSliderSectionOne = json_decode($categoryProductSliderSectionOne->value);
@@ -105,6 +106,8 @@
         </div>
     </div>
 </section>  --}}
+{{-- </div>  --}}
+
 @php
     $categoryProductSliderSectionTwo = json_decode($categoryProductSliderSectionTwo->value);
     $lastKey = [];

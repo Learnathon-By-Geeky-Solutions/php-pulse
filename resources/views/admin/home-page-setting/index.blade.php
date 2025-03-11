@@ -32,9 +32,14 @@
 
                              @include('admin.home-page-setting.sections.product-slider-section-two')
 
+<<<<<<< Updated upstream
                             {{-- @include('admin.home-page-setting.sections.product-slider-section-three')  --}}
 
 
+=======
+                             @include('admin.home-page-setting.sections.product-slider-section-three')
+                              
+>>>>>>> Stashed changes
                           </div>
                         </div>
                       </div>

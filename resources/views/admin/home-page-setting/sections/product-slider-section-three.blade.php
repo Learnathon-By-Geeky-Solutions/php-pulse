@@ -1,5 +1,15 @@
 @php
+<<<<<<< Updated upstream
     $sliderSectionThree = json_decode($sliderSectionThree->value, true);
+=======
+if($sliderSectionThree) {
+    $sliderSectionThree = json_decode($sliderSectionThree->value, associative: true);
+} else {
+    // Handle the case when $sliderSectionOne is null
+    $sliderSectionThree = [];
+}
+@endphp 
+>>>>>>> Stashed changes
 
 @endphp
 <div class="tab-pane fade" id="list-slider-three" role="tabpanel" aria-labelledby="list-settings-list">
