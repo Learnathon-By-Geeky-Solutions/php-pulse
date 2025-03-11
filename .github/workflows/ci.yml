@@ -46,9 +46,7 @@ jobs:
       - name: Run Migrations
         run: php artisan migrate --force
 
-      - name: Verify Database Tables
-        run: |
-          mysql -u test_user -p$MYSQL_PASSWORD -h 127.0.0.1 -e "SHOW TABLES IN ecommerce;"
+     
 
       - name: Run PHPUnit Tests
         run: php artisan test --no-interaction
