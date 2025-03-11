@@ -59,6 +59,7 @@ jobs:
 
       - name: Run Migrations
         run: php artisan migrate --force
+        
 
   sonarcloud:
     name: SonarCloud Analysis

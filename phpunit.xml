@@ -12,11 +12,13 @@
             <directory>tests/Feature</directory>
         </testsuite>
     </testsuites>
+
     <source>
         <include>
             <directory>app</directory>
         </include>
     </source>
+
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
@@ -29,4 +31,11 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
     </php>
+
+    <!-- Add coverage configuration here -->
+    <coverage outputFile="coverage.xml">
+        <include>
+            <directory suffix=".php">./app</directory>
+        </include>
+    </coverage>
 </phpunit>
