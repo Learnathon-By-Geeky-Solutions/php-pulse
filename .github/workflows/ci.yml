@@ -42,8 +42,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          composer install --prefer-dist --no-progress --no-interaction --no-scripts
-          composer dump-autoload --optimize
+          composer install 
+          composer dump-autoload 
 
       - name: Update Composer Dependencies
         run: composer update --no-interaction --prefer-dist
