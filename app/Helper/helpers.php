@@ -37,7 +37,6 @@ function calculateDiscountPercent($originalPrice, $discountPrice) {
 }
 
 
-
 /** Check the product type */
 
 function productType($type)
@@ -90,6 +89,8 @@ function getMainCartTotal(){
         return getCartTotal();
     }
 }
+
+
 
 /** get cart discount */
 function getCartDiscount(){

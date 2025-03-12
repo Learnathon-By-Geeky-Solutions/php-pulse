@@ -28,7 +28,8 @@
                             <i class="fas fa-user-headset"></i>
                         </div>
                         <div class="wsus__call_text">
-                          
+                            <p>example@gmail.com</p>
+                            <p>+569875544220</p>
                         </div>
                     </div>
                     <ul class="wsus__icon_area">
@@ -70,7 +71,6 @@
             <div class="wsus__minicart_btn_area">
                 <a class="common_btn" href="{{route('cart-details')}}">view cart</a>
                 <a class="common_btn" href="{{route('user.checkout')}}">checkout</a>
-
             </div>
         </div>
     </div>
