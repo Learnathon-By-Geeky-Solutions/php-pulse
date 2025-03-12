@@ -26,6 +26,7 @@
                         <div class="col-10">
                           <div class="tab-content" id="nav-tabContent">
 
+<<<<<<< HEAD
                              @include('admin.home-page-setting.sections.popular-category-section')
 
 <<<<<<< Updated upstream
@@ -48,6 +49,17 @@
                              @include('admin.home-page-setting.sections.product-slider-section-three')
                               
 >>>>>>> Stashed changes
+=======
+                            @include('admin.home-page-setting.sections.popular-category-section')
+
+                            {{-- @include('admin.home-page-setting.sections.product-slider-section-one')
+
+                            @include('admin.home-page-setting.sections.product-slider-section-two')
+
+                            @include('admin.home-page-setting.sections.product-slider-section-three') --}}
+
+
+>>>>>>> features/checkout
                           </div>
                         </div>
                       </div>

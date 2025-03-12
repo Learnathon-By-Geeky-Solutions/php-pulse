@@ -1,5 +1,7 @@
 @php
-   $popularCategorySection = json_decode($popularCategorySection->value);
+
+    $popularCategorySection = json_decode($popularCategorySection->value);
+
 @endphp
 
 <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
@@ -419,4 +421,8 @@
         })
     </script>
 @endpush
+<<<<<<< HEAD
  --}}
+=======
+ --}}
+>>>>>>> features/checkout

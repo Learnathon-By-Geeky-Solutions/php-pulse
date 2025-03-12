@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class HomePageSettingController extends Controller
 {
     public function index()
+<<<<<<< HEAD
 
     {
         $categories = Category::where('status', 1)->get();
@@ -19,6 +20,12 @@ class HomePageSettingController extends Controller
         $sliderSectionThree = HomePageSetting::where('key', 'product_slider_section_three')->first();
         return view('admin.home-page-setting.index', compact('categories', 'popularCategorySection', 'sliderSectionOne','sliderSectionTwo', 'sliderSectionThree'));
 
+=======
+    {
+        $categories = Category::where('status', 1)->get();
+        $popularCategorySection = HomePageSetting::where('key', 'popular_category_section')->first();
+        return view('admin.home-page-setting.index', compact('categories', 'popularCategorySection'));
+>>>>>>> features/checkout
     }
 
     public function updatePopularCategorySection(Request $request)
@@ -79,6 +86,7 @@ class HomePageSettingController extends Controller
        
     }
 
+<<<<<<< HEAD
     public function updateProductSliderSectionOn(Request $request)
     {
         $request->validate([
@@ -185,3 +193,9 @@ class HomePageSettingController extends Controller
 
     
 }
+=======
+
+
+    
+}
+>>>>>>> features/checkout

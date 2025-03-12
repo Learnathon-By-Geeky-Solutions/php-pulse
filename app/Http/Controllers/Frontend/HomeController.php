@@ -27,10 +27,7 @@ class HomeController extends Controller
         $categoryProductSliderSectionOne = HomePageSetting::where('key', 'product_slider_section_one')->first();
         $categoryProductSliderSectionTwo = HomePageSetting::where('key', 'product_slider_section_two')->first();
         $categoryProductSliderSectionThree = HomePageSetting::where('key', 'product_slider_section_three')->first();
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
         return view('frontend.home.home',
         compact(
             'sliders',
@@ -42,7 +39,10 @@ class HomeController extends Controller
             'popularCategory',
             'categoryProductSliderSectionOne',
             'categoryProductSliderSectionTwo',
-            'categoryProductSliderSectionThree'
+            'categoryProductSliderSectionThree',
+            'popularCategory',
+            'typeBaseProducts'
+
         )
     );
     }

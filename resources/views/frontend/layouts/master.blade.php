@@ -158,11 +158,15 @@
     @endif
 </script>
 
+<<<<<<< HEAD
 <script>
     $(document).ready(function(){
         $('.auto_click').click();
     })
 </script>
+=======
+
+>>>>>>> features/checkout
 
 @include('frontend.layouts.scripts')
 

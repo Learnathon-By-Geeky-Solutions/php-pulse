@@ -37,6 +37,7 @@ function calculateDiscountPercent($originalPrice, $discountPrice) {
 }
 
 
+
 /** Check the product type */
 
 function productType($type)
