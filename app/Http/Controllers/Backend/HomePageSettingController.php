@@ -16,12 +16,9 @@ class HomePageSettingController extends Controller
         $popularCategorySection = HomePageSetting::where('key', 'popular_category_section')->first();
         $sliderSectionOne = HomePageSetting::where('key', 'product_slider_section_one')->first();
         $sliderSectionTwo = HomePageSetting::where('key', 'product_slider_section_two')->first();
-<<<<<<< Updated upstream
-        return view('admin.home-page-setting.index', compact('categories', 'popularCategorySection', 'sliderSectionOne','sliderSectionTwo'));
-=======
         $sliderSectionThree = HomePageSetting::where('key', 'product_slider_section_three')->first();
         return view('admin.home-page-setting.index', compact('categories', 'popularCategorySection', 'sliderSectionOne','sliderSectionTwo', 'sliderSectionThree'));
->>>>>>> Stashed changes
+
     }
 
     public function updatePopularCategorySection(Request $request)
@@ -141,11 +138,7 @@ class HomePageSettingController extends Controller
     }
 
 
-<<<<<<< Updated upstream
 
-
-=======
->>>>>>> Stashed changes
     public function updateProductSliderSectionThree(Request $request)
     {
         $request->validate([
@@ -188,11 +181,6 @@ class HomePageSettingController extends Controller
 
     }
 
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
 
     
