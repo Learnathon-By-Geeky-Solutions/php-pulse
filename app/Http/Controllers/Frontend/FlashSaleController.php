@@ -11,9 +11,19 @@ use Illuminate\Http\Request;
 class FlashSaleController extends Controller
 {
     public function index()
-    {
-        $flashSaleDate = FlashSale::first();
-        $flashSaleItems = FlashSaleItem::where('status', 1)->orderBy('id', 'ASC')->pluck('product_id')->toArray();
-        return view('frontend.pages.flash-sale', compact('flashSaleDate', 'flashSaleItems'));
-    }
+{
+    $flashSaleDate = FlashSale::first(); // Get first flash sale record
+
+    // Ensure that $flashSaleDate exists before accessing its properties
+    $flashSaleItems = $flashSaleDate ? 
+        FlashSaleItem::where('flash_sale_id', $flashSaleDate->id)
+                     ->where('status', 1)
+                     ->orderBy('id', 'ASC')
+                     ->pluck('product_id')
+                     ->toArray() 
+        : [];
+
+    return view('frontend.pages.flash-sale', compact('flashSaleDate', 'flashSaleItems'));
+}
+
 }

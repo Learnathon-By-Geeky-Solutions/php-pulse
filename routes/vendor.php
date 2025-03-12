@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Backend\VendorController;
+use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\vendorProfileController;
 use App\Http\Controllers\Backend\VendorShopProfileController;
 use App\Http\Controllers\Backend\VendorProductController;
@@ -26,3 +27,8 @@ Route::resource('products-image-gallery', VendorProductImageGalleryController::c
 /** Products variant route */
 Route::put('products-variant/change-status', [VendorProductVariantController::class, 'changeStatus'])->name('products-variant.change-status');
 Route::resource('products-variant', VendorProductVariantController::class);
+
+/** Orders route */
+Route::get('orders', [VendorOrderController::class, 'index'])->name('orders.index');
+Route::get('orders/show/{id}', [VendorOrderController::class, 'show'])->name('orders.show');
+Route::get('orders/status/{id}', [VendorOrderController::class, 'orderStatus'])->name('orders.status');
