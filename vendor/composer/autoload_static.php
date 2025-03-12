@@ -44,7 +44,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         '13906c19e3d8fcd1341b24ed4d51cf72' => __DIR__ . '/..' . '/razorpay/razorpay/Deprecated.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '101b35f72e0ccb1b5ef72aa86bba3ef9' => __DIR__ . '/..' . '/yoeunes/toastr/src/helpers.php',
-        '4636dc85518df5919ed9898effec2b96' => __DIR__ . '/../..' . '/App/Helper/helpers.php',
+        '1f9e54d362959b6a1a8e882d41880168' => __DIR__ . '/../..' . '/app/Helper/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -7556,16 +7556,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Termwind\\ValueObjects\\Style' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Style.php',
         'Termwind\\ValueObjects\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
-        'Tests\\Feature\\Auth\\AuthenticationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/AuthenticationTest.php',
-        'Tests\\Feature\\Auth\\EmailVerificationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/EmailVerificationTest.php',
-        'Tests\\Feature\\Auth\\PasswordConfirmationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/PasswordConfirmationTest.php',
-        'Tests\\Feature\\Auth\\PasswordResetTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/PasswordResetTest.php',
-        'Tests\\Feature\\Auth\\PasswordUpdateTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/PasswordUpdateTest.php',
-        'Tests\\Feature\\Auth\\RegistrationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/RegistrationTest.php',
-        'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
-        'Tests\\Feature\\ProfileTest' => __DIR__ . '/../..' . '/tests/Feature/ProfileTest.php',
+        'Tests\\Feature\\ProductTest' => __DIR__ . '/../..' . '/tests/Feature/ProductTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
-        'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
