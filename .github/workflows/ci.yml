@@ -1,5 +1,5 @@
 name: Laravel CI with SonarCloud
-name: Laravel
+
 
 on:
   push:
