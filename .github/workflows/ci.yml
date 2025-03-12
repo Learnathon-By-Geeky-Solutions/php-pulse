@@ -3,10 +3,10 @@ name: Laravel CI with SonarCloud
 on:
   push:
     branches:
-      - '**'  # For all branches (main, develop, feature/*, etc.)
+      - '**'  # Run on all branches
   pull_request:
     branches:
-      - '**'  # For pull requests targeting any branch
+      - '**'  # Run on all PRs
 
 jobs:
   test:
@@ -37,29 +37,34 @@ jobs:
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
 
-      - name: Clear Composer Cache
-        run: composer clear-cache
+      - name: Install PHP & Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: mbstring, pdo, mysql, xml
+          coverage: xdebug
 
       - name: Install Dependencies
         run: |
-          composer install --prefer-dist --no-progress --no-interaction --no-scripts
+          composer install --prefer-dist --no-progress --no-interaction
           composer dump-autoload --optimize
-
-      - name: Update Composer Dependencies
-        run: composer update --no-interaction --prefer-dist
-
-      - name: Install Missing Package
-        run: composer require php-flasher/flasher-toastr-laravel --with-all-dependencies
-
-      - name: Refresh Composer Autoload
-        run: composer dump-autoload --optimize
 
       - name: Generate Application Key
         run: php artisan key:generate
 
       - name: Run Migrations
         run: php artisan migrate --force
-        
+
+      - name: Run Tests and Generate Coverage
+        run: |
+          mkdir -p tests/reports
+          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage.xml
 
   sonarcloud:
     name: SonarCloud Analysis
@@ -70,14 +75,21 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Download Coverage Report
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-report
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-           args: >
+          args: >
             -Dsonar.organization=${{ secrets.SONAR_ORG }}
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.sources=app
             -Dsonar.php.coverage.reportPaths=coverage.xml
             -Dsonar.php.version=8.2
 
