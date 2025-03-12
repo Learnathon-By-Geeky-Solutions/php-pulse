@@ -89,4 +89,4 @@ jobs:
       - name: Cleanup Temporary Files
         run: |
           echo "Cleaning up temporary files"
-          rm -f coverage.xml amr sob think rekhe update koro 
+          rm -f coverage.xml
