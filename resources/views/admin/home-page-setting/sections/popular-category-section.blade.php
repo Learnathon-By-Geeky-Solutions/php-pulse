@@ -1,4 +1,5 @@
 @php
+
     $popularCategorySection = json_decode($popularCategorySection->value);
 
 @endphp
@@ -420,4 +421,8 @@
         })
     </script>
 @endpush
+<<<<<<< HEAD
  --}}
+=======
+ --}}
+>>>>>>> features/checkout

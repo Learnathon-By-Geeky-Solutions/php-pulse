@@ -33,7 +33,12 @@
     <section id="wsus__daily_deals">
         <div class="container">
             <div class="wsus__offer_details_area">
+<<<<<<< HEAD
+                <div class="row">
+                </div>
+=======
                 <div class="row"></div>
+>>>>>>> 9896ba2c0c8fc8128839649faf2b86c3a3b8e033
 
                 <div class="row">
                     <div class="col-xl-12">
