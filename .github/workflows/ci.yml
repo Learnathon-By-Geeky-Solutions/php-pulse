@@ -1,6 +1,5 @@
 name: Laravel CI with SonarCloud
 
-
 on:
   push:
     branches: [ "*" ]
