@@ -1,74 +1,36 @@
 name: Laravel CI with SonarCloud
+name: Laravel
 
 on:
   push:
-    branches:
-      - '**'  # For all branches (main, develop, feature/*, etc.)
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - '**'  # For pull requests targeting any branch
+    branches: [ "main" ]
 
 jobs:
-  install_dependencies:
+  laravel-tests:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set Up .env for Database
-        run: |
-          cp .env.example .env
-          echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
-          echo "DB_PORT=3306" >> .env
-          echo "DB_DATABASE=ecommerce" >> .env
-          echo "DB_USERNAME=test_user" >> .env
-          echo "DB_PASSWORD=test_pass" >> .env
-
-      - name: Clear Composer Cache
-        run: composer clear-cache
-
-      - name: Install Dependencies
-        run: |
-          curl -sS https://getcomposer.org/installer | php
-          php composer.phar install --no-interaction
-
-  run_tests:
-    runs-on: ubuntu-latest
-    needs: install_dependencies
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Run Tests
-        run: |
-          vendor/bin/phpunit --configuration phpunit.xml
-          vendor/bin/phpunit --coverage-xml=coverage.xml
-
-  sonarcloud_scan:
-    runs-on: ubuntu-latest
-    needs: run_tests
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=${{ secrets.SONAR_ORG }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-            -Dsonar.php.coverage.reportPaths=coverage.xml
-            -Dsonar.php.version=8.2
-
-  post_analysis:
-    runs-on: ubuntu-latest
-    needs: sonarcloud_scan
-    steps:
-      - name: Cleanup Temporary Files
-        run: |
-          echo "Cleaning up temporary files"
-          rm -f coverage.xml
-          rm -rf /tmp/*
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.1'
+    - uses: actions/checkout@v3
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Generate key
+      run: php artisan key:generate
+    - name: Directory Permissions
+      run: chmod -R 777 storage bootstrap/cache
+    - name: Create Database
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+      run: vendor/bin/phpunit
