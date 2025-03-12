@@ -26,7 +26,10 @@
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
+<<<<<<< HEAD
         "phpunit/php-code-coverage": "^10.1",
+=======
+>>>>>>> 9896ba2c0c8fc8128839649faf2b86c3a3b8e033
         "phpunit/phpunit": "10.5",
         "spatie/laravel-ignition": "^2.0"
     },
