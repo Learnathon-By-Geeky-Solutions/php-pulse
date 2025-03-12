@@ -58,13 +58,13 @@ jobs:
       - name: Run Tests and Generate Coverage
         run: |
           mkdir -p tests/reports
-          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.xml
+          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=tests/reports/coverage.xml
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: coverage.xml
+          path: tests/reports/coverage.xml
 
   sonarcloud:
     name: SonarCloud Analysis
@@ -79,11 +79,11 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: coverage-report
-          path: .
+          path: tests/reports/
 
-      - name: Check if Coverage File Exists
+      - name: Verify Coverage File Exists
         run: |
-          if [ -f "coverage.xml" ]; then
+          if [ -f "tests/reports/coverage.xml" ]; then
             echo "✅ coverage.xml found!"
           else
             echo "❌ coverage.xml NOT found!"
@@ -100,7 +100,7 @@ jobs:
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.sources=app
-            -Dsonar.php.coverage.reportPaths=coverage.xml
+            -Dsonar.php.coverage.reportPaths=tests/reports/coverage.xml
             -Dsonar.php.version=8.2
 
   post-analysis:
@@ -112,4 +112,4 @@ jobs:
       - name: Cleanup Temporary Files
         run: |
           echo "Cleaning up temporary files"
-          rm -f coverage.xml
+          rm -rf tests/reports/
