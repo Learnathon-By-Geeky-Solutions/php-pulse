@@ -28,12 +28,20 @@
 
                              @include('admin.home-page-setting.sections.popular-category-section')
 
+<<<<<<< Updated upstream
                              @include('admin.home-page-setting.sections.product-slider-section-one')
+=======
+                            @include('admin.home-page-setting.sections.product-slider-section-one')
+>>>>>>> Stashed changes
 
                              @include('admin.home-page-setting.sections.product-slider-section-two')
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                             {{-- @include('admin.home-page-setting.sections.product-slider-section-three')  --}}
+=======
+                            @include('admin.home-page-setting.sections.product-slider-section-three')
+>>>>>>> Stashed changes
 
 
 =======
