@@ -1,7 +1,11 @@
 @php
+if($sliderSectionThree) {
+    $sliderSectionThree = json_decode($sliderSectionThree->value, associative: true);
+} else {
+    $sliderSectionThree = [];
+}
+@endphp 
 
-    $sliderSectionThree = json_decode($sliderSectionThree->value, true);
-@endphp
 <div class="tab-pane fade" id="list-slider-three" role="tabpanel" aria-labelledby="list-settings-list">
     <div class="card border">
         <div class="card-body">
@@ -19,6 +23,10 @@
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionThree[0]['category'] ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
+
+                                {{-- @foreach ($categories as $category)
+                                    <option {{$category->id == $sliderSectionOne->category ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -46,7 +54,7 @@
                             <label>Child Category</label>
                             <select name="child_cat_one" id="" class="form-control child-category">
                                 <option value="">select</option>
-                                @foreach ($childCategories as $childCategory)
+                                @foreach ($childCategories as $childCategory)   
                                     <option {{$childCategory->id ==  $sliderSectionThree[0]['child_category'] ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
                                 @endforeach
                             </select>
@@ -64,6 +72,10 @@
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionThree[1]['category'] ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
+
+                                {{-- @foreach ($categories as $category)
+                                    <option {{$category->id == $sliderSectionOne->category ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -91,15 +103,13 @@
                             <label>Child Category</label>
                             <select name="child_cat_two" id="" class="form-control child-category">
                                 <option value="">select</option>
-                                @foreach ($childCategories as $childCategory)
+                                @foreach ($childCategories as $childCategory)   
                                     <option {{$childCategory->id ==  $sliderSectionThree[1]['child_category'] ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                 </div>
-
-
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>

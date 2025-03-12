@@ -33,7 +33,7 @@
                 <div class="wsus__section_header for_md">
                     <h3>Popular Categories</h3>
                     <div class="monthly_top_filter">
-<<<<<<< HEAD
+
                         @php $products = []; @endphp
                         @foreach ($popularCategories as $index => $categoryData)
                             @php
@@ -53,13 +53,12 @@
                                 <button class="{{ $loop->first ? 'auto_click active' : '' }}" data-filter=".category-{{$index}}">{{$category->name}}</button>
                             @endif
                         @endforeach
-=======
+
                         <button class=" active" data-filter="*">All</button>
                         @foreach ($popularCategories as $popularCategory)
                         <button data-filter=".cloth">clothing</button>
                         @endforeach
-                       
->>>>>>> features/checkout
+
                     </div>
                 </div>
             </div>
