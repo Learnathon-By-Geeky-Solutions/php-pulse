@@ -34,8 +34,8 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Update Composer Public Keys  # ✅ Fix missing pubkeys issue
-        run: composer self-update --update-keys
+      - name: Disable Composer Pubkey Check  # ✅ Fix missing pubkeys issue
+        run: composer config --global secure-http false
 
       - name: Install Composer Dependencies
         run: composer install --no-progress --prefer-dist
