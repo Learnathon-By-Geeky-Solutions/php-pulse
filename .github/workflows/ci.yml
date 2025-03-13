@@ -16,7 +16,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: ecommerce  # ✅ Changed from studentcrud to ecommerce
+          MYSQL_DATABASE: ecommerce
           MYSQL_USER: test_user
           MYSQL_PASSWORD: test_pass
         ports:
@@ -34,8 +34,19 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Install Composer Dependencies
-        run: composer install --no-progress --prefer-dist
+      - name: Remove Vendor & Reinstall Dependencies
+        run: |
+          rm -rf vendor composer.lock
+          composer install --no-progress --prefer-dist
+
+      - name: Check Composer Issues
+        run: composer diagnose
+
+      - name: Regenerate Composer Autoload
+        run: composer dump-autoload
+
+      - name: Ensure Missing Packages are Installed
+        run: composer require symfony/translation --with-all-dependencies
 
       - name: Setup Environment
         run: |
@@ -44,7 +55,7 @@ jobs:
           echo "DB_CONNECTION=mysql" >> .env
           echo "DB_HOST=127.0.0.1" >> .env
           echo "DB_PORT=3306" >> .env
-          echo "DB_DATABASE=ecommerce" >> .env  # ✅ Changed from studentcrud to ecommerce
+          echo "DB_DATABASE=ecommerce" >> .env
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
           php artisan config:clear
