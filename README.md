@@ -53,7 +53,7 @@ The **Multi-Vendor eCommerce Platform** is a comprehensive solution designed to 
 - **Frontend**: Blade Templates, Boostrape,jQeury,JavaScripy 
 - **Database**: MySQL
 - **Containerization**: Docker with Docker Compose
-- **Server**: Nginx/Apache
+- **Server**: Apache
 
 ---
 
@@ -62,7 +62,7 @@ The **Multi-Vendor eCommerce Platform** is a comprehensive solution designed to 
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/Learnathon-By-Geeky-Solutions/php-pulse.git 
-   cd multi-vendor-ecommerce-platform
+   cd php-pulse
    ```
 2. **Set Up Environment Variables**:
    ```bash
