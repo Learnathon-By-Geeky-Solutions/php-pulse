@@ -17,11 +17,11 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: ecommerce
-          MYSQL_USER: test_user
-          MYSQL_PASSWORD: test_pass
+          MYSQL_USER: root
+          MYSQL_PASSWORD: root  # ✅ Ensure this matches .env
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping -h localhost -u$MYSQL_USER -p$MYSQL_PASSWORD" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: --health-cmd="mysqladmin ping -h localhost -uroot -proot" --health-interval=10s --health-timeout=5s --health-retries=5
 
     steps:
       - name: Checkout Code
@@ -34,23 +34,20 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Disable Composer Pubkey Check  
-        run: composer config --global secure-http false
-
-      - name: Install Composer Dependencies
-        run: composer install --no-progress --prefer-dist
-
       - name: Setup Environment
         run: |
           cp .env.example .env
           php artisan key:generate
           echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env  # ✅ Ensure correct host
           echo "DB_PORT=3306" >> .env
           echo "DB_DATABASE=ecommerce" >> .env
-          echo "DB_USERNAME=test_user" >> .env
-          echo "DB_PASSWORD=test_pass" >> .env
+          echo "DB_USERNAME=root" >> .env  # ✅ Use 'root' as user
+          echo "DB_PASSWORD=root" >> .env  # ✅ Ensure password is set
           php artisan config:clear
+
+      - name: Wait for MySQL to be Ready
+        run: sleep 15  # ✅ Prevents connection failure
 
       - name: Run Migrations
         run: php artisan migrate --force
