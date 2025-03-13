@@ -34,19 +34,11 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Remove Vendor & Reinstall Dependencies
-        run: |
-          rm -rf vendor composer.lock
-          composer install --no-progress --prefer-dist
+      - name: Update Composer Public Keys  # ✅ Fix missing pubkeys issue
+        run: composer self-update --update-keys
 
-      - name: Check Composer Issues
-        run: composer diagnose
-
-      - name: Regenerate Composer Autoload
-        run: composer dump-autoload
-
-      - name: Ensure Missing Packages are Installed
-        run: composer require symfony/translation --with-all-dependencies
+      - name: Install Composer Dependencies
+        run: composer install --no-progress --prefer-dist
 
       - name: Setup Environment
         run: |
