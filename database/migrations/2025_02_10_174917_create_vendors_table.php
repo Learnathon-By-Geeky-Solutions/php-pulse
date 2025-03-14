@@ -11,19 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vendors', function (Blueprint $table) {
-            $table->id();
-            $table->text('banner'); 
-            $table->string('phone'); 
-            $table->string('email')->unique(); 
-            $table->text('address'); 
-            $table->text('description')->nullable(); 
-            $table->string('fb_link')->nullable(); 
-            $table->string('tw_link')->nullable(); 
-            $table->string('instra_link')->nullable(); 
-            $table->integer('user_id'); 
-            $table->timestamps();
-        });
+        public function up(): void
+        {
+            Schema::create('vendors', function (Blueprint $table) {
+                $table->id();
+                $table->text('banner'); 
+                $table->string('phone'); 
+                $table->string('email')->unique(); 
+                $table->text('address'); 
+                $table->text('description')->nullable(); 
+                $table->string('fb_link')->nullable(); 
+                $table->string('tw_link')->nullable(); 
+                $table->string('instra_link')->nullable(); 
+                $table->integer('user_id'); 
+                $table->tinyInteger('status')->default(1);
+                $table->timestamps();
+            });
+        }
+        
     }
 
     /**
