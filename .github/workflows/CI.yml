@@ -54,10 +54,10 @@ jobs:
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
 
-      - name: Run Migrations & Seed Database
-        run: |
-          php artisan migrate --force
-          php artisan db:seed --force
+      - name: Run Migrations 
+        run: php artisan migrate --force
+          
+
 
       - name: Install Node.js dependencies
         run: npm install
