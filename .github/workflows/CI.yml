@@ -15,7 +15,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes  # ✅ Root Password ব্যবহার করছি না
           MYSQL_DATABASE: ecommerce
           MYSQL_USER: test_user
           MYSQL_PASSWORD: test_pass
@@ -36,7 +36,7 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Disable Composer Pubkey Check
+      - name: Disable Composer Pubkey Check  # ✅ Fix missing pubkeys issue
         run: composer config --global secure-http false
 
       - name: Install Composer Dependencies
