@@ -15,13 +15,15 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: 
+          MYSQL_ROOT_PASSWORD: root_password
           MYSQL_DATABASE: ecommerce
           MYSQL_USER: test_user
           MYSQL_PASSWORD: test_pass
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping -h localhost -u$MYSQL_USER -p$MYSQL_PASSWORD" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -u$MYSQL_USER -p$MYSQL_PASSWORD"
+          --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout Code
@@ -34,7 +36,7 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Disable Composer Pubkey Check  # ✅ Fix missing pubkeys issue
+      - name: Disable Composer Pubkey Check
         run: composer config --global secure-http false
 
       - name: Install Composer Dependencies
@@ -57,12 +59,12 @@ jobs:
 
       - name: Run PHPUnit Tests with Coverage
         run: |
-          mkdir -p ecommerce/coverage-report
-          vendor/bin/phpunit --coverage-html=ecommerce/coverage-report
+          mkdir -p coverage-report
+          vendor/bin/phpunit --coverage-html=coverage-report
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: ecommerce/coverage-report/
+          path: coverage-report/
           retention-days: 5
