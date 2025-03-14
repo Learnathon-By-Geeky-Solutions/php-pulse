@@ -42,6 +42,7 @@ jobs:
           composer dump-autoload
           php artisan cache:clear
           php artisan config:clear
+          php artisan optimize:clear
 
       - name: Setup Environment
         run: |
@@ -54,10 +55,10 @@ jobs:
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
 
-      - name: Run Migrations 
-        run: php artisan migrate --force
-          
-
+      - name: Run Migrations & Seeders
+        run: |
+          php artisan migrate --force
+          php artisan db:seed --force
 
       - name: Install Node.js dependencies
         run: npm install
