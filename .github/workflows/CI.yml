@@ -15,7 +15,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes  # ✅ Root Password ব্যবহার করছি না
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: ecommerce
           MYSQL_USER: test_user
           MYSQL_PASSWORD: test_pass
@@ -36,11 +36,12 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Disable Composer Pubkey Check  # ✅ Fix missing pubkeys issue
-        run: composer config --global secure-http false
-
       - name: Install Composer Dependencies
-        run: composer install --no-progress --prefer-dist
+        run: |
+          composer install --no-progress --prefer-dist
+          composer dump-autoload
+          php artisan cache:clear
+          php artisan config:clear
 
       - name: Setup Environment
         run: |
@@ -52,10 +53,17 @@ jobs:
           echo "DB_DATABASE=ecommerce" >> .env
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
-          php artisan config:clear
 
-      - name: Run Migrations
-        run: php artisan migrate --force
+      - name: Run Migrations & Seed Database
+        run: |
+          php artisan migrate --force
+          php artisan db:seed --force
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Build Vite assets
+        run: npm run build
 
       - name: Run PHPUnit Tests with Coverage
         run: |
