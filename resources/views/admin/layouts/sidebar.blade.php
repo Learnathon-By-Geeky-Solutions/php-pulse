@@ -191,8 +191,8 @@
                 <li class="{{ setActive(['admin.footer-grid-two.*']) }}"><a class="nav-link"
                         href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li>
 
-                {{-- <li class="{{ setActive(['admin.footer-grid-three.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li> --}}
+                <li class="{{ setActive(['admin.footer-grid-three.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li>
 
             </ul>
         </li>

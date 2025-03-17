@@ -3,6 +3,8 @@
     $footerSocials = \App\Models\FooterSocial::where('status',1)->get();
     $footerGridTwoLinks= \App\Models\FooterGridTwo::where('status', 1)->get();
     $footerTitle = \App\Models\FooterTitle::first();
+    $footerGridThreeLinks= \App\Models\FooterGridThree::where('status', 1)->get();
+    $footerTitle = \App\Models\FooterTitle::first();
     
     
 @endphp
@@ -36,11 +38,11 @@
             </div>
             <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">
                 <div class="wsus__footer_content">
-                    {{-- <h5>{{$footerTitle->footer_grid_three_title}}</h5> --}}
+                    <h5>{{$footerTitle->footer_grid_three_title}}</h5>
                     <ul class="wsus__footer_menu">
-                        {{-- @foreach ($footerGridThreeLinks as $link)
+                        @foreach ($footerGridThreeLinks as $link)
                             <li><a href="{{$link->url}}"><i class="fas fa-caret-right"></i> {{$link->name}}</a></li>
-                        @endforeach --}}
+                        @endforeach
                     </ul>
                 </div>
             </div>
