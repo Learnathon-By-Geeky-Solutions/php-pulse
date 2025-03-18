@@ -31,6 +31,9 @@
 
                             @include('admin.setting.general-setting')
 
+                            @include('admin.setting.email-configuration')
+
+                            
                           </div>
                         </div>
                       </div>

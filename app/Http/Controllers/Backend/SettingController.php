@@ -19,8 +19,9 @@ class SettingController extends Controller
     public function index()
     {
         $generalSettings = GeneralSetting::first();
+        $emailSettings = EmailConfiguration::first();
         
-        return view('admin.setting.index', compact('generalSettings'));
+        return view('admin.setting.index', compact('generalSettings','emailSettings'));
     }
 
 
@@ -55,6 +56,32 @@ class SettingController extends Controller
 
         return redirect()->back();
 
+    }
+    public function emailConfigSettingUpdate(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'host' => ['required', 'max:200'],
+            'username' => ['required', 'max:200'],
+            'password' => ['required', 'max:200'],
+            'port' => ['required', 'max:200'],
+            'encryption' => ['required', 'max:200'],
+        ]);
+
+         EmailConfiguration::updateOrCreate(
+            ['id' => 1],
+            [
+                'email' => $request->email,
+                'host' => $request->host,
+                'username' => $request->username,
+                'password' => $request->password,
+                'port' => $request->port,
+                'encryption' => $request->encryption,
+            ]
+        );
+
+        toastr('Updates successfully!', 'success', 'success');
+        return redirect()->back();
     }
 
     
