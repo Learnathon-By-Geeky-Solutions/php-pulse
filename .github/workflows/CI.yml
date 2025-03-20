@@ -47,13 +47,13 @@ jobs:
       - name: Setup Environment
         run: |
           cp .env.example .env
+          echo "APP_KEY=$(php artisan key:generate --show)" >> .env
           echo "DB_CONNECTION=mysql" >> .env
           echo "DB_HOST=127.0.0.1" >> .env
           echo "DB_PORT=3306" >> .env
           echo "DB_DATABASE=ecommerce" >> .env
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
-          php artisan key:generate
 
       - name: Run Migrations & Seeders
         run: |
