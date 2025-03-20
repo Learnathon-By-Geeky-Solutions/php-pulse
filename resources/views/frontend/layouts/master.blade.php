@@ -157,6 +157,20 @@
         @endforeach
     @endif
 </script>
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+<script>
+    $(document).ready(function(){
+        $('.auto_click').click();
+    })
+</script>
+=======
+
+>>>>>>> features/checkout
+
+=======
+>>>>>>> 9896ba2c0c8fc8128839649faf2b86c3a3b8e033
 @include('frontend.layouts.scripts')
 
 @stack('scripts')

@@ -25,17 +25,24 @@ class SubscribersController extends Controller
 
         $emails = NewsletterSubscriber::where('is_verified', 1)->pluck('email')->toArray();
 
-        Mail::to($emails)->send(new Newsletter($request->subject, $request->message));
+     
+        if (empty($emails)) {
+            return redirect()->back()->with('error', 'No verified subscribers found to send email.');
+        }
 
-        toastr('Mail has been send', 'success', 'success');
+       
+        Mail::to($emails[0])
+            ->bcc(array_slice($emails, 1))
+            ->send(new Newsletter($request->subject, $request->message));
+
+        toastr('Mail has been sent successfully!', 'success', 'success');
 
         return redirect()->back();
-
     }
 
-    public function destory(string $id)
+    public function destroy(string $id)
     {
-       $subscriber = NewsletterSubscriber::findOrFail($id)->delete();
-       return response(['status' => 'success', 'message' => 'deleted successfully']);
+        NewsletterSubscriber::findOrFail($id)->delete();
+        return response()->json(['status' => 'success', 'message' => 'Subscriber deleted successfully']);
     }
 }

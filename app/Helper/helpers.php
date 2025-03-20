@@ -90,6 +90,8 @@ function getMainCartTotal(){
     }
 }
 
+
+
 /** get cart discount */
 function getCartDiscount(){
     if(Session::has('coupon')){

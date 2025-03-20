@@ -1,15 +1,7 @@
-{{-- @php
-      $sliderSectionTwo = json_decode($sliderSectionTwo->value);
-@endphp --}}
 @php
-if($sliderSectionTwo) {
     $sliderSectionTwo = json_decode($sliderSectionTwo->value);
-} else {
-    // Handle the case when $sliderSectionOne is null
-    $sliderSectionTwo = [];
-}
-@endphp 
 
+@endphp
 <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
     <div class="card border">
         <div class="card-body">
@@ -26,9 +18,6 @@ if($sliderSectionTwo) {
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionTwo->category ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
-                                {{-- @foreach ($categories as $category)
-                                    <option {{$category->id == $sliderSectionOne->category ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -56,7 +45,7 @@ if($sliderSectionTwo) {
                             <label>Child Category</label>
                             <select name="child_cat_one" id="" class="form-control child-category">
                                 <option value="">select</option>
-                                @foreach ($childCategories as $childCategory)   
+                                @foreach ($childCategories as $childCategory)
                                     <option {{$childCategory->id ==  $sliderSectionTwo->child_category ? 'selected' : ''}} value="{{$childCategory->id}}">{{ $childCategory->name }}</option>
                                 @endforeach
                             </select>

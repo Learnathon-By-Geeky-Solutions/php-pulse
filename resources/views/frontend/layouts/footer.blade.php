@@ -33,7 +33,7 @@
             </div>
             <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">
                 <div class="wsus__footer_content">
-                    <h5>{{$footerTitle->footer_grid_two_title}}</h5>
+                    <h5>{{optional($footerTitle)->footer_grid_two_title}}</h5>
                     <ul class="wsus__footer_menu">
                         @foreach ($footerGridTwoLinks as $link)
                             <li><a href="{{$link->url}}"><i class="fas fa-caret-right"></i> {{$link->name}}</a></li>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">
                 <div class="wsus__footer_content">
-                    <h5>{{$footerTitle->footer_grid_three_title}}</h5>
+                    <h5>{{optional($footerTitle)->footer_grid_three_title}}</h5>
                     <ul class="wsus__footer_menu">
                         @foreach ($footerGridThreeLinks as $link)
                             <li><a href="{{$link->url}}"><i class="fas fa-caret-right"></i> {{$link->name}}</a></li>
