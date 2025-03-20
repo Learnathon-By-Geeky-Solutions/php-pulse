@@ -1,96 +1,49 @@
-name: Laravel CI with SonarCloud
+name: SonarCloud Scan
 
 on:
   push:
     branches:
-      - '**'  # For all branches (main, develop, feature/*, etc.)
+      - '**'
   pull_request:
     branches:
-      - '**'  # For pull requests targeting any branch
+      - '**'
 
 jobs:
-  test:
+  sonarcloud:
+    name: SonarCloud Scan
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: ecommerce
-          MYSQL_USER: test_user
-          MYSQL_PASSWORD: test_pass
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set Up .env for Database
-        run: |
-          cp .env.example .env
-          echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
-          echo "DB_PORT=3306" >> .env
-          echo "DB_DATABASE=ecommerce" >> .env
-          echo "DB_USERNAME=test_user" >> .env
-          echo "DB_PASSWORD=test_pass" >> .env
-
-      - name: Clear Composer Cache
-        run: composer clear-cache
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
 
       - name: Install Dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist
+
+      - name: Run PHPUnit tests with coverage
         run: |
-          composer install --prefer-dist --no-progress --no-interaction --no-scripts
-          composer dump-autoload --optimize
-
-      - name: Update Composer Dependencies
-        run: composer update --no-interaction --prefer-dist
-
-      - name: Install Missing Package
-        run: composer require php-flasher/flasher-toastr-laravel --with-all-dependencies
-
-      - name: Refresh Composer Autoload
-        run: composer dump-autoload --optimize
-
-      - name: Generate Application Key
-        run: php artisan key:generate
-
-      - name: Run Migrations
-        run: php artisan migrate --force
-
-      - name: Run Tests with Coverage
-        run: vendor/bin/phpunit --coverage-clover=tests/reports/coverage.xml
-
-  sonarcloud:
-    name: SonarCloud Analysis
-    runs-on: ubuntu-latest
-    needs: test
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+          mkdir -p tests/reports
+          vendor/bin/phpunit --coverage-clover tests/reports/coverage.xml
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-           args: >
-            -Dsonar.organization=${{ secrets.SONAR_ORG }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+          args: >
+            -Dsonar.organization=learnathon-by-geeky-solutions
+            -Dsonar.projectKey=Learnathon-By-Geeky-Solutions_php-pulse
+            -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.php.coverage.reportPaths=tests/reports/coverage.xml
-            -Dsonar.php.version=8.2
-
-  post-analysis:
-    name: Post Analysis
-    runs-on: ubuntu-latest
-    needs: sonarcloud
-
-    steps:
-      - name: Cleanup Temporary Files
-        run: |
-          echo "Cleaning up temporary files"
-          rm -f tests/reports/coverage.xml
-          rm -rf /tmp/*
+            -Dsonar.sources=app
+            -Dsonar.exclusions=**/vendor/**,**/node_modules/**,**/tests/**,**/public/**
+            -Dsonar.tests=tests
+            -Dsonar.test.inclusions=tests/**/*.php
+            -Dsonar.language=php
+            -Dsonar.php.file.suffixes=.php
+            -Dsonar.verbose=true
