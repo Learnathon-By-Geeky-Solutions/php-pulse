@@ -1,19 +1,23 @@
 @php
-    $categoryProductSliderSectionOne = json_decode($categoryProductSliderSectionOne->value, true); // Ensure an associative array
+    if (!isset($categoryProductSliderSectionOne) || is_null($categoryProductSliderSectionOne)) {
+        $categoryProductSliderSectionOne = (object) ['value' => json_encode([])];
+    }
+
+    $categoryProductSliderSectionOne = json_decode($categoryProductSliderSectionOne->value ?? '{}', true);
     $lastKey = [];
 
     foreach ($categoryProductSliderSectionOne as $key => $category) {
         if ($category === null) {
             break;
         }
-        $lastKey = [$key => $category]; // Overwrites with the last valid key-value pair
+        $lastKey = [$key => $category];
     }
 
-    $products = collect(); // Initialize as an empty collection
-    $category = null; // Initialize category to avoid errors
+    $products = collect();
+    $category = null;
 
     if (!empty($lastKey)) {
-        $keyName = array_keys($lastKey)[0]; // Safe access
+        $keyName = array_keys($lastKey)[0];
 
         if ($keyName === 'category') {
             $category = \App\Models\Category::find($lastKey[$keyName]);
