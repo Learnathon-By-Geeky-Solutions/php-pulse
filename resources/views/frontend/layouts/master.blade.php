@@ -167,7 +167,6 @@
 </script>
 =======
 
->>>>>>> features/checkout
 
 =======
 >>>>>>> 9896ba2c0c8fc8128839649faf2b86c3a3b8e033

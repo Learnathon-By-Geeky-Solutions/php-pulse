@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-{{-- <div class="tab-pane fade" id="v-pills-razorpay" role="tabpanel"
-=======
-<div class="tab-pane fade" id="v-pills-razorpay" role="tabpanel"
->>>>>>> features/checkout
+
 aria-labelledby="v-pills-home-tab">
     <div class="row">
         <div class="col-xl-12 m-auto">
@@ -32,8 +28,3 @@ aria-labelledby="v-pills-home-tab">
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</div> --}}
-=======
-</div>
->>>>>>> features/checkout

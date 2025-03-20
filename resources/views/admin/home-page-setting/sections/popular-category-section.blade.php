@@ -421,8 +421,4 @@
         })
     </script>
 @endpush
-<<<<<<< HEAD
- --}}
-=======
- --}}
->>>>>>> features/checkout
+
