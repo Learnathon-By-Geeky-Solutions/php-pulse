@@ -10,33 +10,29 @@ use Illuminate\Http\Request;
 class HomePageSettingController extends Controller
 {
     public function index()
-<<<<<<< HEAD
-
     {
         $categories = Category::where('status', 1)->get();
         $popularCategorySection = HomePageSetting::where('key', 'popular_category_section')->first();
         $sliderSectionOne = HomePageSetting::where('key', 'product_slider_section_one')->first();
         $sliderSectionTwo = HomePageSetting::where('key', 'product_slider_section_two')->first();
         $sliderSectionThree = HomePageSetting::where('key', 'product_slider_section_three')->first();
-        return view('admin.home-page-setting.index', compact('categories', 'popularCategorySection', 'sliderSectionOne','sliderSectionTwo', 'sliderSectionThree'));
 
-=======
-    {
-        $categories = Category::where('status', 1)->get();
-        $popularCategorySection = HomePageSetting::where('key', 'popular_category_section')->first();
-        return view('admin.home-page-setting.index', compact('categories', 'popularCategorySection'));
->>>>>>> features/checkout
+        return view('admin.home-page-setting.index', compact(
+            'categories',
+            'popularCategorySection',
+            'sliderSectionOne',
+            'sliderSectionTwo',
+            'sliderSectionThree'
+        ));
     }
 
     public function updatePopularCategorySection(Request $request)
     {
-        // // dd($request->all());
         $request->validate([
             'cat_one' => ['required'],
             'cat_two' => ['required'],
             'cat_three' => ['required'],
             'cat_four' => ['required']
-
         ], [
             'cat_one.required' => 'Category one filed is required',
             'cat_two.required' => 'Category two filed is required',
@@ -44,7 +40,6 @@ class HomePageSettingController extends Controller
             'cat_four.required' => 'Category four filed is required',
         ]);
 
-        // // dd($request->all());
         $data = [
             [
                 'category' => $request->cat_one,
@@ -68,25 +63,15 @@ class HomePageSettingController extends Controller
             ]
         ];
 
-        // dd($data);
-
         HomePageSetting::updateOrCreate(
-            [
-                'key' => 'popular_category_section'
-            ],
-            [
-                'value' => json_encode($data)
-            ]
+            ['key' => 'popular_category_section'],
+            ['value' => json_encode($data)]
         );
 
-        // return redirect()->back()->with('success', 'Popular Category Section Updated Successfully!');
-        toastr('Updated successfully!', 'scucess', 'success');
+        toastr('Updated successfully!', 'success', 'success');
         return redirect()->back();
-
-       
     }
 
-<<<<<<< HEAD
     public function updateProductSliderSectionOn(Request $request)
     {
         $request->validate([
@@ -96,24 +81,18 @@ class HomePageSettingController extends Controller
         ]);
 
         $data = [
-                'category' => $request->cat_one,
-                'sub_category' => $request->sub_cat_one,
-                'child_category' => $request->child_cat_one,
-            ];
+            'category' => $request->cat_one,
+            'sub_category' => $request->sub_cat_one,
+            'child_category' => $request->child_cat_one,
+        ];
 
         HomePageSetting::updateOrCreate(
-            [
-                'key' => 'product_slider_section_one'
-            ],
-            [
-                'value' => json_encode($data)
-            ]
+            ['key' => 'product_slider_section_one'],
+            ['value' => json_encode($data)]
         );
 
         toastr('Updated successfully!', 'success', 'success');
-
         return redirect()->back();
-
     }
 
     public function updateProductSliderSectionTwo(Request $request)
@@ -125,27 +104,19 @@ class HomePageSettingController extends Controller
         ]);
 
         $data = [
-                'category' => $request->cat_one,
-                'sub_category' => $request->sub_cat_one,
-                'child_category' => $request->child_cat_one,
-            ];
+            'category' => $request->cat_one,
+            'sub_category' => $request->sub_cat_one,
+            'child_category' => $request->child_cat_one,
+        ];
 
         HomePageSetting::updateOrCreate(
-            [
-                'key' => 'product_slider_section_two'
-            ],
-            [
-                'value' => json_encode($data)
-            ]
+            ['key' => 'product_slider_section_two'],
+            ['value' => json_encode($data)]
         );
 
         toastr('Updated successfully!', 'success', 'success');
-
         return redirect()->back();
-
     }
-
-
 
     public function updateProductSliderSectionThree(Request $request)
     {
@@ -153,8 +124,8 @@ class HomePageSettingController extends Controller
             'cat_one' => ['required'],
             'cat_two' => ['required']
         ], [
-            'cat_one.required' => 'part 1 Category filed is required',
-            'cat_two.required' => 'part 2 Category filed is required'
+            'cat_one.required' => 'Part 1 Category filed is required',
+            'cat_two.required' => 'Part 2 Category filed is required'
         ]);
 
         $data = [
@@ -168,34 +139,14 @@ class HomePageSettingController extends Controller
                 'sub_category' => $request->sub_cat_two,
                 'child_category' => $request->child_cat_two,
             ]
-            
         ];
 
-        // dd($data);
-
         HomePageSetting::updateOrCreate(
-            [
-                'key' => 'product_slider_section_three'
-            ],
-            [
-                'value' => json_encode($data)
-            ],
+            ['key' => 'product_slider_section_three'],
+            ['value' => json_encode($data)]
         );
 
-        
         toastr('Updated successfully!', 'success', 'success');
-
         return redirect()->back();
-
     }
-
-
-
-    
 }
-=======
-
-
-    
-}
->>>>>>> features/checkout

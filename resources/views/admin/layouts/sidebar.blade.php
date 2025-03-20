@@ -191,13 +191,16 @@
                 <li class="{{ setActive(['admin.footer-socials.*']) }}"><a class="nav-link"
                         href="{{ route('admin.footer-socials.index') }}">Footer Socials</a></li>
 
-                {{-- <li class="{{ setActive(['admin.footer-grid-two.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li> --}}
+                <li class="{{ setActive(['admin.footer-grid-two.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li>
 
-                {{-- <li class="{{ setActive(['admin.footer-grid-three.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li> --}}
+                <li class="{{ setActive(['admin.footer-grid-three.*']) }}"><a class="nav-link"
+                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li>
 
             </ul>
+            <li><a class="nav-link {{ setActive(['admin.subscribers.*']) }}"
+                href="{{ route('admin.subscribers.index') }}"><i class="fas fa-user"></i>
+                <span>Subscribers</span></a></li>
         </li>
             <li><a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-wrench"></i>
                     <span>Settings</span></a></li>
