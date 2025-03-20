@@ -47,7 +47,7 @@ jobs:
       - name: Setup Environment
         run: |
           cp .env.example .env
-          echo "APP_KEY=$(php artisan key:generate --show)" >> .env
+          php artisan key:generate
           echo "DB_CONNECTION=mysql" >> .env
           echo "DB_HOST=127.0.0.1" >> .env
           echo "DB_PORT=3306" >> .env
@@ -81,7 +81,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-           - name: SonarCloud Scan
+      - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -96,7 +96,6 @@ jobs:
             -Dsonar.exclusions=**/vendor/**,**/node_modules/**,**/tests/**,**/public/**
             -Dsonar.tests=tests
             -Dsonar.test.inclusions=tests/**/*.php
-
 
   post-analysis:
     name: Post Analysis Cleanup
