@@ -23,21 +23,7 @@
         $products = \App\Models\Product::where('child_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
     }
 
-    // // যদি $category null না হয় তাহলে query চালানো হবে
-    // if ($category) {
-    //     $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-    //         ->with(['variants', 'category', 'productImageGalleries'])
-    //         ->when(array_keys($lastKey)[0] === 'category', function ($query) use ($category) {
-    //             return $query->where('category_id', $category->id);
-    //         })
-    //         ->when(array_keys($lastKey)[0] === 'sub_category', function ($query) use ($category) {
-    //             return $query->where('sub_category_id', $category->id);
-    //         })
-    //         ->when(array_keys($lastKey)[0] === 'child_category', function ($query) use ($category) {
-    //             return $query->where('child_category_id', $category->id);
-    //         })
-    //         ->orderBy('id', 'DESC')->take(12)->get();
-    // }
+    
 @endphp
 
 
@@ -122,3 +108,6 @@
         </div>
     </div>
 </section>
+@foreach ($products as $product)
+    
+@endforeach
