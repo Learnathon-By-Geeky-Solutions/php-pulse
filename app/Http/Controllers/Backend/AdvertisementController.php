@@ -3,11 +3,74 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertisement;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 
 class AdvertisementController extends Controller
 {
+
+    use ImageUploadTrait;
     public function index(){
-        return view('admin.advertisement.index');
+        $homepage_secion_banner_one = Advertisement::where('key', 'homepage_secion_banner_one')->first();
+        $homepage_secion_banner_one = json_decode($homepage_secion_banner_one->value);
+
+        // $homepage_secion_banner_two = Adverisement::where('key', 'homepage_secion_banner_two')->first();
+        // $homepage_secion_banner_two = json_decode($homepage_secion_banner_two?->value);
+
+        // $homepage_secion_banner_three = Adverisement::where('key', 'homepage_secion_banner_three')->first();
+        // $homepage_secion_banner_three = json_decode($homepage_secion_banner_three?->value);
+
+        // $homepage_secion_banner_four = Adverisement::where('key', 'homepage_secion_banner_four')->first();
+        // $homepage_secion_banner_four = json_decode($homepage_secion_banner_four?->value);
+
+        // $productpage_banner_section = Adverisement::where('key', 'productpage_banner_section')->first();
+        // $productpage_banner_section = json_decode($productpage_banner_section?->value);
+
+        // $cartpage_banner_section = Adverisement::where('key', 'cartpage_banner_section')->first();
+        // $cartpage_banner_section = json_decode($cartpage_banner_section?->value);
+
+
+        return view('admin.advertisement.index', compact('homepage_secion_banner_one'
+            //  'homepage_secion_banner_two',
+            //  'homepage_secion_banner_three',
+            //  'homepage_secion_banner_four',
+            //  'productpage_banner_section',
+            //  'cartpage_banner_section'
+        ));
+    }
+    public function homepageBannerSecionOne(Request $request)
+    {
+       $request->validate([
+        'banner_image' => ['image'],
+        'banner_url' => ['required']
+       ]);
+
+        /** Handle the image upload */
+        $imagePath = $this->updateImage($request, 'banner_image', 'uploads');
+
+        $value = [
+            'banner_one' => [
+                'banner_url' => $request->banner_url,
+                'status' => $request->status == 'on' ? 1 : 0
+            ]
+        ];
+        if(!empty($imagePath)){
+            $value['banner_one']['banner_image'] = $imagePath;
+        }else {
+
+            $value['banner_one']['banner_image'] = $request->banner_old_image;
+        }
+
+        $value = json_encode($value);
+        Advertisement::updateOrCreate(
+            ['key' => 'homepage_secion_banner_one'],
+            ['value' => $value]
+        );
+
+        toastr('Updated Successfully!', 'success', 'success');
+
+        return redirect()->back();
+
     }
 }
