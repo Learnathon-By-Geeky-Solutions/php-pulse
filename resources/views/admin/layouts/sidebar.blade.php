@@ -197,7 +197,7 @@
             </ul>
         </li>
         
-        <li><a class="nav-link {{ setActive(['admin.advertisement.*']) }}"
+        <li><a class="nav-link {{ setActive(route: ['admin.advertisement.*']) }}"
             href="{{ route('admin.advertisement.index') }}"><i class="fas fa-user"></i>
             <span>Advertisement</span></a></li>
 

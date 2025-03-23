@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 
-@section('content')
+@section(section: 'content')
       <!-- Main Content -->
         <section class="section">
           <div class="section-header">
@@ -35,8 +35,6 @@
                             @include('admin.advertisement.homepage-banner-three')
 
                             @include('admin.advertisement.homepage-banner-four')
-
-
                             
                           </div>
                         </div>
