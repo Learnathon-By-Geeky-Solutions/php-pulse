@@ -21,7 +21,8 @@
                             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Homepage banner section Two</a>
                             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab">Homepage banner section Three</a>
                             <a class="list-group-item list-group-item-action" id="list-setting-list" data-toggle="list" href="#list-setting" role="tab">Homepage banner section Four</a>
-
+                            <a class="list-group-item list-group-item-action" id="list-product-list" data-toggle="list" href="#list-product" role="tab">Products page banner</a>
+                            <a class="list-group-item list-group-item-action" id="list-cart-list" data-toggle="list" href="#list-cart" role="tab">Cart page banner</a>
 
                           </div>
                         </div>
@@ -35,6 +36,10 @@
                             @include('admin.advertisement.homepage-banner-three')
 
                             @include('admin.advertisement.homepage-banner-four')
+
+                            @include('admin.advertisement.product-page-banner')
+
+                            @include('admin.advertisement.cart-page-banner')
                             
                           </div>
                         </div>
