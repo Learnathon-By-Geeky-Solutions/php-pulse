@@ -81,7 +81,7 @@
     <!--============================
         LARGE BANNER  START  
     ==============================-->
-   {{-- @include('frontend.home.section.large-banner') --}}
+   @include('frontend.home.section.large-banner')
     <!--============================
         LARGE BANNER  END  
     ==============================-->
