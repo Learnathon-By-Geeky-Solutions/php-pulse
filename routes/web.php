@@ -91,7 +91,9 @@ Route::group([
 
     Route::get('reviews', [ReviewController::class, 'index'])->name('review.index');
 
-
+    /** product review routes */
+    Route::post('review', [ReviewController::class, 'create'])->name('review.create');
+    
     /** Checkout routes */
     Route::resource('checkout', controller: UserAddressController::class);
     Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
