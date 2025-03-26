@@ -1,4 +1,4 @@
-
+{{-- 
 aria-labelledby="v-pills-home-tab">
     <div class="row">
         <div class="col-xl-12 m-auto">
@@ -27,4 +27,4 @@ aria-labelledby="v-pills-home-tab">
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}

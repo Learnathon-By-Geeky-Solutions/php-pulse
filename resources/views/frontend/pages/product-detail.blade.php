@@ -203,7 +203,7 @@
                                             <div class="col-xl-6 col-xxl-7 col-md-6 mt-4 mt-md-0">
                                                 <div class="wsus__pro_det_vendor_text">
                                                     {{-- <h4>{{$product->vendor->user->name}}</h4> --}}
-                                                    {{-- <p class="rating">
+                                                    <p class="rating">
                                                         @php
                                                         $avgRating = $product->reviews()->avg('rating');
                                                         $fullRating = round($avgRating);
@@ -218,7 +218,7 @@
                                                         @endfor
 
                                                         <span>({{count($product->reviews)}} review)</span>
-                                                    </p> --}}
+                                                    </p>
                                                     <p><span>Store Name:</span> {{$product->vendor->shop_name}}</p>
                                                     <p><span>Address:</span> {{$product->vendor->address}}</p>
                                                     <p><span>Phone:</span> {{$product->vendor->phone}}</p>
@@ -240,9 +240,9 @@
                                         <div class="wsus__pro_det_review_single">
                                             <div class="row">
                                                 <div class="col-xl-8 col-lg-7">
-                                                    {{-- <div class="wsus__comment_area">
-                                                        <h4>Reviews <span>{{count($reviews)}}</span></h4>
-                                                        @foreach ($reviews as $review)
+                                                    <div class="wsus__comment_area">
+                                                         <h4>Reviews <span>{{count($reviews)}}</span></h4> 
+                                                         @foreach ($reviews as $review)
                                                         <div class="wsus__main_comment">
                                                             <div class="wsus__comment_img">
                                                                 <img src="{{asset($review->user->image)}}" alt="user"
@@ -267,16 +267,16 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                        @endforeach
+                                                        @endforeach 
 
                                                         <div class="mt-5">
                                                             @if ($reviews->hasPages())
                                                                 {{$reviews->links()}}
                                                             @endif
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                 </div>
-                                                {{-- <div class="col-xl-4 col-lg-5 mt-4 mt-lg-0">
+                                                 <div class="col-xl-4 col-lg-5 mt-4 mt-lg-0">
                                                     @auth
                                                     @php
                                                         $isBrought = false;
@@ -293,7 +293,7 @@
 
                                                     @if ($isBrought === true)
                                                     <div class="wsus__post_comment rev_mar" id="sticky_sidebar3">
-                                                        <h4>write a Review</h4>
+                                                       <h4>write a Review</h4>
                                                         <form action="{{route('user.review.create')}}" enctype="multipart/form-data" method="POST">
                                                             @csrf
                                                             <p class="rating">
@@ -334,12 +334,12 @@
 
                                                             <button class="common_btn" type="submit">submit
                                                                 review</button>
-                                                        </form>
+                                                        </form> 
                                                     </div>
                                                     @endif
                                                     @endauth
 
-                                                </div> --}}
+                                                </div> 
                                             </div>
                                         </div>
                                     </div>
