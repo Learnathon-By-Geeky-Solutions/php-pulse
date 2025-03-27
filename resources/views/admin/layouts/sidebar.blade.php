@@ -119,8 +119,8 @@
                     <li class="{{ setActive(['admin.seller-pending-products.*']) }}"><a class="nav-link"
                             href="{{ route('admin.seller-pending-products.index') }}">Seller Pending Products</a></li>
 
-                    {{-- <li class="{{ setActive(['admin.reviews.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.reviews.index') }}">Product Reviews</a></li> --}}
+                    <li class="{{ setActive(['admin.reviews.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.reviews.index') }}">Product Reviews</a></li>
 
                 </ul>
             </li>
