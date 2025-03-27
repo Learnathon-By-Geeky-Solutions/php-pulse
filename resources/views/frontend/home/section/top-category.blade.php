@@ -56,11 +56,13 @@
                                     <div class="wsus__hot_deals__single_text">
                                         <h5>{{ Str::limit($item->name, 20) }}</h5>
                                         <p class="wsus__rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $item->reviews_avg_rating)
+                                                <i class="fas fa-star"></i>
+                                                @else
+                                                <i class="far fa-star"></i>
+                                                @endif
+                                            @endfor
                                         </p>
                                         <p class="wsus__tk">
                                             @if (checkDiscount($item))
