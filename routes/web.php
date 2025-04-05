@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\UserDashboardController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\NewsletterController;
+use App\Http\Controllers\Frontend\UserVendorReqeustController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\AdminController;
@@ -93,6 +94,11 @@ Route::group([
     Route::get('wishlist/remove-product/{id}', [WishlistController::class, 'destory'])->name('wishlist.destory');
 
     Route::get('reviews', [ReviewController::class, 'index'])->name('review.index');
+
+
+    /** Vendor request route */
+    Route::get('vendor-request', [UserVendorReqeustController::class, 'index'])->name('vendor-request.index');
+    Route::post('vendor-request', [UserVendorReqeustController::class, 'create'])->name('vendor-request.create');
 
     /** product review routes */
     Route::post('review', [ReviewController::class, 'create'])->name('review.create');
