@@ -10,6 +10,10 @@
           <i class="fas fa-tachometer"></i> Dashboard
       </a>
   </li>
+  @if (auth()->user()->role === 'vendor')
+      <li><a class="{{setActive(['vendor.dashboard'])}}" href="{{route('vendor.dashboard')}}"><i class="fas fa-tachometer"></i>Go to Vendor Dashboard</a></li>
+  @endif
+
   <li><a class="{{setActive(['user.orders.*'])}}" href="{{route('user.orders.index')}}"><i class="fas fa-list-ul"></i> Orders</a></li>
     <li><a href="{{route('review.index')}}"><i class="far fa-star"></i> Reviews</a></li>
     <li><a href="dsahboard_wishlist.html"><i class="far fa-heart"></i> Wishlist</a></li>
