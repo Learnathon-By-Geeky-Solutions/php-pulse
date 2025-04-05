@@ -66,6 +66,9 @@ Route::get('reviews', [ReviewController::class, 'index'])->name('review.index');
 Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
 Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVarify'])->name('newsletter-verify');
 
+/** vendor page routes */
+Route::get('vendor', [HomeController::class, 'vendorPage'])->name('vendor.index');
+Route::get('vendor-product/{id}', [HomeController::class, 'vendorProductsPage'])->name('vendor.products');
 
 require __DIR__ . '/auth.php';
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');

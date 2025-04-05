@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
+use App\Models\Category;
 use App\Models\FlashSale;
 use App\Models\FlashSaleItem;
 use App\Models\HomePageSetting;
@@ -78,7 +79,20 @@ class HomeController extends Controller
     }
     public function vendorPage()
     {
-       $vendors = Vendor::where('status',1)->paginate(20);
+       $vendors = Vendor::paginate(20);
        return view('frontend.pages.vendor', compact('vendors'));
+    }
+
+    public function vendorProductsPage(string $id)
+    {
+
+        $products = Product::where(['status' => 1, 'is_approved' => 1, 'vendor_id' => $id])->orderBy('id', 'DESC')->paginate(12);
+
+        $categories = Category::where(['status' => 1])->get();
+        $brands = Brand::where(['status' => 1])->get();
+        $vendor = Vendor::findOrFail($id);
+
+        return view('frontend.pages.vendor-product', compact('products', 'categories', 'brands', 'vendor'));
+
     }
 }
