@@ -172,6 +172,8 @@
                         href="{{ route('admin.vendor-condition.index') }}">Vendor Condition</a></li>
                     <li class="{{ setActive(['admin.about.index']) }}"><a class="nav-link"
                         href="{{ route('admin.about.index') }}">About page</a></li>
+                    <li class="{{ setActive(['admin.terms-and-conditions.index']) }}"><a class="nav-link"
+                        href="{{ route('admin.terms-and-conditions.index') }}">Terms Page</a></li>
 
                 </ul>
 

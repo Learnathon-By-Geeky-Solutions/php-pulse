@@ -75,6 +75,9 @@ Route::get('vendor-product/{id}', [HomeController::class, 'vendorProductsPage'])
 /** about page route */
 Route::get('about', [PageController::class, 'about'])->name('about');
 
+/** terms and conditions page route */
+Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');
+
 require __DIR__ . '/auth.php';
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
 
