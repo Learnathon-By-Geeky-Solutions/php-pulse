@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\ProductTrackController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\UserDashboardController;
@@ -74,6 +75,9 @@ Route::get('vendor-product/{id}', [HomeController::class, 'vendorProductsPage'])
 
 /** about page route */
 Route::get('about', [PageController::class, 'about'])->name('about');
+
+/** Product track route */
+Route::get('product-traking', [ProductTrackController::class, 'index'])->name('product-traking.index');
 
 /** terms and conditions page route */
 Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');
