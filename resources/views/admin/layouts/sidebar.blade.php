@@ -2,7 +2,7 @@
     <aside id="sidebar-wrapper">
         <!-- Sidebar Brand -->
         <div class="sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}"">    {{$settings->site_name}}</a>
+            <a href="{{ route('admin.dashboard') }}">    {{$settings->site_name}}</a>
         </div>
         <div class=" sidebar-brand sidebar-brand-sm">
                 <a href="{{ route('admin.dashboard') }}">
@@ -223,8 +223,8 @@
                     <li class="{{ setActive(['admin.vendor-requests.index']) }}"><a class="nav-link"
                             href="{{ route('admin.vendor-requests.index') }}">Pending vendors</a></li>
 
-                    {{-- <li class="{{ setActive(['admin.admin-list.index']) }}"><a class="nav-link"
-                            href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li> --}}
+                    <li class="{{ setActive(['admin.admin-list.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li>
 
                     <li class="{{ setActive(['admin.manage-user.index']) }}"><a class="nav-link"
                             href="{{ route('admin.manage-user.index') }}">Manage user</a></li>
