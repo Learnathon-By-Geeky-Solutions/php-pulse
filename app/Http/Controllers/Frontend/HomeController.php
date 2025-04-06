@@ -45,6 +45,8 @@ class HomeController extends Controller
         $homepage_secion_banner_four = json_decode($homepage_secion_banner_four?->value);
 
         
+
+        
         return view('frontend.home.home',
         compact(
             'sliders',
