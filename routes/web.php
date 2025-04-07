@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FlashSaleController;
 use App\Http\Controllers\Frontend\FrontendProductController;
@@ -78,6 +79,11 @@ Route::get('about', [PageController::class, 'about'])->name('about');
 
 /** Product track route */
 Route::get('product-traking', [ProductTrackController::class, 'index'])->name('product-traking.index');
+
+/** blog routes */
+// Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
+Route::get('blog-details/{slug}',[\App\Http\Controllers\Frontend\BlogController::class, 'blogDetails'])->name('blog-details'); 
+Route::get('blog', [BlogController::class, 'blog'])->name('blog');
 
 /** terms and conditions page route */
 Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');
