@@ -81,8 +81,7 @@ Route::get('about', [PageController::class, 'about'])->name('about');
 Route::get('product-traking', [ProductTrackController::class, 'index'])->name('product-traking.index');
 
 /** blog routes */
-// Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
-Route::get('blog-details/{slug}',[BlogController::class, 'blogDetails'])->name('blog-details'); 
+Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
 Route::get('blog', [BlogController::class, 'blog'])->name('blog');
 
 /** terms and conditions page route */
@@ -124,6 +123,9 @@ Route::group([
     /** product review routes */
     Route::post('review', [ReviewController::class, 'create'])->name('review.create');
     
+    /** blog comment routes */
+    Route::post('blog-comment', [BlogController::class, 'comment'])->name('blog-comment');
+
     /** Checkout routes */
     Route::resource('checkout', controller: UserAddressController::class);
     Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
