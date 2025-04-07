@@ -82,7 +82,7 @@ Route::get('product-traking', [ProductTrackController::class, 'index'])->name('p
 
 /** blog routes */
 // Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
-Route::get('blog-details/{slug}',[\App\Http\Controllers\Frontend\BlogController::class, 'blogDetails'])->name('blog-details'); 
+Route::get('blog-details/{slug}',[BlogController::class, 'blogDetails'])->name('blog-details'); 
 Route::get('blog', [BlogController::class, 'blog'])->name('blog');
 
 /** terms and conditions page route */
