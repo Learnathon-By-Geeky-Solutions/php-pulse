@@ -6,6 +6,7 @@
   <a href="{{ route('user.dashboard') }}" class="dash_logo"><img src="{{ asset('frontend/images/logo-white.png') }}" alt="logo" class="img-fluid"></a>
   <ul class="dashboard_link">
     <li><a class="{{setActive(['user.dashboard'])}}" href="{{route('user.dashboard')}}"><i class="fas fa-tachometer"></i>Dashboard</a></li>
+    <li><a class="{{setActive(['user.messages.index'])}}" href="{{route('user.messages.index')}}"><i class="fas fa-tachometer"></i>Messages</a></li>
   <li>
     <a class="" href="{{ url('/') }}">
         <i class="fas fa-home"></i> Go to home page

@@ -12,6 +12,7 @@
               <i class="fas fa-tachometer"></i> Dashboard
           </a>
       </li>
+      <li><a class="" href="{{route('vendor.messages.index')}}"><i class="fas fa-home"></i>Messenger</a></li>
       <li><a class="{{setActive(['vendor.orders.*'])}}" href="{{route('vendor.orders.index')}}"><i class="fas fa-box"></i> Orders</a></li>
 
       <li><a class="{{setActive(['vendor.products.*'])}}" href="{{route('vendor.products.index')}}"><i class="fas fa-cart-plus"></i> Products</a></li>

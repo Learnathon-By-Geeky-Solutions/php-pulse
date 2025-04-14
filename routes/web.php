@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\ProductTrackController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\UserDashboardController;
+use App\Http\Controllers\Frontend\UserMessageController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\Frontend\NewsletterController;
@@ -48,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 /** Cart routes */
 Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
 Route::get('cart-details', [CartController::class, 'cartDetails'])->name('cart-details');
@@ -103,6 +105,8 @@ Route::group([
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');//user.profile
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');//user.profile.update
     Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');//user.profile.update.password
+    /** Message Route */
+    Route::get('messages', [UserMessageController::class, 'index'])->name('messages.index');
     /** User Address Route */
     Route::resource('address', controller: UserAddressController::class);
     /** Order Routes */
