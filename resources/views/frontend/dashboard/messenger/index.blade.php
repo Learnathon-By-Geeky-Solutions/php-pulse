@@ -114,7 +114,7 @@
                 $(this).find('.wsus_chat_list_img').removeClass('msg-notification');
                 $.ajax({
                     method: 'get',
-                    url: '{{ route("user.get-messages") }}',
+                   
                     data: {
                         receiver_id: receiverId
                     },
