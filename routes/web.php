@@ -108,6 +108,7 @@ Route::group([
     /** Message Route */
     Route::get('messages', [UserMessageController::class, 'index'])->name('messages.index');
     Route::post('send-message', [UserMessageController::class, 'sendMessage'])->name('send-message');
+    Route::get('get-messages', [UserMessageController::class, 'getMessages'])->name('get-messages');
     /** User Address Route */
     Route::resource('address', controller: UserAddressController::class);
     /** Order Routes */
