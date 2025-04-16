@@ -193,6 +193,9 @@
                             href="{{ route('admin.blog-comments.index') }}">Blog Comments</a></li>
                 </ul>
             </li>
+            <li><a class="nav-link {{ setActive(['admin.messages.index']) }}"
+                href="{{ route('admin.messages.index') }}"><i class="fas fa-user"></i>
+                <span>Messages</span></a></li>
 
             <li
             class="dropdown {{ setActive([

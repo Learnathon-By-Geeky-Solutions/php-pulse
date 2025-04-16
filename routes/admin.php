@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\AdminListController;
@@ -131,7 +132,6 @@ Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->na
 Route::put('popular-category-section', [HomePageSettingController::class, 'updatePopularCategorySection'])->name('popular-category-section');
 
 
-
 /** home page setting route */
 Route::get('home-page-setting', [HomePageSettingController::class, 'index'])->name('home-page-setting');
 Route::put('popular-category-section', [HomePageSettingController::class, 'updatePopularCategorySection'])->name('popular-category-section');
@@ -170,6 +170,8 @@ Route::resource('order', OrderController::class);
 /** Order Transaction route */
 Route::get('transaction', [TransactionController::class, 'index'])->name('transaction');
 
+/** Message route */
+Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
 
 /** Shipping Rule Routes */
 Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
