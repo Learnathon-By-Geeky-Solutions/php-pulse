@@ -97,7 +97,7 @@
                 $('#receiver_id').val(receiverId);
                 $.ajax({
                     method: 'get',
-                    url: '{{ route("admin.get-messages") }}',
+                    url: '',
                     data: {
                         receiver_id: receiverId
                     },
@@ -158,7 +158,7 @@
 
                 $.ajax({
                     method: 'POST',
-                    url: '{{ route("admin.send-message") }}',
+                    url: '',
                     data: formData,
                     beforeSend: function() {
                         $('.send-button').prop('disabled', true);
