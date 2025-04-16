@@ -173,6 +173,7 @@ Route::get('transaction', [TransactionController::class, 'index'])->name('transa
 /** Message route */
 Route::get('messages', [MessageController::class, 'index'])->name('messages.index');
 Route::get('get-messages', [MessageController::class, 'getMessages'])->name('get-messages');
+Route::post('send-message', [MessageController::class, 'sendMessage'])->name('send-message');
 
 /** Shipping Rule Routes */
 Route::put('shipping-rule/change-status', [ShippingRuleController::class, 'changeStatus'])->name('shipping-rule.change-status');
