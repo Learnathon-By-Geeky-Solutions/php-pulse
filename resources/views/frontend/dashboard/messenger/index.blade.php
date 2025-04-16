@@ -107,7 +107,7 @@
         $(document).ready(function(){
             $('.chat-user-profile').on('click', function(){
                 let receiverId = $(this).data('id');
-                let senderImage = $(this).find('img').attr('src');
+                // let senderImage = $(this).find('img').attr('src');
                 let chatUserName = $(this).find('h4').text();
                 mainChatInbox.attr('data-inbox', receiverId);
                 $('#receiver_id').val(receiverId);
