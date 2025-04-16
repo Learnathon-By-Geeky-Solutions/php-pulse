@@ -172,7 +172,7 @@
                 let formData = $(this).serialize();
                 let messageData = $('.message-box').val();
 
-                var formSubmitting = false;
+                var formSubmitting = true;
 
                 if(formSubmitting || messageData === "" ) {
                     return;
