@@ -33,6 +33,7 @@
 
                             @include('admin.setting.email-configuration')
 
+                            @include('admin.setting.logo-setting')
                             
                           </div>
                         </div>

@@ -1,16 +1,12 @@
 @php
-    // Ensure variable is not null before decoding
-    $categoryProductSliderSectionThree = isset($categoryProductSliderSectionThree) && !is_null($categoryProductSliderSectionThree) 
-        ? json_decode($categoryProductSliderSectionThree->value ?? '[]', true) 
-        : [];
+    $categoryProductSliderSectionThree = json_decode($categoryProductSliderSectionThree->value, true);
 @endphp
-
-@if (!empty($categoryProductSliderSectionThree))
-<section id="wsus__weekly_best" class="home2_wsus__weekly_best_2">
+<section id="wsus__weekly_best" class="home2_wsus__weekly_best_2 ">
     <div class="container">
         <div class="row">
             @foreach ($categoryProductSliderSectionThree as $sliderSectionThree)
                 @php
+
                     $lastKey = [];
 
                     foreach ($sliderSectionThree as $key => $category) {
@@ -20,65 +16,58 @@
                         $lastKey = [$key => $category];
                     }
 
-                    $category = null; // Default to prevent undefined errors
-                    $products = collect(); // Default to prevent foreach errors
-
-                    if (!empty($lastKey)) {
-                        $keyName = array_keys($lastKey)[0];
-
-                        if ($keyName === 'category') {
-                            $category = \App\Models\Category::find($lastKey[$keyName]);
-                            $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-                                ->where('category_id', $category->id ?? null)
-                                ->orderBy('id', 'DESC')
-                                ->take(6)
-                                ->get();
-                        } elseif ($keyName === 'sub_category') {
-                            $category = \App\Models\SubCategory::find($lastKey[$keyName]);
-                            $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-                                ->where('sub_category_id', $category->id ?? null)
-                                ->orderBy('id', 'DESC')
-                                ->take(6)
-                                ->get();
-                        } elseif ($keyName === 'child_category') {
-                            $category = \App\Models\ChildCategory::find($lastKey[$keyName]);
-                            $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-                                ->where('child_category_id', $category->id ?? null)
-                                ->orderBy('id', 'DESC')
-                                ->take(6)
-                                ->get();
-                        }
+                    if (array_keys($lastKey)[0] === 'category') {
+                        $category = \App\Models\Category::find($lastKey['category']);
+                        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+                        ->where('category_id', $category->id)
+                            ->orderBy('id', 'DESC')
+                            ->take(6)
+                            ->get();
+                    } elseif (array_keys($lastKey)[0] === 'sub_category') {
+                        $category = \App\Models\SubCategory::find($lastKey['sub_category']);
+                        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+                        ->where('sub_category_id', $category->id)
+                            ->orderBy('id', 'DESC')
+                            ->take(6)
+                            ->get();
+                    } else {
+                        $category = \App\Models\ChildCategory::find($lastKey['child_category']);
+                        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+                        ->where('child_category_id', $category->id)
+                            ->orderBy('id', 'DESC')
+                            ->take(6)
+                            ->get();
                     }
+
                 @endphp
-                
-                @if ($category)
                 <div class="col-xl-6 col-sm-6">
                     <div class="wsus__section_header">
                         <h3>{{$category->name}}</h3>
                     </div>
                     <div class="row weekly_best2">
+
                         @foreach ($products as $item)
                         <div class="col-xl-4 col-lg-4">
                             <a class="wsus__hot_deals__single" href="{{route('product-detail', $item->slug)}}">
                                 <div class="wsus__hot_deals__single_img">
-                                    <img src="{{asset($item->thumb_image)}}" alt="product image" class="img-fluid w-100">
+                                    <img src="{{asset($item->thumb_image)}}" alt="bag" class="img-fluid w-100">
                                 </div>
                                 <div class="wsus__hot_deals__single_text mt-2">
-                                    <h5>{!! limitText($item->name, 20) !!}</h5>
+                                    <h5>{!!limitText($item->name, )!!}</h5>
                                     <p class="wsus__rating">
+
                                         @for ($i = 1; $i <= 5; $i++)
                                             @if ($i <= $item->reviews_avg_rating)
-                                                <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
                                             @else
-                                                <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
                                             @endif
                                         @endfor
-                                        <span>({{$item->reviews_count}} reviews)</span>
+
+                                        <span>({{$item->reviews_count}} review)</span>
                                     </p>
                                     @if (checkDiscount($item))
-                                        <p class="wsus__tk">{{$settings->currency_icon}}{{$item->offer_price}} 
-                                            <del>{{$settings->currency_icon}}{{$item->price}}</del>
-                                        </p>
+                                        <p class="wsus__tk">{{$settings->currency_icon}}{{$item->offer_price}} <del>{{$settings->currency_icon}}{{$item->price}}</del></p>
                                     @else
                                         <p class="wsus__tk">{{$settings->currency_icon}}{{$item->price}}</p>
                                     @endif
@@ -86,11 +75,13 @@
                             </a>
                         </div>
                         @endforeach
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                     </div>
                 </div>
-                @endif
             @endforeach
         </div>
     </div>
 </section>
-@endif
