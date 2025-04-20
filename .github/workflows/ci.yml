@@ -19,12 +19,12 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: ecommerce
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
+          MYSQL_USER: test_user
+          MYSQL_PASSWORD: test_pass
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost -u$MYSQL_USER -p$MYSQL_PASSWORD"
+          --health-cmd="mysqladmin ping -h localhost -utest_user -ptest_pass"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
@@ -62,12 +62,8 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
-          echo "DB_CONNECTION=mysql" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
-          echo "DB_PORT=3306" >> .env
-          echo "DB_DATABASE=ecommerce" >> .env
-          echo "DB_USERNAME=test_user" >> .env
-          echo "DB_PASSWORD=test_pass" >> .env
+          sed -i 's/DB_USERNAME=.*/DB_USERNAME=test_user/' .env
+          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=test_pass/' .env
           php artisan config:clear
           php artisan config:cache
 
