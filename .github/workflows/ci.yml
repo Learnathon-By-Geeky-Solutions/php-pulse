@@ -24,10 +24,10 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost -u$MYSQL_USER -p$MYSQL_PASSWORD"
-          --health-interval=10s
+          --health-cmd="mysqladmin ping -h localhost -u$MYSQL_USER -p$MYSQL_PASSWORD || exit 1"
+          --health-interval=30s
           --health-timeout=5s
-          --health-retries=3
+          --health-retries=5
 
     steps:
       - name: Checkout Code
@@ -74,6 +74,11 @@ jobs:
       - name: Run Migrations
         run: php artisan migrate --force
 
+      - name: Run PHPUnit Tests with Coverage
+        run: |
+          mkdir -p tests/reports
+          vendor/bin/phpunit --coverage-clover tests/reports/coverage.xml
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
@@ -83,13 +88,16 @@ jobs:
             -Dsonar.organization=learnathon-by-geeky-solutions
             -Dsonar.projectKey=Learnathon-By-Geeky-Solutions_php-pulse
             -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.php.coverage.reportPaths=tests/reports/coverage.xml
             -Dsonar.sources=app
             -Dsonar.exclusions=**/vendor/**,**/node_modules/**,**/tests/**,**/public/**
+            -Dsonar.tests=tests
+            -Dsonar.test.inclusions=tests/**/*.php
             -Dsonar.language=php
             -Dsonar.php.file.suffixes=.php
             -Dsonar.verbose=true
 
-      - name: Upload Coverage Report (Optional, if you have coverage)
+      - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
