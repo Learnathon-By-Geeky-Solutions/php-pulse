@@ -1,8 +1,17 @@
 @php
-    $footerInfo = \App\Models\FooterInfo::first();
-    $footerSocials = \App\Models\FooterSocial::where('status',1)->get();
-    
-    
+    $footerInfo = Cache::rememberForever('footer_info', function(){
+            return \App\Models\FooterInfo::first();
+    });
+    $footerSocials = Cache::rememberForever('footer_socials', function(){
+        return \App\Models\FooterSocial::where('status', 1)->get();
+    });
+    $footerGridTwoLinks = Cache::rememberForever('footer_grid_two', function(){
+        return \App\Models\FooterGridTwo::where('status', 1)->get();
+    });
+    $footerTitle = \App\Models\FooterTitle::first();
+    $footerGridThreeLinks =Cache::rememberForever('footer_grid_three', function(){
+        return \App\Models\FooterGridThree::where('status', 1)->get();
+    });
 @endphp
 <footer class="footer_2">
     <div class="container">
@@ -24,21 +33,21 @@
             </div>
             <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">
                 <div class="wsus__footer_content">
-                    {{-- <h5>{{$footerTitle->footer_grid_two_title}}</h5>
+                    <h5>{{optional($footerTitle)->footer_grid_two_title}}</h5>
                     <ul class="wsus__footer_menu">
                         @foreach ($footerGridTwoLinks as $link)
                             <li><a href="{{$link->url}}"><i class="fas fa-caret-right"></i> {{$link->name}}</a></li>
                         @endforeach
-                    </ul> --}}
+                    </ul>
                 </div>
             </div>
             <div class="col-xl-2 col-sm-5 col-md-4 col-lg-2">
                 <div class="wsus__footer_content">
-                    {{-- <h5>{{$footerTitle->footer_grid_three_title}}</h5> --}}
+                    <h5>{{optional($footerTitle)->footer_grid_three_title}}</h5>
                     <ul class="wsus__footer_menu">
-                        {{-- @foreach ($footerGridThreeLinks as $link)
+                        @foreach ($footerGridThreeLinks as $link)
                             <li><a href="{{$link->url}}"><i class="fas fa-caret-right"></i> {{$link->name}}</a></li>
-                        @endforeach --}}
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -47,7 +56,7 @@
                     <h3>Subscribe To Our Newsletter</h3>
                     <p>Get all the latest information on Events, Sales and Offers.
                         Get all the latest information on Events.</p>
-                    <form action="" method="POST" id="newsletter">
+                    <form action="{{route('newsletter-request')}}" method="POST" id="newsletter">
                         @csrf
                         <input type="text" placeholder="Email" name="email" class="newsletter_email">
                         <button type="submit" class="common_btn subscribe_btn">subscribe</button>

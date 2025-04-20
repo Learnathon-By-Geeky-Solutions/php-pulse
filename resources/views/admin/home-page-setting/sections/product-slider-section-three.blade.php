@@ -1,9 +1,7 @@
-
 @php
 if($sliderSectionThree) {
     $sliderSectionThree = json_decode($sliderSectionThree->value, associative: true);
 } else {
-    // Handle the case when $sliderSectionOne is null
     $sliderSectionThree = [];
 }
 @endphp 
@@ -14,6 +12,7 @@ if($sliderSectionThree) {
             <form action="{{route('admin.product-slider-section-three')}}" method="POST">
                 @csrf
                 @method('PUT')
+
                 <h5>Part 1</h5>
                 <div class="row">
                     <div class="col-md-4">
@@ -24,6 +23,7 @@ if($sliderSectionThree) {
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionThree[0]['category'] ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
+
                                 {{-- @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionOne->category ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach --}}
@@ -61,6 +61,7 @@ if($sliderSectionThree) {
                         </div>
                     </div>
                 </div>
+
                 <h5>Part 2</h5>
                 <div class="row">
                     <div class="col-md-4">
@@ -71,6 +72,7 @@ if($sliderSectionThree) {
                                 @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionThree[1]['category'] ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
+
                                 {{-- @foreach ($categories as $category)
                                     <option {{$category->id == $sliderSectionOne->category ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach --}}
@@ -108,7 +110,6 @@ if($sliderSectionThree) {
                         </div>
                     </div>
                 </div>
-
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>

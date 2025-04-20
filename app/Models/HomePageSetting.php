@@ -12,4 +12,6 @@ class HomePageSetting extends Model
     protected $fillable = [
         'key', 'value'
     ];
+
 }
+
