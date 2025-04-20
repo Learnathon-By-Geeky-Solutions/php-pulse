@@ -17,14 +17,12 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: ecommerce
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: root     
+          MYSQL_DATABASE: ecommerce      
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost -u$MYSQL_USER -p$MYSQL_PASSWORD || exit 1"
+          --health-cmd="mysqladmin ping -h localhost -u$MYSQL_ROOT_PASSWORD || exit 1"
           --health-interval=30s
           --health-timeout=5s
           --health-retries=5
