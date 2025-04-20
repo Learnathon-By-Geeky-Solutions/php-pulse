@@ -40,8 +40,20 @@ jobs:
           extensions: mbstring, pdo, pdo_mysql
           coverage: xdebug
 
-      - name: Disable Composer Pubkey Check
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-
+
+      - name: Disable Composer Pubkey Check (Optional)
         run: composer config --global secure-http false
+
+      - name: Remove Vendor & Clear Cache (Force Clean)
+        run: |
+          rm -rf vendor
+          composer clear-cache
 
       - name: Install Composer Dependencies
         run: composer install --no-progress --prefer-dist
@@ -57,6 +69,7 @@ jobs:
           echo "DB_USERNAME=test_user" >> .env
           echo "DB_PASSWORD=test_pass" >> .env
           php artisan config:clear
+          php artisan config:cache
 
       - name: Run Migrations
         run: php artisan migrate --force
