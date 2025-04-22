@@ -75,10 +75,7 @@
                             </a>
                         </div>
                         @endforeach
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
                     </div>
                 </div>
             @endforeach
