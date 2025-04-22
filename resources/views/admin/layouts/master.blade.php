@@ -42,7 +42,7 @@
     
   </script>
 
-@vite(['resources/js/app.js', 'resources/js/frontend.js'])
+@vite(['resources/js/app.js'])
 
 
 </head>
