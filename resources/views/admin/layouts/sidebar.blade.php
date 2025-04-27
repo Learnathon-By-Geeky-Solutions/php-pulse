@@ -167,29 +167,49 @@
 
                 </ul>
             </li>
-            <!-- Slider Section -->
-            <li class="dropdown {{ setActive(['admin.slider.*']) }}">
+            <!-- Web site Section -->
+            <li class="dropdown {{ setActive([
+                'admin.slider.*',
+                'admin.home-page-setting',
+                'admin.vendor-condition.index',
+                'admin.about.index',
+                'admin.terms-and-conditions.index'
+            ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-images"></i>
                     <span>Manage Website</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin.slider.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.slider.index') }}">Slider</a>
+                        <a class="nav-link" href="{{ route('admin.slider.index') }}">
+                            Slider
+                        </a>
                     </li>
-                    <li class="{{ setActive(['admin.slider.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.home-page-setting') }}">Home Page Setting</a>
+                    <li class="{{ setActive(['admin.home-page-setting']) }}">
+                        <a class="nav-link" href="{{ route('admin.home-page-setting') }}">
+                            Home Page Setting
+                        </a>
                     </li>
-                    <li class="{{ setActive(['admin.vendor-condition.index']) }}"><a class="nav-link"
-                        href="{{ route('admin.vendor-condition.index') }}">Vendor Condition</a></li>
-                    <li class="{{ setActive(['admin.about.index']) }}"><a class="nav-link"
-                        href="{{ route('admin.about.index') }}">About page</a></li>
-                    <li class="{{ setActive(['admin.terms-and-conditions.index']) }}"><a class="nav-link"
-                        href="{{ route('admin.terms-and-conditions.index') }}">Terms Page</a></li>
-
+                    <li class="{{ setActive(['admin.vendor-condition.index']) }}">
+                        <a class="nav-link" href="{{ route('admin.vendor-condition.index') }}">
+                            Vendor Condition
+                        </a>
+                    </li>
+                    <li class="{{ setActive(['admin.about.index']) }}">
+                        <a class="nav-link" href="{{ route('admin.about.index') }}">
+                            About Page
+                        </a>
+                    </li>
+                    <li class="{{ setActive(['admin.terms-and-conditions.index']) }}">
+                        <a class="nav-link" href="{{ route('admin.terms-and-conditions.index') }}">
+                            Terms Page
+                        </a>
+                    </li>
                 </ul>
-
             </li>
+            
+            
+            
 
             <li
                 class="dropdown {{ setActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-comments.index']) }}">
@@ -209,30 +229,40 @@
                 href="{{ route('admin.messages.index') }}"><i class="fas fa-user"></i>
                 <span>Messages</span></a></li>
 
-            <li
-            class="dropdown {{ setActive([
-                'admin.footer-info.index',
-                'admin.footer-socials.*',
-                'admin.footer-grid-two.*',
-                'admin.footer-grid-three.*',
-            ]) }}">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                    class="fas fa-th-large"></i><span>Footer</span></a>
-            <ul class="dropdown-menu">
-                <li class="{{ setActive(['admin.footer-info.index']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-info.index') }}">Footer Info</a></li>
-
-                <li class="{{ setActive(['admin.footer-socials.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-socials.index') }}">Footer Socials</a></li>
-
-                <li class="{{ setActive(['admin.footer-grid-two.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a></li>
-
-                <li class="{{ setActive(['admin.footer-grid-three.*']) }}"><a class="nav-link"
-                        href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a></li>
-
-            </ul>
-        </li>
+                <li class="dropdown {{ setActive([
+                    'admin.footer-info.index',
+                    'admin.footer-socials.*',
+                    'admin.footer-grid-two.*',
+                    'admin.footer-grid-three.*',
+                ]) }}">
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                        <i class="fas fa-th-large"></i>
+                        <span>Footer</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ setActive(['admin.footer-info.index']) }}">
+                            <a class="nav-link" href="{{ route('admin.footer-info.index') }}">
+                                Footer Info
+                            </a>
+                        </li>
+                        <li class="{{ setActive(['admin.footer-socials.*']) }}">
+                            <a class="nav-link" href="{{ route('admin.footer-socials.index') }}">
+                                Footer Socials
+                            </a>
+                        </li>
+                        <li class="{{ setActive(['admin.footer-grid-two.*']) }}">
+                            <a class="nav-link" href="{{ route('admin.footer-grid-two.index') }}">
+                                Footer Grid Two
+                            </a>
+                        </li>
+                        <li class="{{ setActive(['admin.footer-grid-three.*']) }}">
+                            <a class="nav-link" href="{{ route('admin.footer-grid-three.index') }}">
+                                Footer Grid Three
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
 
 
         <li
