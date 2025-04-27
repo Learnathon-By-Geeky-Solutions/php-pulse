@@ -210,5 +210,5 @@ php artisan test
 
 ---
 
-**Developed with ❤️ by PHP-Pulse**
+**Developed by ❤️ PHP-Pulse**
 
