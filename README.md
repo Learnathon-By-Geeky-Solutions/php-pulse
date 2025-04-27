@@ -1,16 +1,68 @@
-# Team Name: PHP-Pulse
+# ShohozBazar: Multi-Vendor Marketplace (With Multi-Auth)
 
-## Team Members
-- **@mahbub14** (Md. Mahbubul Hasan) Team Leader
-- **@skrsabbih** (Md. Sabbih Sarker)
-- **@md-moni-rul-islam** (Md. Moni Rul Islam)
+## 🏛️ Project Architecture: Multi-Vendor Marketplace (With Multi-Auth)
 
-## Mentor
-- **Nahidul Hasan**
+**More Vendors. More Choices. More Happiness.**
+
+Empowering vendors, delighting customers — all under one digital roof. Shop smart, sell smarter, and experience a world of opportunities with us.
+
+![Multi Vendor Architecture](https://github.com/user-attachments/assets/f4d33040-280c-43ec-b5e6-3d45d1ef7d0e)
 
 ---
 
-# Project Description
+## About ShohozBazar
+
+**ShohozBazar** is a dynamic multi-vendor marketplace connecting vendors and customers with ease. We bring countless products, trusted sellers, and a smooth shopping experience under one platform. At ShohozBazar, we empower businesses to grow and offer customers the freedom to shop everything they love — simply, quickly, and securely.
+
+---
+
+## 🛂 Auth: Multi-Authentication
+
+Separate login and dashboard for **Admin**, **Vendor**, and **User**, ensuring secure and role-based access.
+
+---
+
+## 🛒 Marketplace: Multi-Vendor Marketplace
+
+Vendors can register, manage products, and track sales, creating a diverse marketplace environment.
+
+---
+
+## 📦 Product: Advanced Product Management
+
+Product variants (size, color), discounts, and coupons make product management dynamic and flexible.
+
+---
+
+## 📋 Order Management: Order Management
+
+Track orders, update status, and manage transactions seamlessly.
+
+---
+
+## 💳 Payment: Payment Gateways
+
+Integrate **Stripe**, **PayPal**, and local payment methods for smooth and secure transactions.
+
+---
+
+## Team Name: PHP-Pulse
+
+| Role         | Name                | GitHub                           |
+|--------------|---------------------|----------------------------------|
+| Team Leader  | Md. Mahbubul Hasan  | [GitHub](https://github.com/mahbubulhasan) |
+| Developer    | Md. Sabbih Sarker   | [GitHub](https://github.com/sabbihsarker) |
+| Developer    | Md. Moni Rul Islam  | [GitHub](https://github.com/monirulislam) |
+
+---
+
+## Project Mentor
+- **Nahidul Hasan** [GitHub](https://github.com/nahidulhasan)
+
+---
+
+## Project Description
+
 ### Multi-Vendor eCommerce Platform
 
 The **Multi-Vendor eCommerce Platform** is a comprehensive solution designed to enhance product management, vendor interactions, and user engagement. Built using **Laravel**, the system supports multi-authentication for **Admins**, **Vendors**, and **Users**. It features a robust multi-vendor marketplace, an advanced search system, and seamless payment integrations.
@@ -19,38 +71,76 @@ The **Multi-Vendor eCommerce Platform** is a comprehensive solution designed to 
 
 ## Features
 
-### Core Features
-- **Multi-Authentication**:
-  - Separate login and dashboard for Admin, Vendor, and User.
-- **Multi-Vendor Marketplace**:
-  - Vendors can register, manage products, and track sales.
-- **Advanced Product Management**:
-  - Product Variants (size, color, etc.), Discount System, and Coupons.
+### 1. Authentication System (Multi-Auth)
+- Separate guards: admin, vendor, user
+- Middleware:
+  - `auth:admin`
+  - `auth:vendor`
+  - `auth:user`
+- Login/Register Controllers
+
+### 2. Dashboard Panel
+- **Admin Dashboard**:
+  - Manage Vendors
+  - Manage Users
+  - Manage Products (Approval, Featured, etc.)
+  - Manage Orders
+  - Manage Blogs, Advertisements
+  - Manage Transactions
+- **Vendor Dashboard**:
+  - Manage Own Products
+  - Track Own Orders and Sales
+  - Manage Coupons
+  - View Transaction History
+- **User Dashboard**:
+  - View Orders
+  - Wishlist Management
+  - Order Tracking
+  - Product Reviews
+
+### 3. Core Modules
+- **Product Management**:
+  - Product Model
+  - Variant Model (size, color)
+  - Inventory Model
+  - Discounts & Coupons
+- **Cart System**:
+  - Real-time stock check using Ajax
+  - Dynamic add/update/remove items
+  - Session-based (Guest) + User-based cart sync after login
 - **Order Management**:
-  - Track orders, status updates, and manage transactions.
-- **Payment Gateways**:
-  - Stripe, PayPal, and local payment integrations.
-- **Advanced Add-to-Cart Feature**:
-  - Real-time stock validation and dynamic cart updates.
-- **Shipping Rule System**:
-  - Define custom shipping rules based on location and weight.
-- **Product Wishlist & Reviews**:
-  - Users can save products for later and leave reviews.
-- **Advanced Order Tracking**:
-  - Real-time order tracking for customers.
-- **Blog & Advertisement Management**:
-  - Admin-managed blogs and promotional content.
-- **Dynamic Newsletter Feature**:
-  - Automated email campaigns and user subscriptions.
+  - Create Order (on checkout)
+  - Update Status (Pending → Processing → Completed)
+  - Transaction Model (for payments)
+- **Payment Gateway**:
+  - Stripe API
+  - PayPal API
+  - Manual/Local Gateway Option (like Cash on Delivery)
+- **Shipping Management**:
+  - Shipping Rules table (Based on Location, Weight, Custom Free Shipping Threshold)
+- **Wishlist & Reviews**:
+  - User Wishlist Table
+  - User Product Reviews Table
+  - Admin approval for reviews (optional)
+- **Order Tracking**:
+  - Order Status Update with Tracking ID
+  - Frontend Order Tracking Page
+- **Blog & Advertisement**:
+  - Admin Blog CRUD
+  - Advertisement Banner Management
+- **Newsletter System**:
+  - User Subscriptions
+  - Automated Email Campaigns (like Weekly Deals)
 - **Transaction History**:
-  - Track all transactions and export data.
+  - Payment Logs
+  - Download/Export Transaction Data (CSV, PDF)
 
 ---
 
 ## Tech Stack
 
 - **Backend**: Laravel (PHP Framework)
-- **Frontend**: Blade Templates, Boostrape,jQeury,JavaScripy 
+- **Frontend**: Blade Templates, Bootstrap, jQuery, JavaScript
 - **Database**: MySQL
 - **Containerization**: Docker with Docker Compose
 - **Server**: Apache
@@ -97,16 +187,6 @@ php artisan test
 
 ---
 
-## Usage
-
-### Admin Panel
-- Manage vendors, products, orders, and system settings.
-
-### Vendor Dashboard
-- Upload and manage products, track orders, and handle earnings.
-
-### User Interface
-- Browse products, place orders, and track shipments.
 
 ---
 
@@ -119,5 +199,5 @@ php artisan test
 
 ---
 
-**Developed by PHP-Pulse**
+**Developed by ![love (2)](https://github.com/user-attachments/assets/f6fbfc1f-3447-4772-94a7-0b6698275708) PHP-Pulse**
 
