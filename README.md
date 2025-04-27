@@ -1,143 +1,131 @@
-# ShohozBazar: Multi-Vendor Marketplace (With Multi-Auth)
+# ShohozBazar: Multi-Vendor Marketplace (With Multi-Auth) 🏬
 
-## 🏛️ Project Architecture: Multi-Vendor Marketplace (With Multi-Auth)
+## 🏗️ Project Architecture
 
 **More Vendors. More Choices. More Happiness.**
 
 Empowering vendors, delighting customers — all under one digital roof. Shop smart, sell smarter, and experience a world of opportunities with us.
 
+---
 
+## 📖 About ShohozBazar
+
+**ShohozBazar** is a dynamic multi-vendor marketplace connecting vendors and customers with ease. We bring countless products, trusted sellers, and a smooth shopping experience under one platform.
 
 ---
 
-## About ShohozBazar
-
-**ShohozBazar** is a dynamic multi-vendor marketplace connecting vendors and customers with ease. We bring countless products, trusted sellers, and a smooth shopping experience under one platform. At ShohozBazar, we empower businesses to grow and offer customers the freedom to shop everything they love — simply, quickly, and securely.
-
----
-
-## 🛂 Auth: Multi-Authentication
+## 🔐 Multi-Authentication System
 
 Separate login and dashboard for **Admin**, **Vendor**, and **User**, ensuring secure and role-based access.
 
 ---
 
-## 🛒 Marketplace: Multi-Vendor Marketplace
+## 🏬 Multi-Vendor Marketplace
 
 Vendors can register, manage products, and track sales, creating a diverse marketplace environment.
 
 ---
 
-## 📦 Product: Advanced Product Management
+## 📦 Advanced Product Management
 
 Product variants (size, color), discounts, and coupons make product management dynamic and flexible.
 
 ---
 
-## 📋 Order Management: Order Management
+## 📋 Order Management
 
 Track orders, update status, and manage transactions seamlessly.
 
 ---
 
-## 💳 Payment: Payment Gateways
+## 💳 Payment Gateways
 
-Integrate **Stripe**, **PayPal**, and local payment methods for smooth and secure transactions.
+Accept payments with multiple gateways:
+
+- ![Stripe](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white)
+- ![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
+- ![Razorpay](https://img.shields.io/badge/Razorpay-3772FF?style=for-the-badge&logo=razorpay&logoColor=white)
+- 🏦 Local Payment Methods (Cash on Delivery, Mobile Banking)
 
 ---
 
-## Team Name: PHP-Pulse
+## 👥 Team Name: PHP-Pulse
 
-| Role         | Name                | GitHub                           |
+| 🧑‍💻 Role         | 🧑‍🎓 Name                | 🔗 GitHub                           |
 |--------------|---------------------|----------------------------------|
-| Team Leader  | Md. Mahbubul Hasan  | [GitHub](https://github.com/mahbubulhasan) |
-| Developer    | Md. Sabbih Sarker   | [GitHub](https://github.com/sabbihsarker) |
-| Developer    | Md. Moni Rul Islam  | [GitHub](https://github.com/monirulislam) |
+| 👑 Team Leader  | Md. Mahbubul Hasan  | [GitHub](https://github.com/mahbub14) |
+| 💻 Developer    | Md. Sabbih Sarker   | [GitHub](https://github.com/skrsabbih) |
+| 💻 Developer    | Md. Moni Rul Islam  | [GitHub](https://github.com/md-moni-rul-islam) |
 
 ---
 
-## Project Mentor
+## 🧑‍🏫 Project Mentor
+
 - **Nahidul Hasan** [GitHub](https://github.com/nahidulhasan)
 
 ---
 
-## Project Description
+## 📝 Project Description
 
-### Multi-Vendor eCommerce Platform
+The **Multi-Vendor eCommerce Platform** is built using **Laravel**, supporting multi-authentication, advanced search, payment integrations, and more. It offers a comprehensive suite of features, including:
 
-The **Multi-Vendor eCommerce Platform** is a comprehensive solution designed to enhance product management, vendor interactions, and user engagement. Built using **Laravel**, the system supports multi-authentication for **Admins**, **Vendors**, and **Users**. It features a robust multi-vendor marketplace, an advanced search system, and seamless payment integrations.
+- 🔐 **Multi-Authentication**: Secure role-based access for Admins, Vendors, and Users.
+- 🛍️ **Multi-Vendor Marketplace**: Vendor registration, product management, and earnings tracking.
+- 🔎 **Advanced Product Search**: Search by category, price, rating, and keywords.
+- 🎟️ **Product Coupon System**: Discount codes with expiration dates.
+- 🎨 **Product Variants**: Support for size, color, and other attributes.
+- 📸 **Multi-Product Image Upload**: Upload and manage multiple images per product.
+- ⭐ **Product Review & Rating**: User-generated reviews and ratings.
+- 🎯 **Product Discount Feature**: Percentage or fixed-amount discounts.
+- 💳 **Multiple Payment Gateways**: Integration with PayPal, Stripe, and local providers.
+- 💖 **Product Wishlist**: Users can save products for later purchase.
+- 📦 **Order Management**: Track order status, cancellations, and returns.
+- 🛒 **Advanced Add-to-Cart**: Quantity selection and stock validation.
+- 🚚 **Shipping Rule System**: Flexible rules based on location and weight.
+- 📰 **Blog Management**: Admin-managed blog posts.
+- 📍 **Advanced Order Tracking**: Real-time tracking updates.
+- 🔒 **Password Change Option**: Secure password change for all roles.
+- 📧 **Dynamic Newsletter**: Subscription and automated email campaigns.
+- 📢 **Advertisement Management**: Manage promotional banners and ads.
+- 🧾 **Transaction History**: View past orders and payments.
+- 🏢 **Multi-Tenant Support**: Isolated data and customizable settings per tenant.
+- 📋 **Subscription Management**: Plan creation, automated billing, and invoicing.
+
+### 🚀 Highlights
+
+- Advanced Product Management: Support for product variants, discounts, coupons, and reviews.
+- E-Commerce Capabilities: Order management, payment processing, and shipping integration.
+- Customer Engagement: Dynamic newsletters, advertisements, and blog management.
+- Tenant Isolation: Each business (tenant) operates independently with customizable settings and isolated data.
 
 ---
 
-## Features
+## 🌟 Features
 
-### 1. Authentication System (Multi-Auth)
+### 🔐 Authentication (Multi-Auth)
 - Separate guards: admin, vendor, user
-- Middleware:
-  - `auth:admin`
-  - `auth:vendor`
-  - `auth:user`
-- Login/Register Controllers
+- Middleware protections
 
-### 2. Dashboard Panel
-- **Admin Dashboard**:
-  - Manage Vendors
-  - Manage Users
-  - Manage Products (Approval, Featured, etc.)
-  - Manage Orders
-  - Manage Blogs, Advertisements
-  - Manage Transactions
-- **Vendor Dashboard**:
-  - Manage Own Products
-  - Track Own Orders and Sales
-  - Manage Coupons
-  - View Transaction History
-- **User Dashboard**:
-  - View Orders
-  - Wishlist Management
-  - Order Tracking
-  - Product Reviews
+### 🖥️ Dashboards
+- **Admin**: Manage vendors, users, products, orders, blogs, ads, transactions.
+- **Vendor**: Manage own products, sales, coupons, and transactions.
+- **User**: Manage orders, wishlist, reviews, and tracking.
 
-### 3. Core Modules
-- **Product Management**:
-  - Product Model
-  - Variant Model (size, color)
-  - Inventory Model
-  - Discounts & Coupons
-- **Cart System**:
-  - Real-time stock check using Ajax
-  - Dynamic add/update/remove items
-  - Session-based (Guest) + User-based cart sync after login
-- **Order Management**:
-  - Create Order (on checkout)
-  - Update Status (Pending → Processing → Completed)
-  - Transaction Model (for payments)
-- **Payment Gateway**:
-  - Stripe API
-  - PayPal API
-  - Manual/Local Gateway Option (like Cash on Delivery)
-- **Shipping Management**:
-  - Shipping Rules table (Based on Location, Weight, Custom Free Shipping Threshold)
-- **Wishlist & Reviews**:
-  - User Wishlist Table
-  - User Product Reviews Table
-  - Admin approval for reviews (optional)
-- **Order Tracking**:
-  - Order Status Update with Tracking ID
-  - Frontend Order Tracking Page
-- **Blog & Advertisement**:
-  - Admin Blog CRUD
-  - Advertisement Banner Management
-- **Newsletter System**:
-  - User Subscriptions
-  - Automated Email Campaigns (like Weekly Deals)
-- **Transaction History**:
-  - Payment Logs
-  - Download/Export Transaction Data (CSV, PDF)
+### 🛒 Core Modules
+- **Product Management**
+- **Cart System** (Real-time updates)
+- **Order Management** (Status updates)
+- **Payment Gateway Integrations**
+- **Shipping Management** (Rules by location/weight)
+- **Wishlist & Reviews**
+- **Order Tracking**
+- **Blog & Advertisement**
+- **Newsletter System**
+- **Transaction History (Export CSV/PDF)**
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Backend**: Laravel (PHP Framework)
 - **Frontend**: Blade Templates, Bootstrap, jQuery, JavaScript
@@ -147,57 +135,57 @@ The **Multi-Vendor eCommerce Platform** is a comprehensive solution designed to 
 
 ---
 
-## Installation Guide
+## 🧰 Installation Guide
 
-1. **Clone the Repository**:
+1. 📥 Clone the Repository:
    ```bash
-   git clone https://github.com/Learnathon-By-Geeky-Solutions/php-pulse.git 
+   git clone https://github.com/Learnathon-By-Geeky-Solutions/php-pulse.git
    cd php-pulse
    ```
-2. **Set Up Environment Variables**:
+
+2. ⚙️ Set Up Environment Variables:
    ```bash
    cp .env.example .env
    ```
-   Update database credentials and other necessary configurations in the `.env` file.
 
-3. **Install Dependencies**:
+3. 📦 Install Dependencies:
    ```bash
    composer install
    npm install && npm run dev
    ```
 
-4. **Run Migrations and Seeders**:
+4. 🗄️ Run Migrations and Seeders:
    ```bash
    php artisan migrate --seed
    ```
 
-5. **Start the Application**:
+5. 🚀 Start the Application:
    ```bash
    php artisan serve
    ```
-   The application will be accessible at [http://localhost:8000](http://localhost:8000).
+
+Access: [http://localhost:8000](http://localhost:8000)
 
 ---
 
-## Testing
-Run unit and feature tests with:
+## 🧪 Testing
+
+Run unit and feature tests:
 ```bash
 php artisan test
 ```
 
 ---
 
+## 🔮 Future Enhancements
+
+- 🧠 AI-based product recommendations.
+- 📱 Progressive Web App (PWA) support.
+- 💳 More local payment gateway integrations.
+- 🌍 Multi-language support for global reach.
+- 📊 Advanced analytics and reporting for vendors and admins.
 
 ---
 
-## Future Enhancements
-- AI-based product recommendations.
-- Progressive Web App (PWA) support.
-- More local payment gateway integrations.
-- Multi-language support for global reach.
-- Advanced analytics and reporting for vendors and admins.
-
----
-
-**Developed by ![love (2)](https://github.com/user-attachments/assets/f6fbfc1f-3447-4772-94a7-0b6698275708) PHP-Pulse**
+**Developed with ❤️ by PHP-Pulse**
 
