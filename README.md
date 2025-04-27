@@ -69,7 +69,7 @@ Accept payments with multiple gateways:
 
 | 🧑‍💻 Role         | 🧑‍🎓 Name                | 🔗 GitHub                           |
 |--------------|---------------------|----------------------------------|
-| 👑 Team Leader  | Md. Mahbubul Hasan  | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) [GitHub](https://github.com/mahbub14) |
+| 👑 Team Leader  | Md. Mahbubul Hasan  | ![GitHub(https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) [GitHub](https://github.com/mahbub14)] |
 | 💻 Developer    | Md. Sabbih Sarker   | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) [GitHub](https://github.com/skrsabbih) |
 | 💻 Developer    | Md. Moni Rul Islam  | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) [GitHub](https://github.com/md-moni-rul-islam) |
 
