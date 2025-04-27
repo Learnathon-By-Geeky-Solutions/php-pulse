@@ -6,7 +6,7 @@
 
 Empowering vendors, delighting customers — all under one digital roof. Shop smart, sell smarter, and experience a world of opportunities with us.
 
-![Multi Vendor Architecture](https://github.com/user-attachments/assets/f4d33040-280c-43ec-b5e6-3d45d1ef7d0e)
+
 
 ---
 
