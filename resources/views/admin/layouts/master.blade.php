@@ -33,6 +33,16 @@
   <link rel="stylesheet" href="{{asset('backend/assets/css/rtl.css')}}">
   @endif
 
+<<<<<<< HEAD
+  <script>
+    const USER = {
+        id: "{{ auth()->user()->id }}",
+        name: "{{ auth()->user()->nmae }}",
+        image: "{{ asset(auth()->user()->image) }}" 
+    }
+    
+  </script>
+=======
   {{-- <script>
     const USER = {
         id: "{{ auth()->user()->id }}",
@@ -44,6 +54,7 @@
         cluster: "{{ $pusherSetting->pusher_cluster }}"
     }
   </script> --}}
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
 
     {{-- @vite(['resources/js/app.js', 'resources/js/admin.js']) --}}
 

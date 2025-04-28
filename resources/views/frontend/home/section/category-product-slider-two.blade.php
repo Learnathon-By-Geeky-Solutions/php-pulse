@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+@php
+    $categoryProductSliderSectionTwo = json_decode($categoryProductSliderSectionTwo->value);
+    $lastKey = [];
+
+    foreach($categoryProductSliderSectionTwo as $key => $category){
+        if($category === null ){
+=======
  {{-- <div>
 {{-- 
 @php
@@ -6,11 +14,32 @@
 
     foreach ($categoryProductSliderSectionOne as $key => $category) {
         if ($category === null) {
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
             break;
         }
         $lastKey = [$key => $category];
     }
 
+<<<<<<< HEAD
+    if(array_keys($lastKey)[0] === 'category'){
+        $category = \App\Models\Category::find($lastKey['category']);
+        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+        ->with(['variants', 'category', 'productImageGalleries'])
+        ->where('category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+    }elseif(array_keys($lastKey)[0] === 'sub_category'){
+        $category = \App\Models\SubCategory::find($lastKey['sub_category']);
+        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+        ->with(['variants', 'category', 'productImageGalleries'])
+        ->where('sub_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+
+    }else {
+        $category = \App\Models\ChildCategory::find($lastKey['child_category']);
+        $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+        ->with(['variants', 'category', 'productImageGalleries'])
+        ->where('child_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+    }
+@endphp
+=======
     // $products = collect(); 
 
     if (isset($categoryData['category'])) {
@@ -26,18 +55,28 @@
 @endphp
 
 
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
 <section id="wsus__electronic">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <div class="wsus__section_header">
+<<<<<<< HEAD
+                    <h3>{{$category->name}}</h3>
+                    <a class="see_btn" href="{{route('products.index', ['category' => $category->slug])}}">see more <i class="fas fa-caret-right"></i></a>
+=======
                     <h3>{{optional($category)->name}}</h3>
                     <a class="see_btn" href="#">see more <i class="fas fa-caret-right"></i></a>
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
                 </div>
             </div>
         </div>
         <div class="row flash_sell_slider">
             @foreach ($products as $product)
+<<<<<<< HEAD
+                <x-product-card :product="$product" />
+            @endforeach
+=======
             <div class="col-xl-3 col-sm-6 col-lg-4">
             <div class="wsus__product_item">
                 <span class="wsus__new">{{productType($product->product_type)}}</span>
@@ -161,6 +200,7 @@
                     <a class="see_btn" href="#">see more <i class="fas fa-caret-right"></i></a>
                 </div>
             </div>
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
         </div>
         <div class="row flash_sell_slider">
             @foreach ($products as $product)
@@ -232,3 +272,4 @@
         </div>
     </div>
 </section>
+

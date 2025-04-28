@@ -1,5 +1,9 @@
 @php
     $categoryProductSliderSectionThree = json_decode($categoryProductSliderSectionThree->value, true);
+<<<<<<< HEAD
+
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
 @endphp
 <section id="wsus__weekly_best" class="home2_wsus__weekly_best_2 ">
     <div class="container">
@@ -75,10 +79,14 @@
                             </a>
                         </div>
                         @endforeach
+<<<<<<< HEAD
+
+=======
 <<<<<<< Updated upstream
 =======
 
 >>>>>>> Stashed changes
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
                     </div>
                 </div>
             @endforeach

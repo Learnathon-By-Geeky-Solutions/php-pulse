@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Backend\VendorController;
+use App\Http\Controllers\Backend\VendorMessageController;
 use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\VendorProductReviewController;
 use App\Http\Controllers\Backend\vendorProfileController;
@@ -7,13 +8,15 @@ use App\Http\Controllers\Backend\VendorShopProfileController;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\VendorProductImageGalleryController;
 use App\Http\Controllers\Backend\VendorProductVariantController;
+use App\Http\Controllers\Backend\VendorWithdrawController;
 use Illuminate\Support\Facades\Route;
 /** Vendor Routes **/
 Route::get('dashboard',[VendorController::class,'dashboard'])->name('dashboard');
 Route::get('profile',[vendorProfileController::class,'index'])->name('profile');
 Route::put('profile', [vendorProfileController::class, 'updateProfile'])->name('profile.update');//vendor.profile.update
 Route::post('profile', [vendorProfileController::class, 'updatePassword'])->name('profile.update.password');//vendor.profile.update.password
-
+/** Message Route */
+Route::get('messages', [VendorMessageController::class, 'index'])->name('messages.index');
 /** Vendor shop profile  */
 Route::resource('shop-profile', VendorShopProfileController::class);
 /** Product Routes */
@@ -37,3 +40,17 @@ Route::get('orders/status/{id}', [VendorOrderController::class, 'orderStatus'])-
 
 /** Reviews route */
 Route::get('reviews', [VendorProductReviewController::class, 'index'])->name('reviews.index');
+
+/** Withdraw route */
+Route::get('withdraw-request/{id}', [VendorWithdrawController::class, 'showRequest'])->name('withdraw-request.show');
+
+Route::resource('withdraw', VendorWithdrawController::class);
+
+
+/** Reviews route */
+Route::get('reviews', [VendorProductReviewController::class, 'index'])->name('reviews.index');
+
+/** Withdraw route */
+Route::get('withdraw-request/{id}', [VendorWithdrawController::class, 'showRequest'])->name('withdraw-request.show');
+
+Route::resource('withdraw', VendorWithdrawController::class);

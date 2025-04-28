@@ -20,7 +20,6 @@
                             <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab">General Setting</a>
                             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab">Email Configuration</a>
                             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab">Logo and Favicon</a>
-
                             <a class="list-group-item list-group-item-action" id="list-pusher-list" data-toggle="list" href="#pusher-setting" role="tab">Pusher Setting</a>
 
 
@@ -34,7 +33,12 @@
                             @include('admin.setting.email-configuration')
 
                             @include('admin.setting.logo-setting')
+<<<<<<< HEAD
+
+                            @include('admin.setting.pusher-setting')
+=======
                             
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
                           </div>
                         </div>
                       </div>

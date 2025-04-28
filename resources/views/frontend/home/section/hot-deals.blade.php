@@ -1,12 +1,20 @@
 <section id="wsus__hot_deals" class="wsus__hot_deals_2">
     <div class="container">
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
         <div class="wsus__hot_large_item">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="wsus__section_header justify-content-start">
                         <div class="monthly_top_filter2 mb-1">
+<<<<<<< HEAD
+                            <button class="active auto_click" data-filter=".new_arrival">New Arrival</button>
+=======
                             <button class="active auto_click" data-filter=".new_arrival">New Arival</button>
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
                             <button data-filter=".featured_product">Featured</button>
                             <button data-filter=".top_product">Top Product</button>
                             <button data-filter=".best_product">Best Product</button>
@@ -17,6 +25,13 @@
             </div>
             <div class="row grid2">
                 @foreach ($typeBaseProducts as $key => $products)
+<<<<<<< HEAD
+                    @foreach ($products as $product)
+                        <x-product-card :product="$product" :key="$key" />
+                    @endforeach
+                @endforeach
+
+=======
                 @foreach ($products as $product)
                 <div class="col-xl-3 col-sm-6 col-lg-4 {{ $key }}">
                     <div class="wsus__product_item">
@@ -86,8 +101,11 @@
                 @endforeach
                 @endforeach
                
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
             </div>
         </div>
+
+
 
         <section id="wsus__single_banner" class="home_2_single_banner">
             <div class="container">
@@ -135,3 +153,5 @@
         </section>
     </div>
 </section>
+
+

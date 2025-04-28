@@ -385,7 +385,7 @@
 @endsection
 
 @push('scripts')
-    {{-- <script>
+    <script>
         $(document).ready(function(){
             $('.message_modal').on('submit', function(e) {
                 e.preventDefault();
@@ -420,6 +420,6 @@
                 })
             })
         })
-    </script> --}}
+    </script>
 @endpush
 
