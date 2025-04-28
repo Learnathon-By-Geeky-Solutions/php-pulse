@@ -20,11 +20,10 @@
 
         <div class="row flash_sell_slider">
             @php
-            // Ensure that we have flash sale items to display
-            $products = \App\Models\Product::with(['variants', 'category', 'productImageGalleries'])
-                ->whereIn('id', $flashSaleItems)
-                ->get();
+                $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
+                    ->with(['variants', 'category', 'productImageGalleries'])->whereIn('id', $flashSaleItems)->get();
             @endphp
+
 
             @foreach ($products as $product)
                 <x-product-card :product="$product" />

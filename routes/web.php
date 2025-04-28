@@ -1,15 +1,21 @@
 <?php
 
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FlashSaleController;
 use App\Http\Controllers\Frontend\FrontendProductController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\PageController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\ProductTrackController;
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\UserAddressController;
 use App\Http\Controllers\Frontend\UserDashboardController;
+use App\Http\Controllers\Frontend\UserMessageController;
 use App\Http\Controllers\Frontend\UserOrderController;
 use App\Http\Controllers\Frontend\UserProfileController;
+use App\Http\Controllers\Frontend\NewsletterController;
+use App\Http\Controllers\Frontend\UserVendorReqeustController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\AdminController;
@@ -33,7 +39,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('flash-sale', [FlashSaleController::class, 'index'])->name('flash-sale');
 
-/** Product route */
+/** Product details route */
 Route::get('products', [FrontendProductController::class, 'productsIndex'])->name('products.index');
 Route::get('product-detail/{slug}', [FrontendProductController::class, 'showProduct'])->name('product-detail');
 Route::get('change-product-list-view', [FrontendProductController::class, 'chageListView'])->name('change-product-list-view');
@@ -43,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 /** Cart routes */
 Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
 Route::get('cart-details', [CartController::class, 'cartDetails'])->name('cart-details');
@@ -60,6 +67,31 @@ Route::get('coupon-calculation', [CartController::class, 'couponCalculation'])->
 
 Route::get('reviews', [ReviewController::class, 'index'])->name('review.index');
 
+/** Newsletter routes */
+
+Route::post('newsletter-request', [NewsletterController::class, 'newsLetterRequset'])->name('newsletter-request');
+Route::get('newsletter-verify/{token}', [NewsletterController::class, 'newsLetterEmailVarify'])->name('newsletter-verify');
+
+/** vendor page routes */
+Route::get('vendor', [HomeController::class, 'vendorPage'])->name('vendor.index');
+Route::get('vendor-product/{id}', [HomeController::class, 'vendorProductsPage'])->name('vendor.products');
+
+/** about page route */
+Route::get('about', [PageController::class, 'about'])->name('about');
+
+/** Product track route */
+Route::get('product-traking', [ProductTrackController::class, 'index'])->name('product-traking.index');
+
+/** blog routes */
+Route::get('blog-details/{slug}', [BlogController::class, 'blogDetails'])->name('blog-details');
+Route::get('blog', [BlogController::class, 'blog'])->name('blog');
+
+/** terms and conditions page route */
+Route::get('terms-and-conditions', [PageController::class, 'termsAndCondition'])->name('terms-and-conditions');
+
+/** contact route */
+Route::get('contact', [PageController::class, 'contact'])->name('contact');
+Route::post('contact', [PageController::class, 'handleContactForm'])->name('handle-contact-form');
 
 require __DIR__ . '/auth.php';
 Route::get('admin/login', [AdminController::class, 'login'])->name('admin.login');
@@ -73,6 +105,10 @@ Route::group([
     Route::get('profile', [UserProfileController::class, 'index'])->name('profile');//user.profile
     Route::put('profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');//user.profile.update
     Route::post('profile', [UserProfileController::class, 'updatePassword'])->name('profile.update.password');//user.profile.update.password
+    /** Message Route */
+    Route::get('messages', [UserMessageController::class, 'index'])->name('messages.index');
+    Route::post('send-message', [UserMessageController::class, 'sendMessage'])->name('send-message');
+    Route::get('get-messages', [UserMessageController::class, 'getMessages'])->name('get-messages');
     /** User Address Route */
     Route::resource('address', controller: UserAddressController::class);
     /** Order Routes */
@@ -85,6 +121,16 @@ Route::group([
 
     Route::get('reviews', [ReviewController::class, 'index'])->name('review.index');
 
+
+    /** Vendor request route */
+    Route::get('vendor-request', [UserVendorReqeustController::class, 'index'])->name('vendor-request.index');
+    Route::post('vendor-request', [UserVendorReqeustController::class, 'create'])->name('vendor-request.create');
+
+    /** product review routes */
+    Route::post('review', [ReviewController::class, 'create'])->name('review.create');
+    
+    /** blog comment routes */
+    Route::post('blog-comment', [BlogController::class, 'comment'])->name('blog-comment');
 
     /** Checkout routes */
     Route::resource('checkout', controller: UserAddressController::class);
