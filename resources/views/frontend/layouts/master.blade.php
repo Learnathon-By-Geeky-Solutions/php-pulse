@@ -11,7 +11,11 @@
     <title>
         @yield('title')
     </title>
+<<<<<<< HEAD
 <link rel="icon" type="image/png" href="{{asset($logoSetting->favicon)}}">
+=======
+{{-- <link rel="icon" type="image/png" href="{{asset($logoSetting->favicon)}}"> --}}
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
 <link rel="stylesheet" href="{{asset('frontend/css/all.min.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('frontend/css/select2.min.css')}}">
@@ -34,7 +38,10 @@
 @if($settings->layout === 'RTL')
     <link rel="stylesheet" href="{{asset('frontend/css/rtl.css')}}">
 @endif
+<<<<<<< HEAD
 @vite(['resources/js/app.js'])
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
 </head>
 
 <body>

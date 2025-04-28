@@ -218,11 +218,11 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         ),
         'Yajra\\DataTables\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
-            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-editor/src',
-            2 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
-            3 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
-            4 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
+            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
+            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
+            2 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
+            3 => __DIR__ . '/..' . '/yajra/laravel-datatables-editor/src',
+            4 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
         ),
         'WpOrg\\Requests\\' => 
         array (
@@ -420,8 +420,8 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -725,7 +725,10 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         'App\\Http\\Controllers\\Backend\\StripeSettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/StripeSettingController.php',
         'App\\Http\\Controllers\\Backend\\SubCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SubCategoryController.php',
         'App\\Http\\Controllers\\Backend\\SubscribersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/SubscribersController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\Backend\\TermsAndConditionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TermsAndConditionController.php',
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
         'App\\Http\\Controllers\\Backend\\TransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/TransactionController.php',
         'App\\Http\\Controllers\\Backend\\VendorConditionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/VendorConditionController.php',
         'App\\Http\\Controllers\\Backend\\VendorController' => __DIR__ . '/../..' . '/app/Http/Controllers/Backend/VendorController.php',
@@ -748,7 +751,10 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         'App\\Http\\Controllers\\Frontend\\FrontendProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/FrontendProductController.php',
         'App\\Http\\Controllers\\Frontend\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/HomeController.php',
         'App\\Http\\Controllers\\Frontend\\NewsletterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/NewsletterController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\Frontend\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PageController.php',
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
         'App\\Http\\Controllers\\Frontend\\PaymentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PaymentController.php',
         'App\\Http\\Controllers\\Frontend\\ProductTrackController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ProductTrackController.php',
         'App\\Http\\Controllers\\Frontend\\ReviewController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ReviewController.php',
@@ -773,6 +779,7 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+<<<<<<< HEAD
         'App\\Mail\\AccountCreatedMail' => __DIR__ . '/../..' . '/app/Mail/AccountCreatedMail.php',
         'App\\Mail\\Contact' => __DIR__ . '/../..' . '/app/Mail/Contact.php',
         'App\\Mail\\Newsletter' => __DIR__ . '/../..' . '/app/Mail/Newsletter.php',
@@ -782,6 +789,10 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\BlogCategory' => __DIR__ . '/../..' . '/app/Models/BlogCategory.php',
         'App\\Models\\BlogComment' => __DIR__ . '/../..' . '/app/Models/BlogComment.php',
+=======
+        'App\\Mail\\Newsletter' => __DIR__ . '/../..' . '/app/Mail/Newsletter.php',
+        'App\\Mail\\SubscriptionVerification' => __DIR__ . '/../..' . '/app/Mail/SubscriptionVerification.php',
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
         'App\\Models\\Brand' => __DIR__ . '/../..' . '/app/Models/Brand.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\ChildCategory' => __DIR__ . '/../..' . '/app/Models/ChildCategory.php',
@@ -797,7 +808,10 @@ class ComposerStaticInita6d3133ed44d7f18b31f3e66d922b2e8
         'App\\Models\\FooterTitle' => __DIR__ . '/../..' . '/app/Models/FooterTitle.php',
         'App\\Models\\GeneralSetting' => __DIR__ . '/../..' . '/app/Models/GeneralSetting.php',
         'App\\Models\\HomePageSetting' => __DIR__ . '/../..' . '/app/Models/HomePageSetting.php',
+<<<<<<< HEAD
         'App\\Models\\LogoSetting' => __DIR__ . '/../..' . '/app/Models/LogoSetting.php',
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
         'App\\Models\\NewsletterSubscriber' => __DIR__ . '/../..' . '/app/Models/NewsletterSubscriber.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\OrderProduct' => __DIR__ . '/../..' . '/app/Models/OrderProduct.php',

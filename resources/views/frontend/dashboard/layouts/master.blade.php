@@ -37,14 +37,27 @@
 
  
 
+<<<<<<< HEAD
  <script>
+=======
+{{-- <script>
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
   const USER = {
       id: "{{ auth()->user()->id }}",
       name: "{{ auth()->user()->nmae }}",
       image: "{{ asset(auth()->user()->image) }}"
   }
+<<<<<<< HEAD
 </script> 
   {{-- @vite(['resources/js/app.js', 'resources/js/frontend.js']) --}}
+=======
+  const PUSHER = {
+      key: "{{ $pusherSetting->pusher_key }}",
+      cluster: "{{ $pusherSetting->pusher_cluster }}"
+  }
+</script>
+  @vite(['resources/js/app.js', 'resources/js/frontend.js']) --}}
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
 </head>
 
 <body>

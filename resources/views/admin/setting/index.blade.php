@@ -33,8 +33,12 @@
                             @include('admin.setting.email-configuration')
 
                             @include('admin.setting.logo-setting')
+<<<<<<< HEAD
 
                             @include('admin.setting.pusher-setting')
+=======
+                            
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
                           </div>
                         </div>
                       </div>

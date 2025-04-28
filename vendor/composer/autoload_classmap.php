@@ -100,7 +100,10 @@ return array(
     'App\\Http\\Controllers\\Backend\\StripeSettingController' => $baseDir . '/app/Http/Controllers/Backend/StripeSettingController.php',
     'App\\Http\\Controllers\\Backend\\SubCategoryController' => $baseDir . '/app/Http/Controllers/Backend/SubCategoryController.php',
     'App\\Http\\Controllers\\Backend\\SubscribersController' => $baseDir . '/app/Http/Controllers/Backend/SubscribersController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\Backend\\TermsAndConditionController' => $baseDir . '/app/Http/Controllers/Backend/TermsAndConditionController.php',
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
     'App\\Http\\Controllers\\Backend\\TransactionController' => $baseDir . '/app/Http/Controllers/Backend/TransactionController.php',
     'App\\Http\\Controllers\\Backend\\VendorConditionController' => $baseDir . '/app/Http/Controllers/Backend/VendorConditionController.php',
     'App\\Http\\Controllers\\Backend\\VendorController' => $baseDir . '/app/Http/Controllers/Backend/VendorController.php',
@@ -123,7 +126,10 @@ return array(
     'App\\Http\\Controllers\\Frontend\\FrontendProductController' => $baseDir . '/app/Http/Controllers/Frontend/FrontendProductController.php',
     'App\\Http\\Controllers\\Frontend\\HomeController' => $baseDir . '/app/Http/Controllers/Frontend/HomeController.php',
     'App\\Http\\Controllers\\Frontend\\NewsletterController' => $baseDir . '/app/Http/Controllers/Frontend/NewsletterController.php',
+<<<<<<< HEAD
     'App\\Http\\Controllers\\Frontend\\PageController' => $baseDir . '/app/Http/Controllers/Frontend/PageController.php',
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
     'App\\Http\\Controllers\\Frontend\\PaymentController' => $baseDir . '/app/Http/Controllers/Frontend/PaymentController.php',
     'App\\Http\\Controllers\\Frontend\\ProductTrackController' => $baseDir . '/app/Http/Controllers/Frontend/ProductTrackController.php',
     'App\\Http\\Controllers\\Frontend\\ReviewController' => $baseDir . '/app/Http/Controllers/Frontend/ReviewController.php',
@@ -148,6 +154,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
+<<<<<<< HEAD
     'App\\Mail\\AccountCreatedMail' => $baseDir . '/app/Mail/AccountCreatedMail.php',
     'App\\Mail\\Contact' => $baseDir . '/app/Mail/Contact.php',
     'App\\Mail\\Newsletter' => $baseDir . '/app/Mail/Newsletter.php',
@@ -157,6 +164,10 @@ return array(
     'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\BlogCategory' => $baseDir . '/app/Models/BlogCategory.php',
     'App\\Models\\BlogComment' => $baseDir . '/app/Models/BlogComment.php',
+=======
+    'App\\Mail\\Newsletter' => $baseDir . '/app/Mail/Newsletter.php',
+    'App\\Mail\\SubscriptionVerification' => $baseDir . '/app/Mail/SubscriptionVerification.php',
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
     'App\\Models\\Brand' => $baseDir . '/app/Models/Brand.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\ChildCategory' => $baseDir . '/app/Models/ChildCategory.php',
@@ -172,7 +183,10 @@ return array(
     'App\\Models\\FooterTitle' => $baseDir . '/app/Models/FooterTitle.php',
     'App\\Models\\GeneralSetting' => $baseDir . '/app/Models/GeneralSetting.php',
     'App\\Models\\HomePageSetting' => $baseDir . '/app/Models/HomePageSetting.php',
+<<<<<<< HEAD
     'App\\Models\\LogoSetting' => $baseDir . '/app/Models/LogoSetting.php',
+=======
+>>>>>>> f4be0c3e6ab4805e4da5c44be21d180502704890
     'App\\Models\\NewsletterSubscriber' => $baseDir . '/app/Models/NewsletterSubscriber.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\OrderProduct' => $baseDir . '/app/Models/OrderProduct.php',

@@ -17,17 +17,15 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: ecommerce
-          MYSQL_USER: test_user
-          MYSQL_PASSWORD: test_pass
+          MYSQL_ROOT_PASSWORD: root     
+          MYSQL_DATABASE: ecommerce      
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost -utest_user -ptest_pass"
-          --health-interval=10s
+          --health-cmd="mysqladmin ping -h localhost -u$MYSQL_ROOT_PASSWORD || exit 1"
+          --health-interval=30s
           --health-timeout=5s
-          --health-retries=3
+          --health-retries=5
 
     steps:
       - name: Checkout Code
@@ -62,8 +60,12 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
-          sed -i 's/DB_USERNAME=.*/DB_USERNAME=test_user/' .env
-          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=test_pass/' .env
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=ecommerce" >> .env
+          echo "DB_USERNAME=root" >> .env
+          echo "DB_PASSWORD=root" >> .env
           php artisan config:clear
           php artisan config:cache
 
