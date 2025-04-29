@@ -1,17 +1,21 @@
-name: SonarCloud Scan
-
-on:
-  push:
-    branches:
-      - '**'
-  pull_request:
-    branches:
-      - '**'
-
 jobs:
   sonarcloud:
     name: SonarCloud Scan
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: ecommerce
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
 
     steps:
       - name: Checkout Repository
@@ -22,8 +26,16 @@ jobs:
         with:
           php-version: '8.2'
 
+      - name: Copy .env.testing or set environment variables
+        run: |
+          cp .env.example .env
+          php artisan config:clear
+
       - name: Install Dependencies
         run: composer install --no-progress --no-suggest --prefer-dist
+
+      - name: Generate App Key
+        run: php artisan key:generate
 
       - name: Run PHPUnit tests with coverage
         run: |
