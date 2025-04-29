@@ -30,7 +30,7 @@
 
 
 <h1 align="center">
-  Shohoj Bazar: Multi-Vendor Marketplace (With Multi-Auth)
+ 🛍️ Shohoj Bazar: Multi-Vendor Marketplace (With Multi-Auth)
 </h1>
 
 
@@ -39,7 +39,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/fd0ed68a-4318-4a67-a89a-359a5ab292f8" width="15%" />
+  <img src="https://github.com/user-attachments/assets/fd0ed68a-4318-4a67-a89a-359a5ab292f8" width="40%" />
 </p>
 
 
