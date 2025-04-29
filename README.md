@@ -231,7 +231,7 @@ The **Multi-Vendor eCommerce Platform** is built using **Laravel**, supporting m
 
 Experience **Shohoj Bazar** in action by visiting our live demo:
 
-[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-VISIT%20NOW-28a745?style=for-the-badge&logo=google-chrome&logoColor=white)](https://your-demo-link-here.com)
+[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-VISIT%20NOW-28a745?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sohojbazar.susto24.com/)
 
 🛍️ Explore our multi-vendor marketplace, test out multi-authentication flows (Admin, Vendor, User), and discover how easy and efficient shopping can be on Shohoj Bazar.
 
