@@ -109,19 +109,21 @@ Accept payments with multiple gateways:
 </div>
 
 ## 📑 Table of Contents
-- 👥 [Team](#team)
-- 👥 [#Project Mento](#Project-Mento)
-- 🏗️ [System Architecture](#system-architecture)
-- 🗃️ [Database Design](#database-design)
-- 📄 [Project Overview](#project-overview)
-- 🔗 [Live Demo](#live-demo)
-- ✨ [Key Features](#key-features)
-- 🧰 [Tech Stack](#tech-stack)
-- 🚀 [Getting Started](#getting-started)
-- 📏 [Development Guidelines](#development-guidelines)
-- 🧪 [Testing](#testing)
-- 📚 [Resources](#resources)
-- 🤝 [Future Enhancements](#Future-Enhancements)
+- 👥 [Team Name: PHP-Pulse](#team-name-php-pulse)
+- 🎓 [Project Mentor](#-project-mentor)
+- 🏗️ [System Architecture](#️-system-architecture)
+- 🗄️ [Database Design](#️-database-design)
+- 📝 [Project Overview](#-project-overview)
+- 🌟 [Key Features](#key-features)
+  - 🔐 [Authentication (Multi-Auth)](#-authentication-multi-auth)
+  - 🖥️ [Dashboards](#️-dashboards)
+  - 🛒 [Core Modules](#-core-modules)
+- 🛠️ [Tech Stack](#️-tech-stack)
+- 🧰 [Installation Guide](#-installation-guide)
+- 🧪 [Testing](#-testing)
+- 🔮 [Future Enhancements](#-future-enhancements)
+- 📚 [Resources](#-resources)
+
 
 ## 👥 Team Name: PHP-Pulse
 
