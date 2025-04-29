@@ -14,6 +14,8 @@ use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Vendor;
 use App\Models\Brand;
+use Illuminate\Support\Facades\Response;
+
 class HomeController extends Controller
 {
     public function  index() {
@@ -97,5 +99,12 @@ class HomeController extends Controller
 
         return view('frontend.pages.vendor-product', compact('products', 'categories', 'brands', 'vendor'));
 
+    }
+    public function ShowProductModal(int $id) {
+        $product = Product::findOrFail($id);
+    
+        $content = view('frontend.layouts.modal', compact('product'))->render();
+    
+        return Response::make($content, 200, ['Content-Type' => 'text/html']);
     }
 }

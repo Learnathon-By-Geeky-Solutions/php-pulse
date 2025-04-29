@@ -125,7 +125,29 @@
             })
         }
     })
-    
+      // add product to wishlist
+      $('.add_to_wishlist').on('click', function(e){
+            e.preventDefault();
+            let id = $(this).data('id');
+
+            $.ajax({
+                method: 'GET',
+                url: "{{route('wishlist.store')}}",
+                data: {id:id},
+                success:function(data){
+                    if(data.status === 'success'){
+                        $('#wishlist_count').text(data.count)
+                        toastr.success(data.message);
+                    }else if(data.status === 'error'){
+                        toastr.error(data.message);
+                    }
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            })
+        })
+
         // newsletter
         $('#newsletter').on('submit', function(e){
             e.preventDefault();
@@ -161,4 +183,7 @@
                 }
             })
         })
+       
+ 
+
 </script>

@@ -1,3 +1,4 @@
+
 <header>
     <div class="container">
         <div class="row">
@@ -15,8 +16,8 @@
             </div>
             <div class="col-xl-5 col-md-6 col-lg-4 d-none d-lg-block">
                 <div class="wsus__search">
-                    <form>
-                        <input type="text" placeholder="Search...">
+                    <form action="{{route('products.index')}}">
+                        <input type="text" placeholder="Search..." name="search" value="{{request()->search}}">
                         <button type="submit"><i class="far fa-search"></i></button>
                     </form>
                 </div>
@@ -39,10 +40,10 @@
                             @else
                             0
                             @endif
-                        </span></a></li>                        
-                        <li><a href="compare.html"><i class="fal fa-random"></i><span>03</span></a></li>
+                        </span></a></li>
+                        {{-- <li><a href="compare.html"><i class="fal fa-random"></i><span>03</span></a></li> --}}
                         <li><a class="wsus__cart_icon" href="#"><i
-                            class="fal fa-shopping-bag"></i><span id="cart-count">{{Cart::content()->count()}}</span></a></li>
+                                    class="fal fa-shopping-bag"></i><span id="cart-count">{{Cart::content()->count()}}</span></a></li>
                     </ul>
                 </div>
             </div>
