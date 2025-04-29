@@ -110,10 +110,11 @@ Accept payments with multiple gateways:
 
 ## 📑 Table of Contents
 - 👥 [Team Name: PHP-Pulse](#team-name-php-pulse)
-- 🎓 [Project Mentor](#-project-mentor)
+- 🎓 [Project Mentor](#project-mentor)
 - 🏗️ [System Architecture](#️-system-architecture)
 - 🗄️ [Database Design](#️-database-design)
 - 📝 [Project Overview](#-project-overview)
+- 🔗 [Live Demo](#live-demo)
 - 🌟 [Key Features](#key-features)
   - 🔐 [Authentication (Multi-Auth)](#-authentication-multi-auth)
   - 🖥️ [Dashboards](#️-dashboards)
@@ -225,6 +226,14 @@ The **Multi-Vendor eCommerce Platform** is built using **Laravel**, supporting m
 - 📝 **Blog & Advertisement**
 - 📧 **Newsletter System**
 - 📜 **Transaction History (Export CSV/PDF)**
+
+## 🌐 Live Demo
+
+Experience **Shohoj Bazar** in action by visiting our live demo:
+
+[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-VISIT%20NOW-28a745?style=for-the-badge&logo=google-chrome&logoColor=white)](https://your-demo-link-here.com)
+
+🛍️ Explore our multi-vendor marketplace, test out multi-authentication flows (Admin, Vendor, User), and discover how easy and efficient shopping can be on Shohoj Bazar.
 
 
 ## 🛠️ Tech Stack
