@@ -49,25 +49,6 @@
   Shop smart, sell smarter, and explore endless opportunities with Shohoj Bazar.
 </p>
 
-
-## 🏗️ Project Architecture
-
-
-![multi vendor ecommerce](https://github.com/user-attachments/assets/bd6cf9fd-b7b0-4e32-83f4-26bbf2ce410f)<br/>
-![architecture of multi-vendor ecommerce site](https://github.com/user-attachments/assets/ba7215d3-f228-4971-9032-d5fc5dc05b9c)
-
-
-# 🗄️ Database Design
-![database relationships](https://github.com/user-attachments/assets/abcfdf7d-1590-46ac-9351-8a8ed086f598)
-
-
-
-
-
-
----
-
-
 <div style="border: 2px solid #ccc; border-radius: 12px; padding: 25px; margin: 20px 0; background-color: #fdfdfd;">
 
 ## 📚 About Shohoj Bazar
@@ -127,6 +108,20 @@ Accept payments with multiple gateways:
 
 </div>
 
+## 📑 Table of Contents
+- 👥 [Team](#team)
+- 👥 [#Project Mento](#Project-Mento)
+- 🏗️ [System Architecture](#system-architecture)
+- 🗃️ [Database Design](#database-design)
+- 📄 [Project Overview](#project-overview)
+- 🔗 [Live Demo](#live-demo)
+- ✨ [Key Features](#key-features)
+- 🧰 [Tech Stack](#tech-stack)
+- 🚀 [Getting Started](#getting-started)
+- 📏 [Development Guidelines](#development-guidelines)
+- 🧪 [Testing](#testing)
+- 📚 [Resources](#resources)
+- 🤝 [Future Enhancements](#Future-Enhancements)
 
 ## 👥 Team Name: PHP-Pulse
 
@@ -147,10 +142,25 @@ Accept payments with multiple gateways:
 **Nahidul Hasan**  
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nahidulhasan)
 
+## 🏗️ System Architecture
+
+
+![multi vendor ecommerce](https://github.com/user-attachments/assets/bd6cf9fd-b7b0-4e32-83f4-26bbf2ce410f)<br/>
+![architecture of multi-vendor ecommerce site](https://github.com/user-attachments/assets/ba7215d3-f228-4971-9032-d5fc5dc05b9c)
+
+
+# 🗄️ Database Design
+![database relationships](https://github.com/user-attachments/assets/abcfdf7d-1590-46ac-9351-8a8ed086f598)
 
 
 
-## 📝 Project Description
+
+
+
+---
+
+
+## 📝 Project Overview
 
 
 The **Multi-Vendor eCommerce Platform** is built using **Laravel**, supporting multi-authentication, advanced search, payment integrations, and more. It offers a comprehensive suite of features, including:
@@ -188,7 +198,7 @@ The **Multi-Vendor eCommerce Platform** is built using **Laravel**, supporting m
 - 🏢 **Tenant Isolation**: Each business (tenant) operates independently with customizable settings and isolated data.
 
 
-## 🌟 Features
+## 🌟key-features
 
 
 ### 🔐 Authentication (Multi-Auth)
@@ -295,8 +305,12 @@ php artisan test
 
 
 ---
+## 📚 Resources
 
-
+- 📄 [Detailed Project Documentation](#detailed-project-documentation)
+- 🛠️ [Development Environment Setup](#development-environment-setup)
+- 🤝 [Contributing Guidelines](#contributing-guidelines)
+---
 <p align="center">
   <b>Developed by ❤️ PHP-Pulse</b><br><br>
   <b>Special thanks to <span style="color:#FF5733;">Learnathon 3.0</span> for the inspiration and opportunity.</b>
