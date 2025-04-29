@@ -68,83 +68,72 @@
 ---
 
 
-## 📚 About Shohoj Bazar
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
 
+## 📚 About Shohoj Bazar
 
 **Shohoj Bazar** is a dynamic multi-vendor marketplace connecting vendors and customers with ease. We bring countless products, trusted sellers, and a smooth shopping experience under one platform.
 
+</div>
 
----
-
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
 
 ## 🛡️ Authentication: Multi-Auth System
 Separate login and dashboards for:
 
-
-👑 Admin
-
-
-🛍️ Vendor
-
-
-🧑‍💻 User
-
+👑 Admin  
+🛍️ Vendor  
+🧑‍💻 User  
 
 Ensuring secure, role-based access across the platform.
----
 
+</div>
+
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
 
 ## 🏪 Marketplace: Multi-Vendor Ecosystem
-Vendors can register, manage products, and track sales.
-
-
-Customers can browse a diverse range of products.
+Vendors can register, manage products, and track sales.  
+Customers can browse a diverse range of products.  
 → A marketplace where everyone wins!
 
+</div>
+
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
 
 ## 📦 Product Management: Advanced & Flexible
-📏 Product Variants (Size, Color)
 
-
-🎟️ Discount and Coupon Systems
-
-
-📋 Easy Inventory Management
-
+📏 Product Variants (Size, Color)  
+🎟️ Discount and Coupon Systems  
+📋 Easy Inventory Management  
 
 Making product handling dynamic and user-friendly.
 
+</div>
+
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
 
 ## 🛒 Order Management
-📦 Track Orders
 
-
-✏️ Update Order Status
-
-
-💵 Manage Transactions
-
+📦 Track Orders  
+✏️ Update Order Status  
+💵 Manage Transactions  
 
 A smooth and transparent experience for vendors and users.
 
+</div>
 
----
-
+<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
 
 ## 💳 Payment Gateways
 
-
 Accept payments with multiple gateways:
-
 
 - ![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 - ![Stripe](https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white)
 - ![Razorpay](https://img.shields.io/badge/Razorpay-3772FF?style=for-the-badge&logo=razorpay&logoColor=white)
 - 🏦 Local Payment Methods (Cash on Delivery)
 
-
----
-
+</div>
 
 ## 👥 Team Name: PHP-Pulse
 
