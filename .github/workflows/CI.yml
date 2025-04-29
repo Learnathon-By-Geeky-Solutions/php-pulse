@@ -44,6 +44,4 @@ jobs:
             -Dsonar.exclusions=**/vendor/**,**/node_modules/**,**/tests/**,**/public/**
             -Dsonar.tests=tests
             -Dsonar.test.inclusions=tests/**/*.php
-            -Dsonar.language=php
-            -Dsonar.php.file.suffixes=.php
             -Dsonar.verbose=true
