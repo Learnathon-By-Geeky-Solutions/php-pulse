@@ -45,7 +45,7 @@ jobs:
       - name: Generate App Key
         run: php artisan key:generate
 
-      - name: Run PHPUnit tests with coverage
+      - name: Run PHPUnit tests with coverage (excluding specific tests)
         run: |
           mkdir -p tests/reports
           vendor/bin/phpunit --filter '^(?!.*(test_login_screen_can_be_rendered|test_users_can_authenticate_using_the_login_screen|test_email_verification_screen_can_be_rendered|test_confirm_password_screen_can_be_rendered|test_reset_password_link_screen_can_be_rendered|test_registration_screen_can_be_rendered|test_the_application_returns_a_successful_response|test_admin_can_login_with_valid_credentials|test_admin_cannot_login_with_invalid_credentials|test_user_can_login_with_valid_credentials|test_user_cannot_login_with_invalid_credentials|test_vendor_can_login_with_valid_credentials|test_vendor_cannot_login_with_invalid_credentials|test_example|test_profile_page_is_displayed|test_reset_password_screen_can_be_rendered)).*' --coverage-clover tests/reports/coverage.xml
