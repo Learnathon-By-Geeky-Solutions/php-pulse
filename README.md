@@ -139,7 +139,7 @@ Accept payments with multiple gateways:
 ---
 
 
-## 🎓  Project Mentor
+## 🎓 Project Mentor
 
 
 **Nahidul Hasan**  
