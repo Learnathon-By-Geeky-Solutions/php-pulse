@@ -68,17 +68,16 @@
 ---
 
 
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+<div style="border: 2px solid #ccc; border-radius: 12px; padding: 25px; margin: 20px 0; background-color: #fdfdfd;">
 
 ## 📚 About Shohoj Bazar
 
 **Shohoj Bazar** is a dynamic multi-vendor marketplace connecting vendors and customers with ease. We bring countless products, trusted sellers, and a smooth shopping experience under one platform.
 
-</div>
-
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+---
 
 ## 🛡️ Authentication: Multi-Auth System
+
 Separate login and dashboards for:
 
 👑 Admin  
@@ -87,18 +86,15 @@ Separate login and dashboards for:
 
 Ensuring secure, role-based access across the platform.
 
-</div>
-
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+---
 
 ## 🏪 Marketplace: Multi-Vendor Ecosystem
+
 Vendors can register, manage products, and track sales.  
 Customers can browse a diverse range of products.  
 → A marketplace where everyone wins!
 
-</div>
-
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+---
 
 ## 📦 Product Management: Advanced & Flexible
 
@@ -108,9 +104,7 @@ Customers can browse a diverse range of products.
 
 Making product handling dynamic and user-friendly.
 
-</div>
-
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+---
 
 ## 🛒 Order Management
 
@@ -120,9 +114,7 @@ Making product handling dynamic and user-friendly.
 
 A smooth and transparent experience for vendors and users.
 
-</div>
-
-<div style="border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+---
 
 ## 💳 Payment Gateways
 
@@ -134,6 +126,7 @@ Accept payments with multiple gateways:
 - 🏦 Local Payment Methods (Cash on Delivery)
 
 </div>
+
 
 ## 👥 Team Name: PHP-Pulse
 
