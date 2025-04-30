@@ -39,10 +39,7 @@
                         <div class="wsus__payment_menu" id="sticky_sidebar">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                                 aria-orientation="vertical">
-                                {{-- <button class="nav-link common_btn active" id="v-pills-home-tab" data-bs-toggle="pill"
-                                    data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
-                                    aria-selected="true">card payment</button> --}}
-
+                                
                                 <button class="nav-link common_btn active" id="v-pills-home-tab" data-bs-toggle="pill"
                                 data-bs-target="#v-pills-paypal" type="button" role="tab" aria-controls="v-pills-paypal"
                                 aria-selected="true">Paypal</button>
@@ -57,7 +54,7 @@
 
                                 <button class="nav-link common_btn" id="v-pills-profile-tab" data-bs-toggle="pill"
                                 data-bs-target="#v-pills-cod" type="button" role="tab"
-                                aria-controls="v-pills-stripe" aria-selected="false">Cash On Delivery</button>
+                                aria-controls="v-pills-stripe" aria-selected="false">COD</button>
 
 
                             </div>
